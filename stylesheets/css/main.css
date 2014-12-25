@@ -5,9 +5,13 @@ html {
   width: 100%;
   height: 100%; }
 
+section {
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.31); }
+
 #splash {
   position: relative;
-  background: blue;
+  background: linear-gradient(rgba(0, 136, 255, 0.85), rgba(0, 84, 165, 0.85)), url("../../assets/images/background2.jpg") no-repeat center center;
+  background-size: cover;
   width: 100%;
   height: 100%; }
   #splash .content {
@@ -17,9 +21,22 @@ html {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 80%;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
-    text-align: center; }
+    text-align: center;
+    color: white; }
+    #splash .content .identity {
+      font-family: "Rokkitt", "Helvetica Neue", "Helvetica", sans-serif; }
+      #splash .content .identity .title {
+        font-size: 7em; }
+    #splash .content .date {
+      font-size: 1.5em; }
+    #splash .content .tagline {
+      font-size: 3em; }
+    #splash .content .action {
+      margin: 0 auto; }
+      #splash .content .action input {
+        background: white; }
 
 #faq {
   position: relative;
@@ -30,5 +47,10 @@ html {
   position: relative;
   background: purple;
   height: 50%; }
+
+footer {
+  position: relative;
+  height: 200px;
+  background: #d0d4d5; }
 
 /*# sourceMappingURL=main.css.map */
