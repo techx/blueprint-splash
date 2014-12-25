@@ -2,7 +2,7 @@ $blueprint-blue: rgb(0,136,255);
 $font-logo: 'Rokkitt', 'Helvetica Neue', 'Helvetica', sans-serif;
 $font-body: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
-$cloud: #d0d4d5;
+$cloud: #fafeff;
 
 @import 'mixins';
 
@@ -83,8 +83,8 @@ section {
 
 #days {
   position: relative;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 
   .segment {
     font-size: 1.2em;
@@ -109,16 +109,22 @@ section {
 
 #faq {
   position: relative;
-  background: grey;
+  background: $blueprint-blue;
   height: 50%;
 }
 
 // Feel free to change this to a different word
-#pumpup {
+#video {
   position: relative;
-  background: purple;
-  height: 50%;
-
+  background: lighten($blueprint-blue, 10%);
+  text-align: center;
+  color: white;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .title {
+    font-size: 4em;
+    margin-bottom: 24px;
+  }
 }
 
 footer {

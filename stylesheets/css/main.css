@@ -52,8 +52,8 @@ section {
 
 #days {
   position: relative;
-  padding-top: 48px;
-  padding-bottom: 48px; }
+  padding-top: 60px;
+  padding-bottom: 60px; }
   #days .segment {
     font-size: 1.2em; }
     #days .segment .header {
@@ -70,17 +70,23 @@ section {
 
 #faq {
   position: relative;
-  background: grey;
+  background: #0088ff;
   height: 50%; }
 
-#pumpup {
+#video {
   position: relative;
-  background: purple;
-  height: 50%; }
+  background: #33a0ff;
+  text-align: center;
+  color: white;
+  padding-top: 60px;
+  padding-bottom: 60px; }
+  #video .title {
+    font-size: 4em;
+    margin-bottom: 24px; }
 
 footer {
   position: relative;
   height: 200px;
-  background: #d0d4d5; }
+  background: #fafeff; }
 
 /*# sourceMappingURL=main.css.map */
