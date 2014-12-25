@@ -18,6 +18,10 @@ $(CSS_OUT)/%.css: $(SCSS_DIR)/%.scss
 
 all: $(ALL_OBJS)
 
+# Still like auto-css generation
+watch: 
+	@$(SASS) --watch $(SCSS_DIR):$(CSS_OUT)
+
 clean:
 	@$(RM) $(RMFLAGS) $(ALL_OBJS)
 
