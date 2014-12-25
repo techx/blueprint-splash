@@ -7,6 +7,10 @@ Make sure you have sass installed!
 
 http://sass-lang.com/install
 
-To build CSS:
+To build CSS from SASS:
 
-> make css
+> make all
+
+To auto-build CSS during development, from SASS:
+
+> make watch
