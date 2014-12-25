@@ -2,11 +2,14 @@ $blueprint-blue: blue;
 $font-logo: 'Rokkitt', 'Helvetica Neue', 'Helvetica', sans-serif;
 $font-body: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
+@import 'mixins';
+
 body,
 html {
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 100%;
 }
 
 section {
@@ -14,32 +17,52 @@ section {
 }
 
 #splash {
-  .logo {
+  position: relative;
+  background: blue;
+  width: 100%;
+  height: 100%;
 
-  }
+  .content {
+    @include vertical-align;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
 
-  .tagline {
 
-  }
+    .logo {
 
-  .description {
+    }
 
-  }
+    .tagline {
 
-  .action {
+    }
 
-    input {
+    .description {
 
+    }
+
+    .action {
+
+      input {
+
+      }
     }
   }
 
 }
 
 #faq {
+  position: relative;
+  background: red;
+  height: 50%;
 
 }
 
 // Feel free to change this to a different word
 #pumpup {
+  position: relative;
+  background: purple;
+  height: 50%;
 
 }
