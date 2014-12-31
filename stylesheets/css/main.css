@@ -140,17 +140,20 @@ footer {
     margin: 0px 8px; }
 
 @media only screen and (max-width: 320px) {
-  #splash .content {
-    position: relative;
-    top: 0;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
-    top: 24px; }
-    #splash .content .identity {
-      font-size: .8em; }
-    #splash .content .tagline {
-      font-size: 1.6em;
-      margin-bottom: 8px; } }
+  #splash {
+    height: auto;
+    padding-bottom: 48px; }
+    #splash .content {
+      position: relative;
+      top: 0;
+      -webkit-transform: none;
+      -ms-transform: none;
+      transform: none;
+      top: 36px; }
+      #splash .content .identity {
+        font-size: .8em; }
+      #splash .content .tagline {
+        font-size: 1.6em;
+        margin-bottom: 8px; } }
 
 /*# sourceMappingURL=main.css.map */

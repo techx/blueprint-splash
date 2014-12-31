@@ -218,9 +218,11 @@ footer {
 @media only screen
 and (max-width : 320px) {
   #splash {
+    height: auto;
+    padding-bottom: 48px;
     .content {
       @include cancel-vertical-align;
-      top: 24px;
+      top: 36px;
 
       .identity {
         font-size: .8em;
