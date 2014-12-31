@@ -1,5 +1,5 @@
 $blueprint-blue: rgb(0,136,255);
-$blueprint-yellow: #f1ed14;
+$blueprint-yellow: #ecff1b;
 $font-logo: 'Rokkitt', 'Helvetica Neue', 'Helvetica', sans-serif;
 $font-body: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
@@ -74,30 +74,15 @@ body {
       margin: 16px auto;
 
       input {
-        background: none;
-        border-color: $blueprint-yellow;
-        border-width: 2px;
-        color: white;
+        display: inline-block;
+        background: white;
+        border: 1px solid darken($blueprint-blue, 5%);
       }
 
       .button {
+        display: inline-block;
         background: $blueprint-yellow !important;
-      }
-
-      ::-webkit-input-placeholder {
-        color: rgba(255, 255, 255, 0.80);
-      }
-
-      :-moz-placeholder { /* Firefox 18- */
-        color: rgba(255, 255, 255, 0.80);
-      }
-
-      ::-moz-placeholder {  /* Firefox 19+ */
-        color: rgba(255, 255, 255, 0.80);
-      }
-
-      :-ms-input-placeholder {
-        color: rgba(255, 255, 255, 0.80);
+        margin-left: 4px;
       }
 
     }
