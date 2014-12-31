@@ -94,6 +94,7 @@ body {
   position: relative;
   padding-top: 100px;
   padding-bottom: 200px;
+  @include shadow;
 
   .icon {
     font-size: 1.5em;
@@ -137,7 +138,6 @@ body {
 }
 
 #faq {
-  @include shadow;
   position: relative;
   background: darken(white, 5%);
 
@@ -193,6 +193,8 @@ footer {
   background: darken($blueprint-blue, 10%);
   color: white;
   text-align: center;
+
+  border-top: 8px solid $blueprint-yellow;
 
   .divider {
     position: relative;
