@@ -219,6 +219,9 @@ footer {
 and (max-width : 320px) {
   #splash {
     .content {
+      @include cancel-vertical-align;
+      top: 24px;
+
       .identity {
         font-size: .8em;
       }
