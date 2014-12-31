@@ -22,11 +22,24 @@
   <!-- Stylin -->
   <link rel='stylesheet' href='stylesheets/css/main.css'/>
 
+  <!-- Javascripts -->
+  <script src="js/site.js"></script>
+
 </head>
 <body>
-  <header>
-  </header>
   <section id="splash">
+
+    <div class="ui dimmer">
+      <div class="content">
+        <div class="center">
+          <h2 class="ui inverted icon header">
+            <i class="red heart icon"></i>
+            Thanks, we'll be in touch :)
+          </h2>
+        </div>
+      </div>
+    </div>
+
     <div class="content">
       <div class="identity">
         <img class="logo" src="assets/images/logo-i.svg">
@@ -43,13 +56,21 @@
 
       <div class="description">
         Welcome to Blueprint – a two-day learnathon and hackathon held on MIT's campus. Meet MIT’s smartest students and experienced industry mentors as you join fellow high school students in learning how to write impactful software – <i>no coding experience required</i>.
+        <br>
+        <br>
+        Want to know when registration opens?
       </div>
 
       <div class="action">
         <div class="ui action large input">
-          <input type="email" placeholder="Enter your Email" required>
-          <div class="ui button">
-            Submit
+          <input
+              id="email"
+              type="email"
+              placeholder="Enter your Email" required>
+          <div
+              id="submit"
+              class="ui button">
+            SUBMIT
           </div>
         </div>
       </div>

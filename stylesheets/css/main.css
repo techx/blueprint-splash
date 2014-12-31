@@ -47,7 +47,22 @@ body {
     #splash .content .action {
       margin: 16px auto; }
       #splash .content .action input {
-        background: white; }
+        background: none;
+        border-color: #f1ed14;
+        border-width: 2px;
+        color: white; }
+      #splash .content .action .button {
+        background: #f1ed14 !important; }
+      #splash .content .action ::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.8); }
+      #splash .content .action :-moz-placeholder {
+        /* Firefox 18- */
+        color: rgba(255, 255, 255, 0.8); }
+      #splash .content .action ::-moz-placeholder {
+        /* Firefox 19+ */
+        color: rgba(255, 255, 255, 0.8); }
+      #splash .content .action :-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.8); }
 
 #days {
   position: relative;
@@ -59,7 +74,7 @@ body {
     #days .icon i {
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.31); }
       #days .icon i.yellow {
-        background-color: #ecff1b !important;
+        background-color: #f1ed14 !important;
         color: black !important; }
       #days .icon i.blue {
         background-color: #0088ff !important; }
@@ -96,7 +111,7 @@ body {
     text-align: center; }
   #faq .item {
     border-left: 2px solid #0088ff;
-    border-right: 2px solid #ecff1b;
+    border-right: 2px solid #f1ed14;
     background: white;
     padding: 16px 12px; }
     #faq .item .question {

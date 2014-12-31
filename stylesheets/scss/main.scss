@@ -1,5 +1,5 @@
 $blueprint-blue: rgb(0,136,255);
-$blueprint-yellow: #ecff1b;
+$blueprint-yellow: #f1ed14;
 $font-logo: 'Rokkitt', 'Helvetica Neue', 'Helvetica', sans-serif;
 $font-body: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
@@ -74,8 +74,32 @@ body {
       margin: 16px auto;
 
       input {
-        background: white;
+        background: none;
+        border-color: $blueprint-yellow;
+        border-width: 2px;
+        color: white;
       }
+
+      .button {
+        background: $blueprint-yellow !important;
+      }
+
+      ::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.80);
+      }
+
+      :-moz-placeholder { /* Firefox 18- */
+        color: rgba(255, 255, 255, 0.80);
+      }
+
+      ::-moz-placeholder {  /* Firefox 19+ */
+        color: rgba(255, 255, 255, 0.80);
+      }
+
+      :-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.80);
+      }
+
     }
   }
 
