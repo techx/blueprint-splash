@@ -50,6 +50,8 @@ body {
         display: inline-block;
         background: white;
         border: 1px solid #007ae6; }
+      #splash .content .action .input {
+        margin-bottom: 8px; }
       #splash .content .action .button {
         display: inline-block;
         background: #f1e820 !important;
@@ -136,5 +138,12 @@ footer {
   footer .icons i {
     color: white;
     margin: 0px 8px; }
+
+@media only screen and (max-width: 320px) {
+  #splash .content .identity {
+    font-size: .8em; }
+  #splash .content .tagline {
+    font-size: 1.6em;
+    margin-bottom: 8px; } }
 
 /*# sourceMappingURL=main.css.map */
