@@ -58,7 +58,8 @@ body {
 #days {
   position: relative;
   padding-top: 100px;
-  padding-bottom: 200px; }
+  padding-bottom: 200px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.31); }
   #days .icon {
     font-size: 1.5em;
     text-align: center; }
@@ -84,7 +85,6 @@ body {
     margin: 12px auto; }
 
 #faq {
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.31);
   position: relative;
   background: #f2f2f2;
   padding: 48px 0; }
@@ -126,7 +126,8 @@ footer {
   padding: 30px 0;
   background: #006dcc;
   color: white;
-  text-align: center; }
+  text-align: center;
+  border-top: 8px solid #f1e820; }
   footer .divider {
     position: relative;
     display: inline-block;
