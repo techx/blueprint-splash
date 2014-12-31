@@ -1,4 +1,5 @@
 $blueprint-blue: rgb(0,136,255);
+$blueprint-yellow: #ecff1b;
 $font-logo: 'Rokkitt', 'Helvetica Neue', 'Helvetica', sans-serif;
 $font-body: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
@@ -19,11 +20,8 @@ body {
   font-family: $font-body;
 }
 
-section {
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.31);
-}
-
 #splash {
+  @include shadow;
   position: relative;
   background:
     linear-gradient(rgba(0, 136, 255, 0.85), rgba(0, 84, 165, 0.85)),
@@ -33,6 +31,8 @@ section {
 //  background-image: url(assets/images/background.jpg);
   width: 100%;
   height: 100%;
+
+  font-size: .75em;
 
   .content {
     @include vertical-align;
@@ -83,34 +83,85 @@ section {
 
 #days {
   position: relative;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 100px;
+  padding-bottom: 200px;
 
-  .segment {
-    font-size: 1.2em;
+  .icon {
+    font-size: 1.5em;
+    text-align: center;
 
-    .header {
-      font-family: $font-logo;
-      text-align: center;
-      font-size: 3em;
+    i {
+      @include shadow;
+      &.yellow {
+        background-color: $blueprint-yellow !important;
+//        color: $blueprint-blue !important;
+        color: black !important;
+      }
+
+      &.blue {
+        background-color: $blueprint-blue !important;
+//        color: $blueprint-yellow !important;
+      }
     }
-    .subheader {
-      font-family: $font-logo;
-      text-align: center;
-      margin-top: -12px;
-      font-size: 1.1em;
-    }
-    .description {
-      margin-top: 12px;
-    }
+
+  }
+
+  .header {
+    text-align: center;
+    font-family: $font-logo;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 4px;
+  }
+
+  .subheader {
+    text-align: center;
+    font-family: $font-logo;
+    font-size: 1.5em;
+  }
+
+  .divider {
+    width: 50%;
+    margin: 12px auto;
   }
 
 }
 
 #faq {
+  @include shadow;
   position: relative;
-  background: $blueprint-blue;
-  height: 50%;
+  background: darken(white, 5%);
+
+  padding: 48px 0;
+
+  .header {
+    @include shadow;
+    font-family: $font-logo;
+    background: $blueprint-blue;
+    color: white;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 100px;
+    margin: -148px auto 48px auto;
+    font-size: 4.5em;
+    text-align: center;
+  }
+
+  .item {
+    border-left: 2px solid $blueprint-blue;
+    border-right: 2px solid $blueprint-yellow;
+    background: white;
+    padding: 16px 12px;
+    .question {
+      font-family: $font-logo;
+      font-size: 1.5em;
+      margin-bottom: 4px;
+    }
+
+  }
+
+
 }
 
 // Feel free to change this to a different word
@@ -129,8 +180,23 @@ section {
 
 footer {
   position: relative;
-  height: 200px;
-  background: $cloud;
+  padding: 30px 0;
+  background: darken($blueprint-blue, 10%);
+  color: white;
+  text-align: center;
+
+  .divider {
+    position: relative;
+    display: inline-block;
+    width: 10%;
+    margin: 0 auto;
+  }
+
+  .icons i {
+    color: white;
+    margin: 0px 8px;
+  }
+
 }
 
 // Mobile Styling
