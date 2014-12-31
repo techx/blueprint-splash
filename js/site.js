@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  $('#submit').click(function(e){
-    // Grab the email
+
+  function submitEmail(){
+     // Grab the email
     var email = $('#email').val();
 
     var $this = $(this);
@@ -21,8 +22,16 @@ $(document).ready(function(){
       $('#splash').dimmer('show');
 
     });
-  })
+  }
 
+  $('#submit').click(function(e){
+    submitEmail();
+  });
 
+  $('#email').keyup(function(e){
+    if (e.keyCode == 13) {
+      submitEmail();
+    }
+  });
 
 });
