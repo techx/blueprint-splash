@@ -162,6 +162,7 @@ body {
   }
 
   .item {
+    @include shadow;
     border-left: 2px solid $blueprint-blue;
     border-right: 2px solid $blueprint-yellow;
     background: white;

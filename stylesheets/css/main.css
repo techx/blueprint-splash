@@ -103,6 +103,7 @@ body {
     font-size: 4.5em;
     text-align: center; }
   #faq .item {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.31);
     border-left: 2px solid #0088ff;
     border-right: 2px solid #f1e820;
     background: white;
