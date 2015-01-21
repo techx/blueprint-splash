@@ -54,8 +54,8 @@ body {
         margin-bottom: 8px; }
       #splash .content .action .button {
         display: inline-block;
-        background: #f1e820 !important;
-        margin-left: 4px; }
+        background: #f1d620 !important;
+        font-size: 1.6em; }
 
 #days {
   position: relative;
@@ -68,7 +68,7 @@ body {
     #days .icon i {
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.31); }
       #days .icon i.yellow {
-        background-color: #f1e820 !important;
+        background-color: #f1d620 !important;
         color: black !important; }
       #days .icon i.blue {
         background-color: #0088ff !important; }
@@ -105,7 +105,7 @@ body {
   #faq .item {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.31);
     border-left: 2px solid #0088ff;
-    border-right: 2px solid #f1e820;
+    border-right: 2px solid #f1d620;
     background: white;
     padding: 16px 12px; }
     #faq .item .question {
@@ -130,7 +130,7 @@ footer {
   background: #006dcc;
   color: white;
   text-align: center;
-  border-top: 8px solid #f1e820; }
+  border-top: 8px solid #f1d620; }
   footer .divider {
     position: relative;
     display: inline-block;
@@ -156,5 +156,3 @@ footer {
       #splash .content .tagline {
         font-size: 1.6em;
         margin-bottom: 8px; } }
-
-/*# sourceMappingURL=main.css.map */
