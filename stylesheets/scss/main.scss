@@ -1,5 +1,6 @@
 $blueprint-blue: rgb(0,136,255);
 $blueprint-yellow: #F1D620;
+$blueprint-blue-reduced: #87C7FF;
 $font-logo: 'Rokkitt', 'Helvetica Neue', 'Helvetica', sans-serif;
 $font-body: 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
@@ -87,8 +88,20 @@ body {
         display: inline-block;
         background: $blueprint-yellow !important;
         font-size: 1.6em;
+
+        &.mentor {
+          background: $blueprint-blue-reduced !important;
+          padding-left: 0.7em;
+          padding-right: 0.7em;
+          color: rgba(0,0,0,.7);
+        }
       }
 
+
+
+      .subaction {
+        color: $blueprint-blue-reduced;
+      }
     }
   }
 
