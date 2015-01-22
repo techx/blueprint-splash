@@ -1,6 +1,6 @@
-$blueprint-blue: rgb(0,136,255);
 $blueprint-yellow: #F1D620;
 $blueprint-yellow-reduced: #FFE11C;
+$blueprint-blue: rgb(0,136,255);
 $blueprint-blue-reduced: #87C7FF;
 $blueprint-blue-reduced-further: #A8D1FF;
 $font-logo: 'Rokkitt', 'Helvetica Neue', 'Helvetica', sans-serif;
@@ -90,15 +90,20 @@ body {
         display: inline-block;
         background: $blueprint-yellow !important;
         font-size: 1.6em;
+        margin-bottom: 7px;
 
         &:hover {
           background: $blueprint-yellow-reduced !important;
         }
 
+        .tiny {
+          font-size: 0.6em;
+          margin-top: -3px;
+          margin-bottom: 5px;
+        }
+
         &.mentor {
           background: $blueprint-blue-reduced !important;
-          padding-left: 0.7em;
-          padding-right: 0.7em;
           color: rgba(0,0,0,.7);
 
           &:hover {

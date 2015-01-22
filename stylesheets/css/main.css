@@ -55,13 +55,16 @@ body {
       #splash .content .action .button {
         display: inline-block;
         background: #f1d620 !important;
-        font-size: 1.6em; }
+        font-size: 1.6em;
+        margin-bottom: 7px; }
         #splash .content .action .button:hover {
           background: #ffe11c !important; }
+        #splash .content .action .button .tiny {
+          font-size: 0.6em;
+          margin-top: -3px;
+          margin-bottom: 5px; }
         #splash .content .action .button.mentor {
           background: #87c7ff !important;
-          padding-left: 0.7em;
-          padding-right: 0.7em;
           color: rgba(0, 0, 0, 0.7); }
           #splash .content .action .button.mentor:hover {
             background: #a8d1ff !important; }
