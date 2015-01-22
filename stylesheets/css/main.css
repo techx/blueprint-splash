@@ -56,13 +56,19 @@ body {
         display: inline-block;
         background: #f1d620 !important;
         font-size: 1.6em; }
+        #splash .content .action .button:hover {
+          background: #ffe11c !important; }
         #splash .content .action .button.mentor {
           background: #87c7ff !important;
           padding-left: 0.7em;
           padding-right: 0.7em;
           color: rgba(0, 0, 0, 0.7); }
+          #splash .content .action .button.mentor:hover {
+            background: #a8d1ff !important; }
       #splash .content .action .subaction {
         color: #87c7ff; }
+        #splash .content .action .subaction:hover {
+          color: #a8d1ff; }
 
 #days {
   position: relative;
