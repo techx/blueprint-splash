@@ -2,8 +2,7 @@ SASS := sass
 RM := rm
 
 SASSFLAGS := --scss --unix-newlines --style compressed
-RMFLAGS := -f
-RMRFLAGS := -rf
+RMFLAGS := -rf
 
 SCSS_DIR := assets/scss
 CSS_OUT := assets/css
@@ -15,8 +14,7 @@ CSS_MAPS := $(patsubst $(SCSS_DIR)%, $(CSS_OUT)%, $(patsubst %.scss, %.css.map, 
 ALL_OBJS := $(CSS_OBJS)
 
 $(CSS_OUT)/%.css: $(SCSS_DIR)/%.scss
-	@echo + sass $@
-	@$(SASS) $(SASSFLAGS) $< $@
+	$(SASS) $(SASSFLAGS) $< $@
 
 all: $(ALL_OBJS)
 
@@ -24,8 +22,6 @@ watch:
 	@$(SASS) --watch $(SASSFLAGS) $(SCSS_DIR):$(CSS_OUT)
 
 clean:
-	@$(RM) $(RMFLAGS) $(ALL_OBJS)
-	@$(RM) $(RMFLAGS) $(CSS_MAPS)
-	@$(RM) $(RMRFLAGS) .sass-cache
+	$(RM) $(RMFLAGS) $(ALL_OBJS) $(CSS_MAPS) .sass-cache
 
 .PHONY: all watch clean
