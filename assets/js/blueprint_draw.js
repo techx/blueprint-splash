@@ -10,8 +10,14 @@
 var BlueprintDrawboard = (function() {
     /**********
      * config */
-    var CANV_ID = 'blueprint-canv';
-    var DIMS = [500, 400];
+    var CANV_ID = 'blueprint-canv'; //the id of the canvas element
+    var DIMS = [500, 400]; //default canvas size
+    var GRID_SIZE = 20; //in px
+    var COLORS = {
+      background: '#0E95D4',
+      grid: '#4EB5E6',
+      foreground: '#FEFEFE'
+    }; //all of the colors to be used
 
     /****************
      * working vars */
@@ -33,8 +39,18 @@ var BlueprintDrawboard = (function() {
     }
 
     function render() {
-      ctx.fillStyle = '#3560A0';
+      //paint the background
+      ctx.fillStyle = COLORS.background;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      //draw the grid lines
+      ctx.fillStyle = COLORS.grid;
+      for (var xi = 0; xi < canvas.width; xi+=GRID_SIZE) {
+        ctx.fillRect(xi, 0, 1, canvas.height);
+      }
+      for (var yi = 0; yi < canvas.height; yi+=GRID_SIZE) {
+        ctx.fillRect(0, yi, canvas.width, 1);
+      }
     }
 
     /********************
