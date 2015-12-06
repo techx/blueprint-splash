@@ -1,2 +1,2 @@
-body{margin:0;padding:0}#blueprint-canv{width:100%;height:400px}
+body{margin:0;padding:0}.vspace{height:150px}#header-section{padding:0}#header-section #blueprint-canv-cont{position:absolute;width:100%;z-index:-1}#header-section #blueprint-canv-cont #blueprint-canv{width:100%;height:600px}#header-section #header-logo{width:200px;height:200px;border-radius:100px;border:1px solid white;margin:auto}
 /*# sourceMappingURL=style.css.map */
