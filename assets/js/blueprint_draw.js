@@ -7,7 +7,7 @@
 | @edit 2015/12/06 |
 \******************/
 
-var BlueprintDrawBoard = (function() {
+var BlueprintDrawboard = (function() {
     /**********
      * config */
     var CANV_ID = 'blueprint-canv';
@@ -20,7 +20,7 @@ var BlueprintDrawBoard = (function() {
     /******************
      * work functions */
     function initBlueprintDrawboard() {
-      canvas = document.getElementById(canvId);
+      canvas = document.getElementById(CANV_ID);
       canvas.width = DIMS[0];
       canvas.height = DIMS[1];
       ctx = canvas.getContext('2d');
@@ -34,7 +34,7 @@ var BlueprintDrawBoard = (function() {
 
     function render() {
       ctx.fillStyle = '#3560A0';
-      ctx.fillRect(0, 0, );
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
     /********************
@@ -56,8 +56,8 @@ var BlueprintDrawBoard = (function() {
     }
 
     return { 
-      init: initBlueprintDrawBoard
+      init: initBlueprintDrawboard
     };
 })();
 
-window.addEventListener('load', BlueprintDrawBoard.init);
+window.addEventListener('load', BlueprintDrawboard.init);
