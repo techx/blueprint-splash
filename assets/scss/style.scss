@@ -1,12 +1,36 @@
 $color-primary: #0e95d4;
 $color-secondary: #ffd946;
 
+/* GENERAL */
 body {
   margin: 0;
   padding: 0;
 }
 
-#blueprint-canv {
-  width: 100%;
-  height: 400px;
+.vspace {
+  height: 150px;
+}
+
+/* HEADER */
+#header-section {
+  padding: 0;
+
+  #blueprint-canv-cont {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+
+    #blueprint-canv {
+      width: 100%;
+      height: 600px;
+    }
+  }
+
+  #header-logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border: 1px solid white;
+    margin: auto;
+  }
 }
