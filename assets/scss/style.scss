@@ -36,10 +36,24 @@ body {
   }
 
   #header-logo {
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    border: 1px solid white;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    border: 4px solid white;
     margin: auto;
+  }
+
+  #header-title {
+    font-size: 400%;
+  }
+
+  #header-date {
+
+  }
+}
+
+#info-section {
+  #info {
+    padding: 20px 0;
   }
 }
