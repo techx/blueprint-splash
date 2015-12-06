@@ -64,14 +64,15 @@ var BlueprintDrawboard = (function() {
 
     function resizeCanvas(canvas, every) {
       var width = canvas.parentNode.offsetWidth;
-      var height = canvas.parentNode.offsetHeight;
+      // var height = canvas.parentNode.offsetHeight;
+      var height = $('#header-section').outerHeight();
       canvas.width = width;
       canvas.height = height;
 
       every([width, height]);
     }
 
-    return { 
+    return {
       init: initBlueprintDrawboard
     };
 })();
