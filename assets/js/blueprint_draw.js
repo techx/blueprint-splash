@@ -22,6 +22,11 @@ var BlueprintDrawboard = (function() {
     /****************
      * working vars */
     var canvas, ctx;
+    var clickX=new Array();
+    var clickY=new Array();
+    var clickDrag = new Array();
+    var paint;
+
 
     /******************
      * work functions */
@@ -34,8 +39,26 @@ var BlueprintDrawboard = (function() {
         console.log(JSON.stringify(dims));
         render();
       });
-
       render();
+      document.addEventListener("mousedown", function(e)
+      {
+        e.preventDefault();
+        var mouseX=e.pageX;
+        var mouseY=e.pageY;
+        paint=true;
+        addClick(mouseX, mouseY, false);
+        redraw();
+      });
+      document.addEventListener("mousemove", function(e){
+        if (paint){
+          addClick(e.pageX, e.pageY, true);
+          redraw();
+        }
+      });
+      document.addEventListener("mouseup", function(e){
+        paint=false;
+        redraw();
+      });
     }
 
     function render() {
@@ -70,6 +93,32 @@ var BlueprintDrawboard = (function() {
       canvas.height = height;
 
       every([width, height]);
+    }
+
+    function addClick(x,y, dragging)
+    {
+      clickX.push(x);
+      clickY.push(y);
+      clickDrag.push(dragging);
+    }
+    function redraw()
+    {
+      ctx.strokeStyle="#bce3f6";
+      ctx.lineJoin="round";
+      ctx.lineCap="round";
+      ctx.lineWidth= 3;
+      for(var i=0;i<clickX.length;i++)
+      {
+        ctx.beginPath();
+        if(clickDrag[i]&&i){
+          ctx.moveTo(clickX[i-1], clickY[i-1]);
+        }else{
+          ctx.moveTo(clickX[i]-1, clickY[i]);
+        }
+        ctx.lineTo(clickX[i], clickY[i]);
+        ctx.closePath();
+        ctx.stroke();
+      }
     }
 
     return {
