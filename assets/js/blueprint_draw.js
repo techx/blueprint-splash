@@ -1,64 +1,87 @@
 /******************\
 |     Blueprint    |
 |     Draw Board   |
-| @author Anthony  |
+| @author HackMIT  |
 | @version 0.1     |
 | @date 2015/12/06 |
-| @edit 2015/12/06 |
+| @edit 2015/12/07 |
 \******************/
 
 var BlueprintDrawboard = (function() {
     /**********
      * config */
-    var CANV_ID = 'blueprint-canv'; //the id of the canvas element
+    var CANV_SEL = '#blueprint-canv'; //the id of the canvas element
     var DIMS = [500, 400]; //default canvas size
     var GRID_SIZE = 20; //in px
+    var LINE_SIZE = 3; //width of the lines
     var COLORS = {
       background: '#0E95D4',
       grid: '#4EB5E6',
       foreground: '#FEFEFE'
     }; //all of the colors to be used
+    var DISP_UNSMOOTHED = false;
 
     /****************
      * working vars */
     var canvas, ctx;
-    var clickX=new Array();
-    var clickY=new Array();
-    var clickDrag = new Array();
-    var paint;
-
+    var clickList, smoothedClicks, isDrawing;
 
     /******************
      * work functions */
     function initBlueprintDrawboard() {
-      canvas = document.getElementById(CANV_ID);
+      //init variables
+      clickList = [], smoothedClicks = [];
+
+      //set up the canvas
+      canvas = $(CANV_SEL)[0];
       canvas.width = DIMS[0];
       canvas.height = DIMS[1];
       ctx = canvas.getContext('2d');
       registerDynamicCanvas(canvas, function(dims) {
-        console.log(JSON.stringify(dims));
         render();
       });
-      render();
-      document.addEventListener("mousedown", function(e)
-      {
+
+      //event listeners
+      document.addEventListener('mousedown', function(e) {
         e.preventDefault();
-        var mouseX=e.pageX;
-        var mouseY=e.pageY;
-        paint=true;
-        addClick(mouseX, mouseY, false);
-        redraw();
+        isDrawing = true;
+        appendClickToClicklist(e.pageX, e.pageY, false);
+        render();
       });
-      document.addEventListener("mousemove", function(e){
-        if (paint){
-          addClick(e.pageX, e.pageY, true);
-          redraw();
+      document.addEventListener('mousemove', function(e) {
+        if (isDrawing) {
+          appendClickToClicklist(e.pageX, e.pageY, true);
+          render();
         }
       });
-      document.addEventListener("mouseup", function(e){
-        paint=false;
-        redraw();
+      document.addEventListener('mouseup', function(e) {
+        isDrawing = false;
+        render();
       });
+
+      //initial rendering
+      render();
+    }
+
+    function drawStrokes(points, color) {
+      //draw the user's strokes 
+      ctx.strokeStyle = color;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.lineWidth = LINE_SIZE;
+
+      //plot them
+      for (var i = 0; i < points.length; i++) {
+        ctx.beginPath();
+        if (points[i][2] && i !== 0) {
+          ctx.moveTo(points[i-1][0], points[i-1][1]);
+        } else {
+          ctx.moveTo(points[i][0], points[i][1]);
+        }
+        ctx.lineTo(points[i][0], points[i][1]);
+        ctx.closePath();
+        ctx.stroke();
+      }
     }
 
     function render() {
@@ -74,6 +97,12 @@ var BlueprintDrawboard = (function() {
       for (var yi = 0; yi < canvas.height; yi+=GRID_SIZE) {
         ctx.fillRect(0, yi, canvas.width, 1);
       }
+      
+      //plot the smoothed points
+      if (DISP_UNSMOOTHED) {
+        drawStrokes(clickList, 'red');
+      }
+      drawStrokes(smoothedClicks, COLORS.foreground);
     }
 
     /********************
@@ -87,7 +116,7 @@ var BlueprintDrawboard = (function() {
 
     function resizeCanvas(canvas, every) {
       var width = canvas.parentNode.offsetWidth;
-      // var height = canvas.parentNode.offsetHeight;
+      //var height = canvas.parentNode.offsetHeight;
       var height = $('#header-section').outerHeight();
       canvas.width = width;
       canvas.height = height;
@@ -95,30 +124,27 @@ var BlueprintDrawboard = (function() {
       every([width, height]);
     }
 
-    function addClick(x,y, dragging)
-    {
-      clickX.push(x);
-      clickY.push(y);
-      clickDrag.push(dragging);
-    }
-    function redraw()
-    {
-      ctx.strokeStyle="#bce3f6";
-      ctx.lineJoin="round";
-      ctx.lineCap="round";
-      ctx.lineWidth= 3;
-      for(var i=0;i<clickX.length;i++)
-      {
-        ctx.beginPath();
-        if(clickDrag[i]&&i){
-          ctx.moveTo(clickX[i-1], clickY[i-1]);
-        }else{
-          ctx.moveTo(clickX[i]-1, clickY[i]);
+    function appendClickToClicklist(x, y, dragging) {
+      //the current click
+      var currClick = [x, y, dragging];
+
+      //calculate the smoothed click
+      if (smoothedClicks.length === 0) {
+        smoothedClicks.push(currClick);
+      } else if (clickList.length >= 2) {
+        if (clickList[clickList.length-1][2] && currClick[2]) {
+          smoothedClicks.push([
+            0.5*(smoothedClicks[smoothedClicks.length-1][0] + currClick[0]), 
+            0.5*(smoothedClicks[smoothedClicks.length-1][1] + currClick[1]), 
+            clickList[clickList.length-1][2]
+          ]); 
+        } else {
+          smoothedClicks.push(clickList[clickList.length-1]); 
         }
-        ctx.lineTo(clickX[i], clickY[i]);
-        ctx.closePath();
-        ctx.stroke();
       }
+
+      //append the current click to the clicks array
+      clickList.push(currClick);
     }
 
     return {
