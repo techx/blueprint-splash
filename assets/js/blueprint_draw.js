@@ -38,6 +38,8 @@ var BlueprintDrawboard = (function() {
       canvas.height = DIMS[1];
       ctx = canvas.getContext('2d');
       registerDynamicCanvas(canvas, function(dims) {
+        var height = $('#header-section').outerHeight();
+        canvas.height = height;
         render();
       });
 
@@ -116,8 +118,7 @@ var BlueprintDrawboard = (function() {
 
     function resizeCanvas(canvas, every) {
       var width = canvas.parentNode.offsetWidth;
-      //var height = canvas.parentNode.offsetHeight;
-      var height = $('#header-section').outerHeight();
+      var height = canvas.parentNode.offsetHeight;
       canvas.width = width;
       canvas.height = height;
 
