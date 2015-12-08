@@ -58,6 +58,7 @@ var BlueprintDrawboard = (function() {
       });
       document.addEventListener('mouseup', function(e) {
         isDrawing = false;
+        smoothedClicks.push(e.pageX, e.pageY, true);
         render();
       });
 
