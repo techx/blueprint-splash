@@ -17,7 +17,7 @@ var BlueprintDrawboard = (function() {
     var COLORS = {
       background: '#0E95D4',
       grid: '#4EB5E6',
-      foreground: '#FEFEFE'
+      foreground: '#BFE8FB'
     }; //all of the colors to be used
     var DISP_UNSMOOTHED = false;
 
@@ -67,7 +67,7 @@ var BlueprintDrawboard = (function() {
     }
 
     function drawStrokes(points, color) {
-      //draw the user's strokes 
+      //draw the user's strokes
       ctx.strokeStyle = color;
       ctx.lineJoin = 'round';
       ctx.lineCap = 'round';
@@ -100,7 +100,7 @@ var BlueprintDrawboard = (function() {
       for (var yi = 0; yi < canvas.height; yi+=GRID_SIZE) {
         ctx.fillRect(0, yi, canvas.width, 1);
       }
-      
+
       //plot the smoothed points
       if (DISP_UNSMOOTHED) {
         drawStrokes(clickList, 'red');
@@ -136,12 +136,12 @@ var BlueprintDrawboard = (function() {
       } else if (clickList.length >= 2) {
         if (clickList[clickList.length-1][2] && currClick[2]) {
           smoothedClicks.push([
-            0.5*(smoothedClicks[smoothedClicks.length-1][0] + currClick[0]), 
-            0.5*(smoothedClicks[smoothedClicks.length-1][1] + currClick[1]), 
+            0.5*(smoothedClicks[smoothedClicks.length-1][0] + currClick[0]),
+            0.5*(smoothedClicks[smoothedClicks.length-1][1] + currClick[1]),
             clickList[clickList.length-1][2]
-          ]); 
+          ]);
         } else {
-          smoothedClicks.push(clickList[clickList.length-1]); 
+          smoothedClicks.push(clickList[clickList.length-1]);
         }
       }
 
