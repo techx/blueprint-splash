@@ -61,8 +61,17 @@ body {
   }
 }
 
+/* BLURB */
+
+#blurb-section {
+  #blurb {
+    padding: 40px 0;
+  }
+}
+
+/* INFO */
 #info-section {
-  #info {
-    padding: 20px 0;
+  .menu .item {
+    cursor: pointer;
   }
 }
