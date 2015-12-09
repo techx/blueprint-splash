@@ -1,5 +1,7 @@
 $color-primary: #0e95d4;
 $color-secondary: #ffd946;
+$footer-bg: #444;
+$footer-text: #eee;
 
 /* GENERAL */
 body {
@@ -73,5 +75,20 @@ body {
 #info-section {
   .menu .item {
     cursor: pointer;
+  }
+}
+
+/* FOOTER */
+#footer-section {
+  background-color: $footer-bg;
+  color: $footer-text;
+  border-radius: 0;
+
+  a {
+    color: $footer-text;
+  }
+
+  #footer a {
+    color: $color-secondary;
   }
 }
