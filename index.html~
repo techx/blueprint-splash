@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="icon" type='image/ico' href="
+
   <title>Blueprint 2016</title>
   <meta name="description" content="Welcome to Blueprint: MIT's high school hackathon!">
   <meta name=viewport content="width=device-width, initial-scale=1.0">
@@ -57,7 +57,7 @@
         <div class="item" data-tab="location-tab">Location</div>
       </div>
       <div class="ui tab active" data-tab="about-tab">
-        <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. You'll come away with the skills you need to create a fully functional web page or iOS app, as well as how to learn more about programming on your own to take your skills even further.
+        <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. You'll come away with the skills you need to create a fully functional web page or iOS app, as well as how to learn more about programming on your own to take your /skills/ even further.
 	</p>
         <p>Come to Blueprint to learn the fundamentals of web, iOS, and Android development! Blueprint consists of two days:</p>
         <ul>
