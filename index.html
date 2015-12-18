@@ -14,6 +14,7 @@
   <link href="/assets/css/style.css" rel="stylesheet">
 
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/vivus/dist/vivus.min.js"></script>
   <script src="/bower_components/semantic/dist/semantic.min.js"></script>
   <script src="/assets/js/blueprint-draw.js"></script>
   <script src="/assets/js/page-control.js"></script>
@@ -31,15 +32,33 @@
     <div id="header-image-container" class="ui grid container">
       <div class="two wide tablet only computer only column"></div>
         <div class="sixteen wide mobile four wide tablet four wide computer column">
-          <img class="header-image" src="assets/images/learn.svg"/>
+          <div class="header-image" id="learn-svg"></div>
+          <script>
+          new Vivus('learn-svg', {
+            duration: 120, file: 'assets/images/learn.svg'
+          });
+          </script>
+
           <h2 class="ui inverted header">learn</h2>
         </div>
         <div class="sixteen wide mobile four wide tablet four wide computer column">
-          <img class="header-image" src="assets/images/hack.svg"/>
+          <div class="header-image" id="hack-svg"></div>
+          <script>
+          new Vivus('hack-svg', {
+            duration: 120, file: 'assets/images/hack.svg'
+          });
+          </script>
+
           <h2 class="ui inverted header">hack</h2>
         </div>
         <div class="sixteen wide mobile four wide tablet four wide computer column">
-          <img class="header-image" src="assets/images/build.svg"/>
+          <div class="header-image" id="build-svg"></div>
+          <script>
+          new Vivus('build-svg', {
+            duration: 120, file: 'assets/images/build.svg'
+          });
+          </script>
+
           <h2 class="ui inverted header">build</h2>
         </div>
         <div class="two wide computer only column"></div>

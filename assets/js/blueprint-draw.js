@@ -1,6 +1,6 @@
 /******************\
-|     Blueprint    |
-|     Draw Board   |
+|    Blueprint     |
+|    Draw Board    |
 | @author HackMIT  |
 | @version 0.1     |
 | @date 2015/12/06 |
@@ -61,6 +61,9 @@ var BlueprintDrawboard = (function() {
         smoothedClicks.push(e.pageX, e.pageY, true);
         render();
       });
+      $('#clear-btn').click(function(e) {
+        //swag 
+      });
 
       //initial rendering
       render();
@@ -85,6 +88,13 @@ var BlueprintDrawboard = (function() {
         ctx.closePath();
         ctx.stroke();
       }
+    }
+
+    function clearStrokes(startIdx, stopIdx) {
+      startIdx = startIdx || 0;
+      stopIdx = stopIdx || smoothedClicks;
+
+      //delete them all
     }
 
     function render() {
