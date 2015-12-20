@@ -26,13 +26,15 @@ var BlueprintDrawboard = (function() {
     var canvas, ctx;
     var clickList, smoothedClicks, isDrawing;
     var hasDrawnAlready;
+    var ctrlDown, startIdxs;
 
     /******************
      * work functions */
     function initBlueprintDrawboard() {
       //init variables
       clickList = [], smoothedClicks = [];
-      hasDrawnAlready =  false;
+      hasDrawnAlready =  false, ctrlDown = false;
+      startIdxs = [];
 
       //set up the canvas
       canvas = $(CANV_SEL)[0];
@@ -53,6 +55,7 @@ var BlueprintDrawboard = (function() {
           hasDrawnAlready = true;
           $('#clear-bpdb-btn')[0].style.display = 'inline';
         }
+        startIdxs.push(smoothedClicks.length);
         appendClickToClicklist(e.pageX, e.pageY, false);
         render();
       });
@@ -64,8 +67,20 @@ var BlueprintDrawboard = (function() {
       });
       document.addEventListener('mouseup', function(e) {
         isDrawing = false;
-        smoothedClicks.push(e.pageX, e.pageY, true);
+        smoothedClicks.push([e.pageX, e.pageY, true]);
         render();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.keyCode === 17) ctrlDown = true;
+        else if (ctrlDown && e.keyCode === 90) {
+          //selectively clear
+          if (startIdxs.length > 0) clearStrokes(startIdxs.pop());
+        }
+      });
+      document.addEventListener('keyup', function(e) {
+        if (e.keyCode === 17) {
+          setTimeout(function() { ctrlDown = false; }, 100);
+        }
       });
       $('#clear-bpdb-btn').click(function(e) {
         clearStrokes(); 
@@ -101,7 +116,7 @@ var BlueprintDrawboard = (function() {
       stopIdx = stopIdx || smoothedClicks.length;
 
       //delete them all
-      clickList.splice(startIdx, stopIdx+1);
+      clickList.splice(startIdx, stopIdx);
       smoothedClicks.splice(startIdx, stopIdx);
       render();
     }
@@ -170,7 +185,9 @@ var BlueprintDrawboard = (function() {
 
     return {
       init: initBlueprintDrawboard,
-      clearStrokes: clearStrokes
+      clearStrokes: clearStrokes,
+      getClickList: function() {return clickList;},
+      getSmoothedClicks: function() {return smoothedClicks;}
     };
 })();
 
