@@ -4,7 +4,7 @@
 | @author HackMIT  |
 | @version 0.1     |
 | @date 2015/12/06 |
-| @edit 2015/12/07 |
+| @edit 2015/12/19 |
 \******************/
 
 var BlueprintDrawboard = (function() {
@@ -25,12 +25,14 @@ var BlueprintDrawboard = (function() {
      * working vars */
     var canvas, ctx;
     var clickList, smoothedClicks, isDrawing;
+    var hasDrawnAlready;
 
     /******************
      * work functions */
     function initBlueprintDrawboard() {
       //init variables
       clickList = [], smoothedClicks = [];
+      hasDrawnAlready =  false;
 
       //set up the canvas
       canvas = $(CANV_SEL)[0];
@@ -47,6 +49,10 @@ var BlueprintDrawboard = (function() {
       document.addEventListener('mousedown', function(e) {
         e.preventDefault();
         isDrawing = true;
+        if (!hasDrawnAlready) {
+          hasDrawnAlready = true;
+          $('#clear-bpdb-btn')[0].style.display = 'inline';
+        }
         appendClickToClicklist(e.pageX, e.pageY, false);
         render();
       });
@@ -61,8 +67,8 @@ var BlueprintDrawboard = (function() {
         smoothedClicks.push(e.pageX, e.pageY, true);
         render();
       });
-      $('#clear-btn').click(function(e) {
-        //swag 
+      $('#clear-bpdb-btn').click(function(e) {
+        clearStrokes(); 
       });
 
       //initial rendering
@@ -92,9 +98,12 @@ var BlueprintDrawboard = (function() {
 
     function clearStrokes(startIdx, stopIdx) {
       startIdx = startIdx || 0;
-      stopIdx = stopIdx || smoothedClicks;
+      stopIdx = stopIdx || smoothedClicks.length;
 
       //delete them all
+      clickList.splice(startIdx, stopIdx+1);
+      smoothedClicks.splice(startIdx, stopIdx);
+      render();
     }
 
     function render() {
@@ -160,7 +169,8 @@ var BlueprintDrawboard = (function() {
     }
 
     return {
-      init: initBlueprintDrawboard
+      init: initBlueprintDrawboard,
+      clearStrokes: clearStrokes
     };
 })();
 
