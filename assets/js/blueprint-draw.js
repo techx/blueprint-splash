@@ -47,8 +47,9 @@ var BlueprintDrawboard = (function() {
         render();
       });
 
-      //event listeners
-      document.addEventListener('mousedown', function(e) {
+      //event listeneros
+      var headerCont = document.getElementById('header-section');
+      headerCont.addEventListener('mousedown', function(e) {
         e.preventDefault();
         isDrawing = true;
         if (!hasDrawnAlready) {
@@ -59,13 +60,13 @@ var BlueprintDrawboard = (function() {
         appendClickToClicklist(e.pageX, e.pageY, false);
         render();
       });
-      document.addEventListener('mousemove', function(e) {
+      headerCont.addEventListener('mousemove', function(e) {
         if (isDrawing) {
           appendClickToClicklist(e.pageX, e.pageY, true);
           render();
         }
       });
-      document.addEventListener('mouseup', function(e) {
+      headerCont.addEventListener('mouseup', function(e) {
         isDrawing = false;
         smoothedClicks.push([e.pageX, e.pageY, true]);
         render();
