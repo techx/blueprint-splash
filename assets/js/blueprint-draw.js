@@ -31,6 +31,9 @@ var BlueprintDrawboard = (function() {
     /******************
      * work functions */
     function initBlueprintDrawboard() {
+      var ref = new Firebase('https://sn23lyoaqq2.firebaseio-demo.com/');
+      var drawings = ref.child('drawings');
+
       //init variables
       clickList = [], smoothedClicks = [];
       hasDrawnAlready =  false, ctrlDown = false;
@@ -54,6 +57,7 @@ var BlueprintDrawboard = (function() {
         isDrawing = true;
         if (!hasDrawnAlready) {
           hasDrawnAlready = true;
+          $('#save-bpdb-btn')[0].style.display = 'inline';
           $('#clear-bpdb-btn')[0].style.display = 'inline';
         }
         startIdxs.push(smoothedClicks.length);
@@ -85,6 +89,13 @@ var BlueprintDrawboard = (function() {
       });
       $('#clear-bpdb-btn').click(function(e) {
         clearStrokes(); 
+      });
+      $('#save-bpdb-btn').click(function(e) {
+        //saves drawings
+        drawings.push(getCompressedDrawing());
+        
+        //mousedown is fired on the header, adding a stroke 
+        clearStrokes(clickList.length-1); //remove it
       });
 
       //initial rendering
@@ -155,7 +166,7 @@ var BlueprintDrawboard = (function() {
       var ds = smoothedClicks.map(function(click) {
         return click[2] ? '1' : '0';  
       }); //booleans communicating whether or not it's conn to prev 
-      return JSON.stringify({xs: xs, ys: ys, ds: ds}); 
+      return {xs: xs, ys: ys, ds: ds}; 
     }
 
     function registerDynamicCanvas(canvas, every) {

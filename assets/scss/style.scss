@@ -30,6 +30,14 @@ body {
     z-index: 1;
   }
 
+  #save-bpdb-btn {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    z-index: 1;
+  }
+
+
   #blueprint-canv-cont {
     position: absolute;
     width: 100%;
