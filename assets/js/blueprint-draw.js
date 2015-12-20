@@ -145,6 +145,19 @@ var BlueprintDrawboard = (function() {
 
     /********************
      * helper functions */
+    function getCompressedDrawing() {
+      var xs = smoothedClicks.map(function(click) {
+        return Math.round(click[0]);  
+      }); //x coords of all the clicks 
+      var ys = smoothedClicks.map(function(click) {
+        return Math.round(click[1]);  
+      }); //y coords of all the clicks 
+      var ds = smoothedClicks.map(function(click) {
+        return click[2] ? '1' : '0';  
+      }); //booleans communicating whether or not it's conn to prev 
+      return JSON.stringify({xs: xs, ys: ys, ds: ds}); 
+    }
+
     function registerDynamicCanvas(canvas, every) {
       resizeCanvas(canvas, every); //initial call
       window.addEventListener('resize', function() {
@@ -188,7 +201,8 @@ var BlueprintDrawboard = (function() {
       init: initBlueprintDrawboard,
       clearStrokes: clearStrokes,
       getClickList: function() {return clickList;},
-      getSmoothedClicks: function() {return smoothedClicks;}
+      getSmoothedClicks: function() {return smoothedClicks;},
+      getCompressedDrawing: getCompressedDrawing
     };
 })();
 
