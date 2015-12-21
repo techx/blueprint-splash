@@ -21,7 +21,7 @@ body {
 #header-section {
   padding: 0 0 30px 0;
   border-bottom: 8px solid $color-secondary;
-  cursor: default;
+  cursor: url(/assets/images/pencil.png), auto;
 
   #clear-bpdb-btn {
     position: absolute;
@@ -36,7 +36,6 @@ body {
     right: 0;
     z-index: 1;
   }
-
 
   #blueprint-canv-cont {
     position: absolute;
@@ -68,11 +67,12 @@ body {
   #header-image-container {
     padding-top: 40px;
 
-    .header-image {
+    .header-image object {
       width: 160px;
       height: 160px;
       border-radius: 80px;
       margin: auto;
+      cursor: url(/assets/images/pencil.png), auto;
     }
 
     h2 {
