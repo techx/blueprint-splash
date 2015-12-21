@@ -87,7 +87,7 @@ body,
 
     h2 {
       margin-top: 10px;
-      font-family: "Rokkitt", sans-serif;
+      font-family: "Rokkitt", serif;
       font-size: 250%;
     }
   }
@@ -103,24 +103,36 @@ body,
     margin: 0;
     padding: 20px 0 0 0;
     color: $color-tertiary;
-    font-size: 150%;
-    font-style: italic;
+    font-size: 140%;
   }
 }
 
 /* ABOUT */
 #about-section {
   color: $color-tertiary;
+  margin: 50px 0;
 
   .title {
     color: $color-tertiary;
-    font-size: 48px;
-    padding: 10px 0;
+    font-size: 40px;
+    padding-bottom: 20px;
   }
 
   .grid {
     .centered {
       text-align: center;
+      padding: 20px 0 10px 0;
+
+      h3 {
+        margin-bottom: 0;
+        font-size: 28px;
+        font-family: "Rokkitt", serif;
+      }
+
+      p {
+        font-family: "Rokkitt", serif;
+        font-size: 20px;
+      }
     }
   }
 }
@@ -128,13 +140,13 @@ body,
 /* FAQ */
 #faq-section {
   margin-top: 20px;
-  padding: 20px 0;
+  padding: 50px 0;
   background-color: $color-primary;
   border-top: 8px solid $color-secondary;
 
   .title {
     color: $color-white;
-    font-size: 48px;
+    font-size: 40px;
     padding: 10px 0;
   }
 
@@ -147,6 +159,11 @@ body,
     padding: 50px 30px 10px 30px;
     width: 300px;
     height: 300px;
+
+    h3 {
+      font-family: "Rokkitt", serif;
+      font-size: 20px;
+    }
 
     &.one {
       background-image: url(../images/stickywithtape.png);
@@ -162,9 +179,11 @@ body,
   }
 
   .clarification {
-    padding-top: 20px;
+    padding-top: 40px;
+    color: $color-white;
     a {
-      color: $color-tertiary;
+      color: $color-secondary;
+      font-weight: 500;
       &:hover {
         color: darken($color-tertiary, 10%);
       }
