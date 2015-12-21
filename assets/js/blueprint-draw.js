@@ -22,7 +22,7 @@ var BlueprintDrawboard = (function() {
     var DISP_UNSMOOTHED = false;
     var FIREBASE_URL = 'https://amber-inferno-6340.firebaseio.com/';
     var SAVE_EVERY = 60*1000; //how often to autosave the drawing
-
+    var BOTTOM_BORDER_HT = 8; //in px
 
     /****************
      * working vars */
@@ -63,7 +63,7 @@ var BlueprintDrawboard = (function() {
         canvas.height = DIMS[1];
         registerDynamicCanvas(canvas, function(dims) {
           var height = $('#header-section').outerHeight();
-          canvas.height = height;
+          canvas.height = height - BOTTOM_BORDER_HT;
           lastIdxDrawn = 0; //because it resized
           //only want this to trigger when the canvases are ready
           if (canvases.length === 2) render(lastIdxDrawn);
@@ -144,10 +144,10 @@ var BlueprintDrawboard = (function() {
       if (!changedSinceLastSave) {
         if (animated) {
           $('#save-bpdb-btn').addClass('animated tada');
-           window.setTimeout(function() {
+          window.setTimeout(function() {
             $('#save-bpdb-btn').removeClass('animated tada');
           }, 1000);
-         }
+        }
         return;
       }
 
