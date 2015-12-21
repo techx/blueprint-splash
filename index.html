@@ -24,59 +24,61 @@
 </head>
 
 <body>
-  <div id="header-section" class="ui vertical masthead center aligned segment">
-    <span id="bpdb-btn-cont" style="display: none">
-      <i id="clear-bpdb-btn" class="big trash outline icon bpdb-btn" title="Clear"></i>
-      <i id="undo-bpdb-btn" class="big undo icon bpdb-btn" title="Undo"></i>
-      <i id="save-bpdb-btn" class="big send outline icon bpdb-btn" title="Send"></i>
-      <div id="pending-bpdb-btn" class="ui inline inverted small loader"></div>
-    </span>
+  <div id="view">
+    <div id="header-section" class="ui vertical masthead center aligned segment">
+      <span id="bpdb-btn-cont" style="display: none">
+        <i id="clear-bpdb-btn" class="big trash outline icon bpdb-btn" title="Clear"></i>
+        <i id="undo-bpdb-btn" class="big undo icon bpdb-btn" title="Undo"></i>
+        <i id="save-bpdb-btn" class="big send outline icon bpdb-btn" title="Send"></i>
+        <div id="pending-bpdb-btn" class="ui inline inverted small loader"></div>
+      </span>
 
-    <div id="bpdb-bg-cont"><canvas id="bpdb-bg-canv"></canvas></div>
-    <div id="bpdb-stroke-cont"><canvas id="bpdb-stroke-canv"></canvas></div>
+      <div id="bpdb-bg-cont"><canvas id="bpdb-bg-canv"></canvas></div>
+      <div id="bpdb-stroke-cont"><canvas id="bpdb-stroke-canv"></canvas></div>
 
-    <div class="vspace"></div>
-    <img class="logo" src="assets/images/logo.svg"/>
-    <h1 id="header-title" class="ui inverted header title">blueprint</h1>
-    <h3 id="header-date" class="ui inverted header">February 27 & 28, 2016 @ MIT</h3>
-    <div id="header-image-container" class="ui centered grid container">
-      <div class="four wide column center aligned">
-        <div class="header-image" id="learn-svg"></div>
-        <script>
-        new Vivus('learn-svg', {
-          duration: 120, file: 'assets/images/learn.svg'
-        });
-        </script>
+      <div class="vspace"></div>
+      <img class="logo" src="assets/images/logo.svg"/>
+      <h1 id="header-title" class="ui inverted header title">blueprint</h1>
+      <h3 id="header-date" class="ui inverted header">February 27 & 28, 2016 @ MIT</h3>
+      <div id="header-image-container" class="ui centered grid container">
+        <div class="four wide column center aligned">
+          <div class="header-image" id="learn-svg"></div>
+          <script>
+          new Vivus('learn-svg', {
+            duration: 120, file: 'assets/images/learn.svg'
+          });
+          </script>
 
-        <h2 class="ui inverted header">learn</h2>
-      </div>
-      <div class="four wide column center aligned">
-        <div class="header-image" id="hack-svg"></div>
-        <script>
-        new Vivus('hack-svg', {
-          duration: 120, file: 'assets/images/hack.svg'
-        });
-        </script>
+          <h2 class="ui inverted header">learn</h2>
+        </div>
+        <div class="four wide column center aligned">
+          <div class="header-image" id="hack-svg"></div>
+          <script>
+          new Vivus('hack-svg', {
+            duration: 120, file: 'assets/images/hack.svg'
+          });
+          </script>
 
-        <h2 class="ui inverted header">hack</h2>
-      </div>
-      <div class="four wide column center aligned">
-        <div class="header-image" id="build-svg"></div>
-        <script>
-        new Vivus('build-svg', {
-          duration: 120, file: 'assets/images/build.svg'
-        });
-        </script>
+          <h2 class="ui inverted header">hack</h2>
+        </div>
+        <div class="four wide column center aligned">
+          <div class="header-image" id="build-svg"></div>
+          <script>
+          new Vivus('build-svg', {
+            duration: 120, file: 'assets/images/build.svg'
+          });
+          </script>
 
-        <h2 class="ui inverted header">build</h2>
+          <h2 class="ui inverted header">build</h2>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="blurb-section" class="ui container">
-    <div id="blurb" class="ui centered grid">
-      <div class="sixteen wide column center aligned">
-        <p>Welcome to <b>Blueprint</b>, a weekend-long learnathon and hackathon for local high school students held on MIT's campus. Learn from MIT students, make new friends, and build something cool!</p>
-        <a href="#" id="go-down"><i class="angle double down large icon"></i></a>
+    <div id="blurb-section" class="ui container">
+      <div id="blurb" class="ui centered grid">
+        <div class="sixteen wide column center aligned">
+          <p>Welcome to <b>Blueprint</b>, a weekend-long learnathon and hackathon for local high school students held on MIT's campus. Learn from MIT students, make new friends, and build something cool!</p>
+          <a href="#" id="go-down"><i class="angle double down large icon"></i></a>
+        </div>
       </div>
     </div>
   </div>
