@@ -87,15 +87,21 @@ body {
 /* BLURB */
 
 #blurb-section {
+  border: 0 !important;
+  padding: 0 !important;
+
   #blurb {
-    padding: 40px 0;
+    margin: 0;
+    padding: 20px 0 0 0;
     color: $color-tertiary;
     font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    font-style: italic;
   }
 }
 
-/* INFO */
-#info-section {
+/* ABOUT */
+#about-section {
   .menu .item {
     cursor: pointer;
   }
