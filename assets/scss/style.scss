@@ -27,12 +27,51 @@ body,
   max-height: 80px;
 }
 
+@keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+     -webkit-transform: rotate(-360deg);
+      transform: rotate(-360deg);
+    }
+}
+
+@keyframes sending {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    20% {
+      margin-top: -20px;
+    }
+    40% {
+      -webkit-transform: rotate(60deg) scale(0.75);
+      transform: rotate(60deg) scale(0.75);
+      margin-top: 0px;
+    }
+    100% {
+     -webkit-transform: rotate(0deg) scale(1);
+      transform: rotate(0deg) scale(1);
+      margin-top: -40px;
+      margin-left: 100px;
+      opacity: 0;
+    }
+}
+
 /* HEADER */
 
 #header-section {
   padding: 0 0 30px 0;
   border-bottom: 8px solid $color-secondary;
   cursor: url(/assets/images/pencil.png), auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   #bpdb-btn-cont {
     position: absolute;
@@ -41,6 +80,22 @@ body,
     left: 1em;
     color: $color-white;
     z-index: 2;
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+
+  .bpdb-btn:hover {
+    color: darken($color-white, 10%);
+  }
+
+  .spin {
+    -webkit-animation: spin 1s;
+    animation: spin 1s;
+  }
+
+  .fly {
+    -webkit-animation: sending 1.5s;
+    animation: sending 1.5s;
   }
 
   #bpdb-bg-cont, #bpdb-stroke-cont {

@@ -12,6 +12,7 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
   <link href="/bower_components/semantic/dist/semantic.min.css" rel="stylesheet">
+  <link href="/assets/css/animate.css" rel="stylesheet">
   <link href="/assets/css/style.css" rel="stylesheet">
 
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
@@ -25,9 +26,10 @@
 <body>
   <div id="header-section" class="ui vertical masthead center aligned segment">
     <span id="bpdb-btn-cont" style="display: none">
-      <i id="clear-bpdb-btn" class="big trash outline icon" title="Clear"></i>
-      <i id="undo-bpdb-btn" class="big undo icon" title="Undo"></i>
-      <i id="save-bpdb-btn" class="big send outline icon" title="Send"></i>
+      <i id="clear-bpdb-btn" class="big trash outline icon bpdb-btn" title="Clear"></i>
+      <i id="undo-bpdb-btn" class="big undo icon bpdb-btn" title="Undo"></i>
+      <i id="save-bpdb-btn" class="big send outline icon bpdb-btn" title="Send"></i>
+      <div id="pending-bpdb-btn" class="ui inline inverted small loader"></div>
     </span>
 
     <div id="bpdb-bg-cont"><canvas id="bpdb-bg-canv"></canvas></div>

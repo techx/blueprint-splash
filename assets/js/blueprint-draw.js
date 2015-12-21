@@ -22,7 +22,7 @@ var BlueprintDrawboard = (function() {
     var DISP_UNSMOOTHED = false;
     var FIREBASE_URL = 'https://amber-inferno-6340.firebaseio.com/';
     var SAVE_EVERY = 60*1000; //how often to autosave the drawing
-    
+
 
     /****************
      * working vars */
@@ -46,7 +46,7 @@ var BlueprintDrawboard = (function() {
       clickList = [], smoothedClicks = [];
       hasDrawnAlready =  false, ctrlDown = false;
       startIdxs = [];
-      lastIdxDrawn = 0; 
+      lastIdxDrawn = 0;
       oldDrawingId = false;
       changedSinceLastSave = false;
       canvases = [], ctxes = [];
@@ -75,7 +75,7 @@ var BlueprintDrawboard = (function() {
 
       //autosaving
       setInterval(function() {
-        saveDrawing(oldDrawingId);
+        saveDrawing(oldDrawingId, false);
       }, SAVE_EVERY);
 
       //event listeners
@@ -120,7 +120,7 @@ var BlueprintDrawboard = (function() {
       }); //ctrl z happens here
 
       $('#clear-bpdb-btn').click(function(e) {
-        saveDrawing(oldDrawingId);
+        saveDrawing(oldDrawingId, false);
         clearStrokes();
       }); //clear the drawing
 
@@ -129,19 +129,27 @@ var BlueprintDrawboard = (function() {
       }); //undo the last stroke
 
       $('#save-bpdb-btn').click(function(e) {
-        saveDrawing(oldDrawingId);
+        saveDrawing(oldDrawingId, true);
       }); //save the drawing
 
       window.addEventListener('beforeunload', function() {
-        saveDrawing(oldDrawingId);
+        saveDrawing(oldDrawingId, false);
       }); //save on unload
 
       //initial rendering
       render(lastIdxDrawn);
     }
 
-    function saveDrawing(drawingId) {
-      if (!changedSinceLastSave) return;
+    function saveDrawing(drawingId, animated) {
+      if (!changedSinceLastSave) {
+        if (animated) {
+          $('#save-bpdb-btn').addClass('animated tada');
+           window.setTimeout(function() {
+            $('#save-bpdb-btn').removeClass('animated tada');
+          }, 1000);
+         }
+        return;
+      }
 
       var userId = localStorage.getItem('userId');
       var pic = getCompressedDrawing();
@@ -158,6 +166,12 @@ var BlueprintDrawboard = (function() {
       }
       oldDrawingId = drawingId;
       changedSinceLastSave = false;
+      if (animated) {
+        $('#save-bpdb-btn').addClass('fly');
+        window.setTimeout(function() {
+          $('#save-bpdb-btn').removeClass('fly');
+        }, 1500);
+      }
       return drawingId;
     }
 
