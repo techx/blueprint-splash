@@ -36,7 +36,7 @@ body {
     position: absolute;
     width: 100%;
   }
-  
+
   #bpdb-bg-canv, #bpdb-stroke-cont {
     width: 100%;
   }
@@ -44,7 +44,7 @@ body {
   #bpdb-bg-cont {
     z-index: -1;
   }
-  
+
   #bpdb-stroke-cont {
     z-index: 1;
   }
@@ -71,7 +71,6 @@ body {
 
     .header-image object {
       width: 160px;
-      height: 160px;
       border-radius: 80px;
       margin: auto;
       cursor: url(/assets/images/pencil.png), auto;
@@ -124,5 +123,28 @@ body {
 
   #footer a {
     color: $color-secondary;
+  }
+}
+
+@media (max-width: 728px) {
+  #header-section {
+    #header-image-container {
+      .header-image object {
+        width: 100%;
+      }
+      h2 {
+        font-size: 200%;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  #header-section {
+    #header-image-container {
+      h2 {
+        font-size: 150%;
+      }
+    }
   }
 }
