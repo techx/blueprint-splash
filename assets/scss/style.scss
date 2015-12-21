@@ -10,6 +10,12 @@ body {
   padding: 0;
 }
 
+body,
+.ui.text.container,
+.ui.header {
+  font-family: "Roboto", sans-serif;
+}
+
 .vspace {
   height: 5vh;
   min-height: 20px;
@@ -63,7 +69,6 @@ body {
     margin: 0;
     font-size: 150%;
     font-weight: 400;
-    font-family: 'Roboto', sans-serif;
   }
 
   #header-image-container {
@@ -94,7 +99,6 @@ body {
     margin: 0;
     padding: 20px 0 0 0;
     color: $color-tertiary;
-    font-family: 'Roboto', sans-serif;
     font-size: 150%;
     font-style: italic;
   }
