@@ -1,6 +1,7 @@
 $color-primary: #0e95d4;
 $color-secondary: #ffd946;
 $color-tertiary: #063b54;
+$color-white: #fff;
 $footer-bg: #444;
 $footer-text: #eee;
 
@@ -14,6 +15,10 @@ body,
 .ui.text.container,
 .ui.header {
   font-family: "Roboto", sans-serif;
+}
+
+.title {
+  font-family: 'Rokkitt', serif !important;
 }
 
 .vspace {
@@ -34,7 +39,7 @@ body,
     cursor: pointer;
     top: 1em;
     left: 1em;
-    color: white;
+    color: $color-white;
     z-index: 2;
   }
 
@@ -62,7 +67,6 @@ body,
   #header-title {
     margin: 10px 0 0 0;
     font-size: 450%;
-    font-family: 'Rokkitt', serif;
   }
 
   #header-date {
@@ -111,8 +115,19 @@ body,
 /* FAQ */
 #faq-section {
   margin-top: 20px;
+  padding: 20px 0;
+  background-color: $color-primary;
+  border-top: 8px solid $color-secondary;
+
+  .title {
+    color: $color-white;
+    font-size: 300%;
+    padding: 10px 0;
+  }
+
   .card {
     box-shadow: none;
+    background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
@@ -134,13 +149,20 @@ body,
   }
 
   .clarification {
-    margin: 20px 0;
+    padding-top: 20px;
+    a {
+      color: $color-tertiary;
+      &:hover {
+        color: darken($color-tertiary, 10%);
+      }
+    }
   }
 }
 
 /* FOOTER */
 #footer-section {
   padding: 40px;
+  margin-top: 0;
   background-color: $color-tertiary;
   color: $footer-text;
   border-radius: 0;
@@ -156,10 +178,17 @@ body,
 
   a {
     color: $footer-text;
+    &:hover {
+      color: darken($footer-text, 10%);
+    }
   }
 
   #footer a {
     color: $color-secondary;
+
+    &:hover {
+      color: darken($color-secondary, 10%);
+    }
   }
 }
 
