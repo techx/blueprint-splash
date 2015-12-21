@@ -10,21 +10,21 @@
 var BlueprintDrawboard = (function() {
     /**********
      * config */
-    var CANV_SEL = '#blueprint-canv'; //the id of the canvas element
+    var CANV_SELS = ['#bpdb-bg-canv', '#bpdb-stroke-canv'];
     var DIMS = [500, 400]; //default canvas size
     var GRID_SIZE = 20; //in px
     var LINE_SIZE = 3; //width of the lines
     var COLORS = {
       background: '#0E95D4',
       grid: '#4EB5E6',
-      foreground: '#BFE8FB'
+      foreground: '#AAE1FA'
     }; //all of the colors to be used
     var DISP_UNSMOOTHED = false;
     var SAVE_EVERY = 60*1000;
 
     /****************
      * working vars */
-    var canvas, ctx;
+    var canvases, ctxes;
     var clickList, smoothedClicks, isDrawing;
     var hasDrawnAlready;
     var ctrlDown, startIdxs;
@@ -45,22 +45,28 @@ var BlueprintDrawboard = (function() {
       startIdxs = [];
       oldDrawingId = false;
       changedSinceLastSave = false;
+      canvases = [], ctxes = [];
 
       //get them an id
       if (localStorage.getItem('userId') === null) {
         localStorage.setItem('userId', getNewUserId());
       }
 
-      //set up the canvas
-      canvas = $(CANV_SEL)[0];
-      canvas.width = DIMS[0];
-      canvas.height = DIMS[1];
-      ctx = canvas.getContext('2d');
-      registerDynamicCanvas(canvas, function(dims) {
-        var height = $('#header-section').outerHeight();
-        canvas.height = height;
-        render();
+      //set up the canvases
+      CANV_SELS.forEach(function(CANV_SEL) {
+        var canvas = $(CANV_SEL)[0];
+        canvas.width = DIMS[0];
+        canvas.height = DIMS[1];
+        registerDynamicCanvas(canvas, function(dims) {
+          var height = $('#header-section').outerHeight();
+          canvas.height = height;
+          //only want this to trigger when the canvases are ready 
+          if (canvases.length === 2) render();
+        });
+        canvases.push(canvas);
+        ctxes.push(canvas.getContext('2d'));
       });
+      render();
 
       //autosaving
       setInterval(function() {
@@ -68,8 +74,7 @@ var BlueprintDrawboard = (function() {
       }, SAVE_EVERY);
 
       //event listeners
-      var headerCont = document.getElementById('header-section');
-      headerCont.addEventListener('mousedown', function(e) {
+      canvases[1].addEventListener('mousedown', function(e) {
         e.preventDefault();
         isDrawing = true;
         if (!hasDrawnAlready) {
@@ -80,42 +85,50 @@ var BlueprintDrawboard = (function() {
         startIdxs.push(smoothedClicks.length);
         appendClickToClicklist(e.pageX, e.pageY, false);
         render();
-      });
-      headerCont.addEventListener('mousemove', function(e) {
+      }); //init drawing on mouse down
+
+      canvases[1].addEventListener('mousemove', function(e) {
         if (isDrawing) {
           appendClickToClicklist(e.pageX, e.pageY, true);
           render();
         }
-      });
-      headerCont.addEventListener('mouseup', function(e) {
+      }); //continue drawing on mouse move
+
+      canvases[1].addEventListener('mouseup', function(e) {
+        if (isDrawing === false) return;
         isDrawing = false;
         smoothedClicks.push([e.pageX, e.pageY, true]);
         render();
-      });
+      }); //stop drawing on mouse up
+
       document.addEventListener('keydown', function(e) {
         if (e.keyCode === 17) ctrlDown = true;
         else if (ctrlDown && e.keyCode === 90) {
           //selectively clear
           if (startIdxs.length > 0) clearStrokes(startIdxs.pop());
         }
-      });
+      }); //deal with ctrl stuff
+
       document.addEventListener('keyup', function(e) {
         if (e.keyCode === 17) {
           setTimeout(function() { ctrlDown = false; }, 100);
         }
-      });
+      }); //ctrl z happens here
+
       $('#clear-bpdb-btn').click(function(e) {
         saveDrawing(oldDrawingId);
         clearStrokes(); 
-      });
+      }); //clear the drawing
+
       $('#save-bpdb-btn').click(function(e) {
         saveDrawing(oldDrawingId);
         //mousedown is fired on the header, adding a stroke 
         clearStrokes(startIdxs.pop()); //remove it
-      });
+      }); //save the drawing
+      
       window.addEventListener('beforeunload', function() {
         saveDrawing(oldDrawingId);  
-      });
+      }); //save on unload
 
       //initial rendering
       render();
@@ -144,22 +157,22 @@ var BlueprintDrawboard = (function() {
 
     function drawStrokes(points, color) {
       //draw the user's strokes
-      ctx.strokeStyle = color;
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
-      ctx.lineWidth = LINE_SIZE;
+      ctxes[1].strokeStyle = color;
+      ctxes[1].lineJoin = 'round';
+      ctxes[1].lineCap = 'round';
+      ctxes[1].lineWidth = LINE_SIZE;
 
       //plot them
       for (var i = 0; i < points.length; i++) {
-        ctx.beginPath();
+        ctxes[1].beginPath();
         if (points[i][2] && i !== 0) {
-          ctx.moveTo(points[i-1][0], points[i-1][1]);
+          ctxes[1].moveTo(points[i-1][0], points[i-1][1]);
         } else {
-          ctx.moveTo(points[i][0], points[i][1]);
+          ctxes[1].moveTo(points[i][0], points[i][1]);
         }
-        ctx.lineTo(points[i][0], points[i][1]);
-        ctx.closePath();
-        ctx.stroke();
+        ctxes[1].lineTo(points[i][0], points[i][1]);
+        ctxes[1].closePath();
+        ctxes[1].stroke();
       }
     }
 
@@ -177,16 +190,19 @@ var BlueprintDrawboard = (function() {
 
     function render() {
       //paint the background
-      ctx.fillStyle = COLORS.background;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctxes[0].fillStyle = COLORS.background;
+      ctxes[0].fillRect(0, 0, canvases[0].width, canvases[0].height);
+
+      //clear the strokes
+      ctxes[1].clearRect(0, 0, canvases[1].width, canvases[1].height);
 
       //draw the grid lines
-      ctx.fillStyle = COLORS.grid;
-      for (var xi = 0; xi < canvas.width; xi+=GRID_SIZE) {
-        ctx.fillRect(xi, 0, 1, canvas.height);
+      ctxes[0].fillStyle = COLORS.grid;
+      for (var xi = 0; xi < canvases[0].width; xi+=GRID_SIZE) {
+        ctxes[0].fillRect(xi, 0, 1, canvases[0].height);
       }
-      for (var yi = 0; yi < canvas.height; yi+=GRID_SIZE) {
-        ctx.fillRect(0, yi, canvas.width, 1);
+      for (var yi = 0; yi < canvases[0].height; yi+=GRID_SIZE) {
+        ctxes[0].fillRect(0, yi, canvases[0].width, 1);
       }
 
       //plot the smoothed points
