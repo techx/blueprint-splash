@@ -4,7 +4,7 @@
 | @author HackMIT  |
 | @version 0.1     |
 | @date 2015/12/06 |
-| @edit 2015/12/19 |
+| @edit 2015/12/21 |
 \******************/
 
 var BlueprintDrawboard = (function() {
@@ -17,10 +17,12 @@ var BlueprintDrawboard = (function() {
     var COLORS = {
       background: '#0E95D4',
       grid: '#4EB5E6',
-      foreground: '#FFF'
+      foreground: '#FFFFFF'
     }; //all of the colors to be used
     var DISP_UNSMOOTHED = false;
-    var SAVE_EVERY = 60*1000;
+    var FIREBASE_URL = 'https://amber-inferno-6340.firebaseio.com/';
+    var SAVE_EVERY = 60*1000; //how often to autosave the drawing
+    
 
     /****************
      * working vars */
@@ -28,6 +30,7 @@ var BlueprintDrawboard = (function() {
     var clickList, smoothedClicks, isDrawing;
     var hasDrawnAlready;
     var ctrlDown, startIdxs;
+    var lastIdxDrawn;
     var users, drawings;
     var oldDrawingId;
     var changedSinceLastSave;
@@ -35,7 +38,7 @@ var BlueprintDrawboard = (function() {
     /******************
      * work functions */
     function initBlueprintDrawboard() {
-      var ref = new Firebase('https://amber-inferno-6340.firebaseio.com/');
+      var ref = new Firebase(FIREBASE_URL);
       users = ref.child('users');
       drawings = ref.child('drawings');
 
@@ -43,6 +46,7 @@ var BlueprintDrawboard = (function() {
       clickList = [], smoothedClicks = [];
       hasDrawnAlready =  false, ctrlDown = false;
       startIdxs = [];
+      lastIdxDrawn = 0; 
       oldDrawingId = false;
       changedSinceLastSave = false;
       canvases = [], ctxes = [];
@@ -60,13 +64,14 @@ var BlueprintDrawboard = (function() {
         registerDynamicCanvas(canvas, function(dims) {
           var height = $('#header-section').outerHeight();
           canvas.height = height;
+          lastIdxDrawn = 0; //because it resized
           //only want this to trigger when the canvases are ready
-          if (canvases.length === 2) render();
+          if (canvases.length === 2) render(lastIdxDrawn);
         });
         canvases.push(canvas);
         ctxes.push(canvas.getContext('2d'));
       });
-      render();
+      render(lastIdxDrawn);
 
       //autosaving
       setInterval(function() {
@@ -83,13 +88,13 @@ var BlueprintDrawboard = (function() {
         }
         startIdxs.push(smoothedClicks.length);
         appendClickToClicklist(e.pageX, e.pageY, false);
-        render();
+        render(lastIdxDrawn);
       }); //init drawing on mouse down
 
       canvases[1].addEventListener('mousemove', function(e) {
         if (isDrawing) {
           appendClickToClicklist(e.pageX, e.pageY, true);
-          render();
+          render(lastIdxDrawn);
         }
       }); //continue drawing on mouse move
 
@@ -97,7 +102,7 @@ var BlueprintDrawboard = (function() {
         if (isDrawing === false) return;
         isDrawing = false;
         smoothedClicks.push([e.pageX, e.pageY, true]);
-        render();
+        render(lastIdxDrawn);
       }); //stop drawing on mouse up
 
       document.addEventListener('keydown', function(e) {
@@ -132,7 +137,7 @@ var BlueprintDrawboard = (function() {
       }); //save on unload
 
       //initial rendering
-      render();
+      render(lastIdxDrawn);
     }
 
     function saveDrawing(drawingId) {
@@ -156,7 +161,7 @@ var BlueprintDrawboard = (function() {
       return drawingId;
     }
 
-    function drawStrokes(points, color) {
+    function drawStrokes(points, color, startIdx) {
       //draw the user's strokes
       ctxes[1].strokeStyle = color;
       ctxes[1].lineJoin = 'round';
@@ -164,7 +169,7 @@ var BlueprintDrawboard = (function() {
       ctxes[1].lineWidth = LINE_SIZE;
 
       //plot them
-      for (var i = 0; i < points.length; i++) {
+      for (var i = startIdx; i < points.length; i++) {
         ctxes[1].beginPath();
         if (points[i][2] && i !== 0) {
           ctxes[1].moveTo(points[i-1][0], points[i-1][1]);
@@ -175,6 +180,7 @@ var BlueprintDrawboard = (function() {
         ctxes[1].closePath();
         ctxes[1].stroke();
       }
+      lastIdxDrawn = points.length;
     }
 
     function clearStrokes(startIdx, stopIdx) {
@@ -183,19 +189,22 @@ var BlueprintDrawboard = (function() {
       startIdx = startIdx || 0;
       stopIdx = stopIdx || smoothedClicks.length;
 
+      //clear the canvas
+      ctxes[1].clearRect(0, 0, canvases[1].width, canvases[1].height);
+
       //delete them all
       clickList.splice(startIdx, stopIdx);
       smoothedClicks.splice(startIdx, stopIdx);
-      render();
+      lastIdxDrawn = 0; //redraw everything
+      render(lastIdxDrawn);
     }
 
-    function render() {
+    function render(startIdx) {
+      startIdx = startIdx || 0;
+
       //paint the background
       ctxes[0].fillStyle = COLORS.background;
       ctxes[0].fillRect(0, 0, canvases[0].width, canvases[0].height);
-
-      //clear the strokes
-      ctxes[1].clearRect(0, 0, canvases[1].width, canvases[1].height);
 
       //draw the grid lines
       ctxes[0].fillStyle = COLORS.grid;
@@ -208,9 +217,9 @@ var BlueprintDrawboard = (function() {
 
       //plot the smoothed points
       if (DISP_UNSMOOTHED) {
-        drawStrokes(clickList, 'red');
+        drawStrokes(clickList, 'red', startIdx);
       }
-      drawStrokes(smoothedClicks, COLORS.foreground);
+      drawStrokes(smoothedClicks, COLORS.foreground, startIdx);
     }
 
     /********************
