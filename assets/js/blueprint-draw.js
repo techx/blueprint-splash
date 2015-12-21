@@ -79,8 +79,7 @@ var BlueprintDrawboard = (function() {
         isDrawing = true;
         if (!hasDrawnAlready) {
           hasDrawnAlready = true;
-          $('#save-bpdb-btn')[0].style.display = 'inline';
-          $('#clear-bpdb-btn')[0].style.display = 'inline';
+          $('#bpdb-btn-cont')[0].style.display = 'inline';
         }
         startIdxs.push(smoothedClicks.length);
         appendClickToClicklist(e.pageX, e.pageY, false);
@@ -120,10 +119,12 @@ var BlueprintDrawboard = (function() {
         clearStrokes(); 
       }); //clear the drawing
 
+      $('#undo-bpdb-btn').click(function(e) {
+        if (startIdxs.length > 0) clearStrokes(startIdxs.pop());
+      }); //undo the last stroke
+
       $('#save-bpdb-btn').click(function(e) {
         saveDrawing(oldDrawingId);
-        //mousedown is fired on the header, adding a stroke 
-        clearStrokes(startIdxs.pop()); //remove it
       }); //save the drawing
       
       window.addEventListener('beforeunload', function() {

@@ -23,17 +23,12 @@ body {
   border-bottom: 8px solid $color-secondary;
   cursor: url(/assets/images/pencil.png), auto;
 
-  #clear-bpdb-btn {
+  #bpdb-btn-cont {
     position: absolute;
     cursor: pointer;
-    left: 0;
-    z-index: 2;
-  }
-
-  #save-bpdb-btn {
-    position: absolute;
-    cursor: pointer;
-    right: 0;
+    top: 1em;
+    left: 1em;
+    color: white;
     z-index: 2;
   }
 
