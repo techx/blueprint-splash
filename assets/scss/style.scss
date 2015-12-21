@@ -129,6 +129,10 @@ body {
 @media (max-width: 728px) {
   #header-section {
     #header-image-container {
+      .column {
+        padding-left: 0.5em !important;
+        padding-right: 0.5em !important;
+      }
       .header-image object {
         width: 100%;
       }
