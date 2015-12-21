@@ -17,7 +17,7 @@ var BlueprintDrawboard = (function() {
     var COLORS = {
       background: '#0E95D4',
       grid: '#4EB5E6',
-      foreground: '#AAE1FA'
+      foreground: '#FFF'
     }; //all of the colors to be used
     var DISP_UNSMOOTHED = false;
     var SAVE_EVERY = 60*1000;
@@ -60,7 +60,7 @@ var BlueprintDrawboard = (function() {
         registerDynamicCanvas(canvas, function(dims) {
           var height = $('#header-section').outerHeight();
           canvas.height = height;
-          //only want this to trigger when the canvases are ready 
+          //only want this to trigger when the canvases are ready
           if (canvases.length === 2) render();
         });
         canvases.push(canvas);
@@ -70,7 +70,7 @@ var BlueprintDrawboard = (function() {
 
       //autosaving
       setInterval(function() {
-        saveDrawing(oldDrawingId); 
+        saveDrawing(oldDrawingId);
       }, SAVE_EVERY);
 
       //event listeners
@@ -116,7 +116,7 @@ var BlueprintDrawboard = (function() {
 
       $('#clear-bpdb-btn').click(function(e) {
         saveDrawing(oldDrawingId);
-        clearStrokes(); 
+        clearStrokes();
       }); //clear the drawing
 
       $('#undo-bpdb-btn').click(function(e) {
@@ -126,9 +126,9 @@ var BlueprintDrawboard = (function() {
       $('#save-bpdb-btn').click(function(e) {
         saveDrawing(oldDrawingId);
       }); //save the drawing
-      
+
       window.addEventListener('beforeunload', function() {
-        saveDrawing(oldDrawingId);  
+        saveDrawing(oldDrawingId);
       }); //save on unload
 
       //initial rendering
@@ -140,7 +140,7 @@ var BlueprintDrawboard = (function() {
 
       var userId = localStorage.getItem('userId');
       var pic = getCompressedDrawing();
-      pic.userId = userId; 
+      pic.userId = userId;
       pic.dateCreated = +new Date();
       if (!drawingId) {
         drawingId = drawings.push(pic).path.w[1];
@@ -216,20 +216,20 @@ var BlueprintDrawboard = (function() {
     /********************
      * helper functions */
     function getNewUserId() {
-      return Math.random().toString(36).substring(2); 
+      return Math.random().toString(36).substring(2);
     }
 
     function getCompressedDrawing() {
       var xs = smoothedClicks.map(function(click) {
-        return Math.round(click[0]);  
-      }); //x coords of all the clicks 
+        return Math.round(click[0]);
+      }); //x coords of all the clicks
       var ys = smoothedClicks.map(function(click) {
-        return Math.round(click[1]);  
-      }); //y coords of all the clicks 
+        return Math.round(click[1]);
+      }); //y coords of all the clicks
       var ds = smoothedClicks.map(function(click) {
-        return click[2] ? '1' : '0';  
-      }); //booleans communicating whether or not it's conn to prev 
-      return {xs: xs, ys: ys, ds: ds}; 
+        return click[2] ? '1' : '0';
+      }); //booleans communicating whether or not it's conn to prev
+      return {xs: xs, ys: ys, ds: ds};
     }
 
     function registerDynamicCanvas(canvas, every) {

@@ -110,6 +110,19 @@ body,
 
 /* ABOUT */
 #about-section {
+  color: $color-tertiary;
+
+  .title {
+    color: $color-tertiary;
+    font-size: 48px;
+    padding: 10px 0;
+  }
+
+  .grid {
+    .centered {
+      text-align: center;
+    }
+  }
 }
 
 /* FAQ */
@@ -121,7 +134,7 @@ body,
 
   .title {
     color: $color-white;
-    font-size: 300%;
+    font-size: 48px;
     padding: 10px 0;
   }
 
