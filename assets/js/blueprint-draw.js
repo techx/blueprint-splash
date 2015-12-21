@@ -20,6 +20,7 @@ var BlueprintDrawboard = (function() {
       foreground: '#BFE8FB'
     }; //all of the colors to be used
     var DISP_UNSMOOTHED = false;
+    var SAVE_EVERY = 60*1000;
 
     /****************
      * working vars */
@@ -27,14 +28,28 @@ var BlueprintDrawboard = (function() {
     var clickList, smoothedClicks, isDrawing;
     var hasDrawnAlready;
     var ctrlDown, startIdxs;
+    var users, drawings;
+    var oldDrawingId;
+    var changedSinceLastSave;
 
     /******************
      * work functions */
     function initBlueprintDrawboard() {
+      var ref = new Firebase('https://amber-inferno-6340.firebaseio.com/');
+      users = ref.child('users');
+      drawings = ref.child('drawings');
+
       //init variables
       clickList = [], smoothedClicks = [];
       hasDrawnAlready =  false, ctrlDown = false;
       startIdxs = [];
+      oldDrawingId = false;
+      changedSinceLastSave = false;
+
+      //get them an id
+      if (localStorage.getItem('userId') === null) {
+        localStorage.setItem('userId', getNewUserId());
+      }
 
       //set up the canvas
       canvas = $(CANV_SEL)[0];
@@ -47,13 +62,19 @@ var BlueprintDrawboard = (function() {
         render();
       });
 
-      //event listeneros
+      //autosaving
+      setInterval(function() {
+        saveDrawing(oldDrawingId); 
+      }, SAVE_EVERY);
+
+      //event listeners
       var headerCont = document.getElementById('header-section');
       headerCont.addEventListener('mousedown', function(e) {
         e.preventDefault();
         isDrawing = true;
         if (!hasDrawnAlready) {
           hasDrawnAlready = true;
+          $('#save-bpdb-btn')[0].style.display = 'inline';
           $('#clear-bpdb-btn')[0].style.display = 'inline';
         }
         startIdxs.push(smoothedClicks.length);
@@ -84,11 +105,41 @@ var BlueprintDrawboard = (function() {
         }
       });
       $('#clear-bpdb-btn').click(function(e) {
+        saveDrawing(oldDrawingId);
         clearStrokes(); 
+      });
+      $('#save-bpdb-btn').click(function(e) {
+        saveDrawing(oldDrawingId);
+        //mousedown is fired on the header, adding a stroke 
+        clearStrokes(startIdxs.pop()); //remove it
+      });
+      window.addEventListener('beforeunload', function() {
+        saveDrawing(oldDrawingId);  
       });
 
       //initial rendering
       render();
+    }
+
+    function saveDrawing(drawingId) {
+      if (!changedSinceLastSave) return;
+
+      var userId = localStorage.getItem('userId');
+      var pic = getCompressedDrawing();
+      pic.userId = userId; 
+      pic.dateCreated = +new Date();
+      if (!drawingId) {
+        drawingId = drawings.push(pic).path.w[1];
+        //update the user
+        var user = users.child(userId);
+        user.push(drawingId);
+      } else {
+        var drawing = drawings.child(drawingId);
+        drawing.set(pic);
+      }
+      oldDrawingId = drawingId;
+      changedSinceLastSave = false;
+      return drawingId;
     }
 
     function drawStrokes(points, color) {
@@ -113,6 +164,8 @@ var BlueprintDrawboard = (function() {
     }
 
     function clearStrokes(startIdx, stopIdx) {
+      if (arguments.length === 0) oldDrawingId = false;
+
       startIdx = startIdx || 0;
       stopIdx = stopIdx || smoothedClicks.length;
 
@@ -145,6 +198,10 @@ var BlueprintDrawboard = (function() {
 
     /********************
      * helper functions */
+    function getNewUserId() {
+      return Math.random().toString(36).substring(2); 
+    }
+
     function getCompressedDrawing() {
       var xs = smoothedClicks.map(function(click) {
         return Math.round(click[0]);  
@@ -155,7 +212,7 @@ var BlueprintDrawboard = (function() {
       var ds = smoothedClicks.map(function(click) {
         return click[2] ? '1' : '0';  
       }); //booleans communicating whether or not it's conn to prev 
-      return JSON.stringify({xs: xs, ys: ys, ds: ds}); 
+      return {xs: xs, ys: ys, ds: ds}; 
     }
 
     function registerDynamicCanvas(canvas, every) {
@@ -195,6 +252,7 @@ var BlueprintDrawboard = (function() {
 
       //append the current click to the clicks array
       clickList.push(currClick);
+      changedSinceLastSave = true;
     }
 
     return {

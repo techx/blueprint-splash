@@ -7,12 +7,14 @@
   <meta name="description" content="Welcome to Blueprint: MIT's high school hackathon!">
   <meta name=viewport content="width=device-width, initial-scale=1.0">
 
+  <link href="/assets/images/favicon.png" rel="icon" type="image/png">
   <link href='https://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
   <link href="/bower_components/semantic/dist/semantic.min.css" rel="stylesheet">
   <link href="/assets/css/style.css" rel="stylesheet">
 
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script> 
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="/bower_components/vivus/dist/vivus.min.js"></script>
   <script src="/bower_components/semantic/dist/semantic.min.js"></script>
@@ -25,6 +27,10 @@
     <span id="clear-bpdb-btn" style="display: none">
       <b style="color: white">X</b>
     </span>
+    <span id="save-bpdb-btn" style="display: none">
+      <b style="color: white">S</b>
+    </span>
+
     <div id="blueprint-canv-cont">
       <canvas id="blueprint-canv"></canvas>
     </div>
