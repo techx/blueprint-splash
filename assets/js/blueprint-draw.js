@@ -31,13 +31,19 @@ var BlueprintDrawboard = (function() {
     /******************
      * work functions */
     function initBlueprintDrawboard() {
-      var ref = new Firebase('https://sn23lyoaqq2.firebaseio-demo.com/');
+      var ref = new Firebase('https://amber-inferno-6340.firebaseio.com/');
+      var users = ref.child('users');
       var drawings = ref.child('drawings');
 
       //init variables
       clickList = [], smoothedClicks = [];
       hasDrawnAlready =  false, ctrlDown = false;
       startIdxs = [];
+
+      //get them an id
+      if (localStorage.getItem('userId') === null) {
+        localStorage.setItem('userId', getNewUserId());
+      }
 
       //set up the canvas
       canvas = $(CANV_SEL)[0];
@@ -92,10 +98,17 @@ var BlueprintDrawboard = (function() {
       });
       $('#save-bpdb-btn').click(function(e) {
         //saves drawings
-        drawings.push(getCompressedDrawing());
+        var userId = localStorage.getItem('userId');
+        var pic = getCompressedDrawing();
+        pic.userId = userId; 
+        var drawingId = drawings.push(pic).path.w[1];
+
+        //update the user
+        var user = users.child(userId);
+        user.push(drawingId);
         
         //mousedown is fired on the header, adding a stroke 
-        clearStrokes(clickList.length-1); //remove it
+        clearStrokes(startIdxs.pop()); //remove it
       });
 
       //initial rendering
@@ -156,6 +169,10 @@ var BlueprintDrawboard = (function() {
 
     /********************
      * helper functions */
+    function getNewUserId() {
+      return Math.random().toString(36).substring(2); 
+    }
+
     function getCompressedDrawing() {
       var xs = smoothedClicks.map(function(click) {
         return Math.round(click[0]);  
