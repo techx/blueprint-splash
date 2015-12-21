@@ -1,7 +1,7 @@
 $color-primary: #0e95d4;
 $color-secondary: #ffd946;
 $color-tertiary: #063b54;
-$color-white: #fff;
+$color-white: #ffffff;
 $footer-bg: #444;
 $footer-text: #eee;
 
@@ -43,25 +43,32 @@ body,
 }
 
 @keyframes sending {
-    0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    20% {
-      margin-top: -20px;
-    }
-    40% {
-      -webkit-transform: rotate(60deg) scale(0.75);
-      transform: rotate(60deg) scale(0.75);
-      margin-top: 0px;
-    }
-    100% {
-     -webkit-transform: rotate(0deg) scale(1);
-      transform: rotate(0deg) scale(1);
-      margin-top: -40px;
-      margin-left: 100px;
-      opacity: 0;
-    }
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  20% {
+    margin-top: -20px;
+  }
+  40% {
+    -webkit-transform: rotate(60deg) scale(0.75);
+    transform: rotate(60deg) scale(0.75);
+    margin-top: 0px;
+  }
+  100% {
+   -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    margin-top: -40px;
+    margin-left: 100px;
+    opacity: 0;
+  }
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* HEADER */
