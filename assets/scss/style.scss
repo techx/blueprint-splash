@@ -102,8 +102,35 @@ body {
 
 /* ABOUT */
 #about-section {
-  .menu .item {
-    cursor: pointer;
+}
+
+/* FAQ */
+#faq-section {
+  margin-top: 20px;
+  .card {
+    box-shadow: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding: 50px 30px 10px 30px;
+    width: 300px;
+    height: 300px;
+
+    &.one {
+      background-image: url(../images/stickywithtape.png);
+    }
+
+    &.two {
+      background-image: url(../images/stickywithtape2.png);
+    }
+
+    &.three {
+      background-image: url(../images/stickywithtape3.png);
+    }
+  }
+
+  .clarification {
+    margin: 20px 0;
   }
 }
 
