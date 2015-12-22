@@ -21,7 +21,6 @@ var BlueprintDrawboard = (function() {
     }; //all of the colors to be used
     var DISP_UNSMOOTHED = false;
     var FIREBASE_URL = 'https://amber-inferno-6340.firebaseio.com/';
-    var SAVE_EVERY = 60*1000; //how often to autosave the drawing
     var BOTTOM_BORDER_HT = 8; //in px
 
     /****************
@@ -74,11 +73,6 @@ var BlueprintDrawboard = (function() {
       });
       render(lastIdxDrawn);
 
-      //autosaving
-      setInterval(function() {
-        saveDrawing(oldDrawingId, false);
-      }, SAVE_EVERY);
-
       //event listeners
       canvases[1].addEventListener('mousedown', function(e) {
         e.preventDefault();
@@ -121,7 +115,6 @@ var BlueprintDrawboard = (function() {
       }); //ctrl z happens here
 
       $('#clear-bpdb-btn').click(function(e) {
-        saveDrawing(oldDrawingId, false);
         clearStrokes();
       }); //clear the drawing
 
@@ -132,10 +125,6 @@ var BlueprintDrawboard = (function() {
       $('#save-bpdb-btn').click(function(e) {
         saveDrawing(oldDrawingId, true);
       }); //save the drawing
-
-      window.addEventListener('beforeunload', function() {
-        saveDrawing(oldDrawingId, false);
-      }); //save on unload
 
       //initial rendering
       render(lastIdxDrawn);
