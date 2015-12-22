@@ -21,7 +21,7 @@ var BlueprintDrawboard = (function() {
       foreground: '#FFFFFF'
     }; //all of the colors to be used
     var DISP_UNSMOOTHED = false;
-    var FIREBASE_URL = 'https://amber-inferno-6340.firebaseio.com/';
+    var FIREBASE_URL = 'https://luminous-heat-4368.firebaseio.com/';
     var BOTTOM_BORDER_HT = 8; //in px
 
     /****************
