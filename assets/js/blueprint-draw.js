@@ -45,6 +45,7 @@ var BlueprintDrawboard = (function() {
       //init variables
       clickList = [], smoothedClicks = [];
       hasDrawnAlready =  false, ctrlDown = false;
+      isDrawing = false;
       startIdxs = [];
       lastIdxDrawn = 0;
       oldDrawingId = false;
@@ -286,7 +287,9 @@ var BlueprintDrawboard = (function() {
             clickList[clickList.length-1][2]
           ]);
         } else {
-          smoothedClicks.push(clickList[clickList.length-1]);
+          var modifiedClick = clickList[clickList.length-1].slice(0);
+          modifiedClick[2] = false;
+          smoothedClicks.push(modifiedClick);
         }
       }
 
