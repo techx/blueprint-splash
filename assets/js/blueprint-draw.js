@@ -250,9 +250,13 @@ var BlueprintDrawboard = (function() {
       var ys = smoothedClicks.map(function(click) {
         return Math.round(click[1]);
       }); //y coords of all the clicks
-      var ds = smoothedClicks.map(function(click) {
-        return click[2] ? '1' : '0';
-      }); //booleans communicating whether or not it's conn to prev
+      var ds = smoothedClicks.map(function(click, idx) {
+        return click.concat(idx); //append each click's index
+      }).filter(function(click) {
+        return !click[2]; //only get the non-continuous ones
+      }).map(function(click) {
+        return click[3]; //get the continuity boolean
+      }); //result is the indices of clicks not connected to previous clicks 
       return {xs: xs, ys: ys, ds: ds};
     }
 
