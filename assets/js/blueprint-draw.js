@@ -14,6 +14,7 @@ var BlueprintDrawboard = (function() {
     var DIMS = [500, 400]; //default canvas size
     var GRID_SIZE = 20; //in px
     var LINE_SIZE = 3; //width of the lines
+    var MIN_DIST = 8; //minimum separation between waypoints
     var COLORS = {
       background: '#0E95D4',
       grid: '#4EB5E6',
@@ -233,13 +234,35 @@ var BlueprintDrawboard = (function() {
     }
 
     function getCompressedDrawing() {
-      var xs = smoothedClicks.map(function(click) {
+      //prune the list of excessively close clicks
+      var prunedClicks = [];
+      for (var ai = 0; ai < smoothedClicks.length; ai++) {
+        //add the first click no matter what
+        if (ai === 0) {
+          prunedClicks.push(smoothedClicks[ai]);
+          continue;
+        }
+
+        //otherwise add it if it's far enough way or if it starts a stroke
+        var currClick = smoothedClicks[ai];
+        var prev = prunedClicks[prunedClicks.length-1];
+        var dist = Math.sqrt(
+          Math.pow(currClick[0] - prev[0], 2) +
+          Math.pow(currClick[1] - prev[1], 2) 
+        );
+        if (dist > MIN_DIST || !currClick[2]) {
+          prunedClicks.push(currClick);
+        }
+      }
+
+      //go through and gather all the values
+      var xs = prunedClicks.map(function(click) {
         return Math.round(click[0]);
       }); //x coords of all the clicks
-      var ys = smoothedClicks.map(function(click) {
+      var ys = prunedClicks.map(function(click) {
         return Math.round(click[1]);
       }); //y coords of all the clicks
-      var ds = smoothedClicks.map(function(click, idx) {
+      var ds = prunedClicks.map(function(click, idx) {
         return click.concat(idx); //append each click's index
       }).filter(function(click) {
         return !click[2]; //only get the non-continuous ones
