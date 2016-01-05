@@ -85,6 +85,14 @@ body,
   }
 }
 
+::selection {
+  background: lighten($color-secondary, 25%);
+}
+
+::-moz-selection {
+  background: lighten($color-secondary, 25%);
+}
+
 .unselectable {
   -webkit-user-select: none;
   -moz-user-select: none;
