@@ -27,6 +27,27 @@ body,
   max-height: 80px;
 }
 
+.button {
+  display: inline-block;
+  margin: 15px auto;
+  background-color: $color-primary;
+  padding: 0.8em 3em;
+  color: $color-white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: $color-tertiary;
+  color: $color-white;
+}
+
 #view {
   min-height: 100vh;
 }
@@ -62,6 +83,14 @@ body,
     margin-left: 100px;
     opacity: 0;
   }
+}
+
+::selection {
+  background: lighten($color-secondary, 25%);
+}
+
+::-moz-selection {
+  background: lighten($color-secondary, 25%);
 }
 
 .unselectable {
