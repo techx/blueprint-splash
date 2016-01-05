@@ -30,9 +30,9 @@ body,
 .button {
   display: inline-block;
   margin: 15px auto;
-  background-color: $color-secondary;
+  background-color: $color-primary;
   padding: 0.8em 3em;
-  color: $color-primary;
+  color: $color-white;
   font-weight: bold;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -44,7 +44,7 @@ body,
 }
 
 .button:hover {
-  background-color: $color-primary;
+  background-color: $color-tertiary;
   color: $color-white;
 }
 
