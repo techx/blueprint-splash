@@ -1,9 +1,11 @@
-$color-primary: #0e95d4;
-$color-secondary: #ffd946;
-$color-tertiary: #063b54;
+$color-primary: #217acc;
+$color-secondary: #11afff;
+$color-tertiary: #6dcc36;
+$color-quaternary: #fde74c;
 $color-white: #ffffff;
-$footer-bg: #444;
-$footer-text: #eee;
+$color-black: #202020;
+$footer-bg: #11afff;
+$footer-text: #ffffff;
 
 /* GENERAL */
 body {
@@ -172,7 +174,7 @@ body,
 
   #header-image-container {
     padding-top: 40px;
-
+    
     .header-image object {
       width: 160px;
       border-radius: 80px;
