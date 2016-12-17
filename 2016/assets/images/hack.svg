@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 324 324" style="enable-background:new 0 0 324 324;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#0E95D4;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;}
+	.st2{display:none;}
+	.st3{display:inline;}
+	.st4{fill:#FFFFFF;}
+	.st5{fill:none;stroke:#FFD946;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
+	.st7{fill:#0E95D4;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:9;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<g id="Background">
+	<circle class="st0" cx="162" cy="162" r="160"/>
+</g>
+<g id="Screen_2">
+	<g id="window_1_">
+		<path class="st1" d="M235,225H65c-2.8,0-5-2.2-5-5V80c0-2.8,2.2-5,5-5h170c2.8,0,5,2.2,5,5v140C240,222.8,237.8,225,235,225z"/>
+		<path class="st1" d="M240,105H60V80c0-2.8,2.2-5,5-5h170c2.8,0,5,2.2,5,5V105z"/>
+		<g class="st2">
+			<g class="st3">
+				<path class="st4" d="M126.4,94.5c27.8,0,55.6,0,83.5,0c3.9,0,7.9,0,11.8,0c5.8,0,5.8-9,0-9c-27.8,0-55.6,0-83.5,0
+					c-3.9,0-7.9,0-11.8,0C120.6,85.5,120.6,94.5,126.4,94.5L126.4,94.5z"/>
+			</g>
+		</g>
+		<line class="st5" x1="75" y1="90" x2="75" y2="90"/>
+		<line class="st6" x1="85.9" y1="90" x2="85.9" y2="90"/>
+		<line class="st6" x1="96.8" y1="90" x2="96.8" y2="90"/>
+	</g>
+</g>
+<g id="Screen_1">
+	<g id="window">
+		<path class="st7" d="M259,249H89c-2.8,0-5-2.2-5-5V104c0-2.8,2.2-5,5-5h170c2.8,0,5,2.2,5,5v140C264,246.8,261.8,249,259,249z"/>
+		<path class="st1" d="M264,129H84v-25c0-2.8,2.2-5,5-5h170c2.8,0,5,2.2,5,5V129z"/>
+		<line class="st8" x1="150" y1="114.5" x2="246" y2="114.5"/>
+		<line class="st5" x1="99" y1="114" x2="99" y2="114"/>
+		<line class="st6" x1="109.9" y1="114" x2="109.9" y2="114"/>
+		<line class="st6" x1="120.8" y1="114" x2="120.8" y2="114"/>
+	</g>
+	<g id="code">
+		<line class="st6" x1="131" y1="154" x2="187" y2="154"/>
+		<line class="st6" x1="113" y1="166" x2="205" y2="166"/>
+		<line class="st5" x1="99" y1="154" x2="119" y2="154"/>
+		<line class="st5" x1="127" y1="178" x2="151" y2="178"/>
+		<line class="st6" x1="163" y1="178" x2="182" y2="178"/>
+		<line class="st5" x1="195" y1="178" x2="243" y2="178"/>
+		<line class="st6" x1="113" y1="190" x2="167" y2="190"/>
+		<line class="st5" x1="99" y1="202" x2="119" y2="202"/>
+		<line class="st6" x1="179" y1="190" x2="218" y2="190"/>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Blueprint 2016</title>
+  <meta name="description" content="Welcome to Blueprint: MIT's high school hackathon!">
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="Blueprint 2016 is Here!">
+  <meta property="og:description" content="Welcome to Blueprint: MIT's high school hackathon. Learn from MIT students, make new friends, and build something cool. February 27 - 28.">
+  <meta property="og:image" content="http://blueprint.hackmit.org/assets/images/facebook.png">
+  <meta property="article:publisher" content="https://www.facebook.com/mitblueprint">
+  <meta property="og:site_name" content="Blueprint 2016">
+
+  <link href="/assets/images/favicon.png" rel="icon" type="image/png">
+  <link href='https://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+
+  <link href="/bower_components/semantic/dist/semantic.min.css" rel="stylesheet">
+  <link href="/assets/css/animate.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/vivus/dist/vivus.min.js"></script>
+  <script src="/bower_components/semantic/dist/semantic.min.js"></script>
+  <script src="/assets/js/blueprint-draw.js"></script>
+  <script src="/assets/js/page-behavior.js"></script>
+</head>
+
+<body>
+  <div id="view">
+    <div id="header-section" class="ui vertical masthead center aligned segment">
+      <span id="bpdb-btn-cont" style="display: none">
+        <i id="clear-bpdb-btn" class="big trash outline icon bpdb-btn" title="Clear"></i>
+        <i id="undo-bpdb-btn" class="big undo icon bpdb-btn" title="Undo"></i>
+        <i id="save-bpdb-btn" class="big send outline icon bpdb-btn" title="Send"></i>
+        <div id="pending-bpdb-btn" class="ui inline inverted small loader"></div>
+      </span>
+
+      <div id="bpdb-bg-cont" class="unselectable"><canvas id="bpdb-bg-canv"></canvas></div>
+      <div id="bpdb-stroke-cont" class="unselectable"><canvas id="bpdb-stroke-canv"></canvas></div>
+
+      <div class="vspace"></div>
+      <img class="logo" src="/assets/images/logo.svg"/>
+      <h1 id="header-title" class="ui inverted header title">blueprint</h1>
+      <h3 id="header-date" class="ui inverted header">February 27 & 28, 2016 @ MIT</h3>
+      <div id="header-image-container" class="ui centered grid container">
+        <div class="four wide column center aligned">
+          <div class="header-image" id="learn-svg"></div>
+          <script>
+          new Vivus('learn-svg', {
+            duration: 120, file: '/assets/images/learn.svg'
+          });
+          </script>
+
+          <h2 class="ui inverted header">learn</h2>
+        </div>
+        <div class="four wide column center aligned">
+          <div class="header-image" id="hack-svg"></div>
+          <script>
+          new Vivus('hack-svg', {
+            duration: 120, file: '/assets/images/hack.svg'
+          });
+          </script>
+
+          <h2 class="ui inverted header">hack</h2>
+        </div>
+        <div class="four wide column center aligned">
+          <div class="header-image" id="build-svg"></div>
+          <script>
+          new Vivus('build-svg', {
+            duration: 120, file: '/assets/images/build.svg'
+          });
+          </script>
+
+          <h2 class="ui inverted header">build</h2>
+        </div>
+      </div>
+    </div>
+    <div id="blurb-section" class="ui container">
+      <div id="blurb" class="ui centered grid">
+        <div class="sixteen wide column center aligned">
+          <p>Welcome to <b>Blueprint</b>, a weekend-long learnathon and hackathon for local high school students held on MIT's campus. Learn from MIT students, make new friends, and build something cool!</p>
+          <a class="button" href="https://go.hackmit.org/blueprint-register">Reg Portal</a> <a class="button" href="https://go.hackmit.org/dayof">Day-of Page</a><br>
+          <a href="#" id="go-down"><i class="angle double down large icon"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="about-section" class="ui">
+    <div id="about" class="ui text container">
+     <h1 class="ui center aligned header title">ABOUT</h1>
+      <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. You'll come away with a fully functional web page or iOS app, as well as the ability to learn more about programming on your own to take your skills even further.</p>
+      <div class="ui grid">
+        <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+          <div class="centered">
+            <h3>learnathon</h3>
+            <p>Saturday, February 27, 2016<br>
+            9 am - 5 pm</p>
+          </div>
+          <ul>
+    	      <li>Attend hands-on workshops taught by MIT students on the fundamentals of web and iOS development</li>
+        		<li>Workshops will be interspersed with short "tech talks" on specialized computer science topics</li>
+        	</ul>
+        </div>
+        <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+          <div class="centered">
+            <h3>hackathon</h3>
+          	<p>Sunday, February 28, 2016<br>
+            7 am - 8 pm</p>
+          </div>
+        	<ul>
+        		<li>Put your new skills to practice!</li>
+        		<li>Form a team and experience the challenge and reward of building a project from scratch</li>
+        		<li>Consult mentors for personalized feedback and help with your project</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="faq-section" class="ui">
+    <div id="faq" class="ui container">
+      <h1 class="ui center aligned header title">FAQ</h1>
+      <div class="ui cards">
+        <div class="ui centered card one">
+          <h3>Who can attend?</h3>
+          <p>Blueprint is for motivated high school students with a foundational computer science background.  This background could be from current enrollment or completion of an AP Computer Science class, or its equivalent.</p>
+        </div>
+        <div class="ui centered card two">
+          <h3>Can I mentor?</h3>
+          <p>If you're a college student or professional interested in helping teach high schoolers for Blueprint, head over to our <a href="/mentor">mentorship website</a>.</p>
+        </div>
+        <div class="ui centered card three">
+          <h3>Does Blueprint cost money?</h3>
+          <p>Nope!  We'll cover food, drinks, a Blueprint t-shirt, and an unforgettable experience :) We can't reimburse travel or overnight lodging costs, though.</p>
+        </div>
+        <div class="ui centered card two">
+          <h3>Where is it? How do I get there?</h3>
+          <p><a href="http://whereis.mit.edu/?go=32" target="_blank">The Ray and Maria Stata Center</a></b>, also known as Building 32, is in the northeast part of campus.  The address is <em>32 Vassar Street, Cambridge, MA 02139</em>.</p>
+        </div>
+        <div class="ui centered card three">
+          <h3>What's the schedule?</h3>
+          <p>We'll post the schedule to the website as soon as it's finalized, so check back later! Check-in for the learnathon will start at 9 am, and check-in for the hackathon will start at 7 am. Expect to be done at 5 pm on Saturday and 8 pm on Sunday! Blueprint is <b>not</b> an overnight event.</p>
+        </div>
+        <div class="ui centered card one">
+          <h3>Do I have to come to both the learnathon and the hackathon?</h3>
+          <p>Nope! You can attend either one or both days; just indicate so on your application.</p>
+        </div>
+        <div class="ui centered card two">
+          <h3>What should I bring?</h3>
+          <p>Bring a photo ID and a laptop (and its charger!). We'll provide breakfast, lunch, dinner, swag, and everything else you need.</p>
+        </div>
+        <div class="ui centered card one">
+          <h3>What will I eat?</h3>
+          <p>We'll provide food for all meals from Saturday's breakfast to Sunday's lunch. We'll do our best to accommodate all allergies and dietary restrictions as well.</p>
+        </div>
+        <div class="ui centered card three">
+          <h3>What about overnight lodging?</h3>
+          <p>Hotels near MIT include the <a href="http://www.kendallhotel.com/" target="_blank">Kendall Hotel</a> and the <a href="http://www.marriott.com/hotels/travel/boscb-boston-marriott-cambridge/" target="_blank">Marriott</a>.</p>
+        </div>
+        <div class="ui centered card three">
+          <h3>How do teams work? What if I don't have a team?</h3>
+          <p>Teams are a great way to meet new people or bond with friends, so we highly recommend them!  Don't worry if you don't have a team now; we'll have team formation and ideation sessions at the beginning of Blueprint so you can find some pals.</p>
+        </div>
+        <div class="ui centered card one">
+          <h3>What about parking?</h3>
+          <p>Parking is free on a first-come, first-served basis on weekends in several lots: the <a href="http://whereis.mit.edu/?go=P40" target="_blank">65 Waverly Street Lot</a>, the <a href="http://whereis.mit.edu/?go=W98" target="_blank">W98 Lots</a>, the <a href="http://whereis.mit.edu/?go=P5" target="_blank">Hayward Street Lot</a>, and the <a href="http://whereis.mit.edu/?go=P34" target="_blank">W91 Lot</a>. There is also some metered parking on Vassar Street. MIT Facilities' list of pay lots near campus can be found <a href="http://web.mit.edu/facilities/transportation/parking/visitors/public_parking.html" target="_blank">here</a>.</p>
+        </div>
+        <div class="ui centered card two">
+          <h3>Can my parents come with me?</h3>
+          <p>Blueprint is a student-only event from check-in on, but your parents can tune in to our livestream! We're grateful for your parents' support of our program.</p>
+        </div>
+      </div>
+      <div class="ui center aligned text container clarification">
+      <p>If you have other questions, please email us at <a href="mailto:blueprint@hackmit.org">blueprint@hackmit.org</a>! We're happy to help.</p>
+      </div>
+    </div>
+  </div>
+  <div id="footer-section" class="ui center aligned segment">
+    <div id="footer-social" class="ui container">
+      <a href="https://facebook.com/mitblueprint" target="_blank"><i class="large facebook icon"></i></a>
+      <a href="https://twitter.com/mitblueprint" target="_blank"><i class="large twitter icon"></i>
+      <a href="mailto:blueprint@hackmit.org"><i class="large send icon"></i></a>
+    </div>
+    <div id="footer" class="ui text container">
+      <p>Made with &hearts; by the <a href="https://hackmit.org">HackMIT team</a></p>
+    </div>
+  </div>
+  <script>
+    (function(h,a,c,k,m,i,t){h['GoogleAnalyticsObject']=m;h[m]=h[m]||function(){
+    (h[m].q=h[m].q||[]).push(arguments)},h[m].l=1*new Date();i=a.createElement(c),
+    t=a.getElementsByTagName(c)[0];i.async=1;i.src=k;t.parentNode.insertBefore(i,t)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63828172-12', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
