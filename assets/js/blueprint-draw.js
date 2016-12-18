@@ -73,6 +73,7 @@ var BlueprintDrawboard = (function() {
             m = 2;
           }
           canvas.height = m*(height - BOTTOM_BORDER_HT);
+          canvas.width = canvas.width*m/2;
           lastIdxDrawn = 0; //because it resized
           //only want this to trigger when the canvases are ready
           if (canvases.length === 2) render(lastIdxDrawn);
