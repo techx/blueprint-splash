@@ -319,8 +319,7 @@ var BlueprintDrawboard = (function() {
       var height = canvas.parentNode.offsetHeight;
       canvas.width = 2*width;
       canvas.height = 2*height;
-      console.log(canvas);
-
+      
       every([width, height]);
     }
 
