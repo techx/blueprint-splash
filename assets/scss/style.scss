@@ -24,7 +24,7 @@ body,
 }
 
 .vspace {
-  height: 15vh;
+  height: 8vh;
   min-height: 40px;
   max-height: 100px;
 }
@@ -192,19 +192,19 @@ body,
   .yellow-triangle {
     height: 60px;
     left: 18vw;
-    top: 20vh;
+    top: 16vh;
   }
 
   .green-triangle {
     height: 80px;
     left: 13vw;
-    top: 50vh;
+    top: 45vh;
   }
 
   .blue-triangle {
     height: 80px;
     right: 14vw;
-    top: 56vh;
+    top: 50vh;
   }
 
   #header-title {
@@ -246,6 +246,11 @@ body,
     padding: 20px 0 0 0;
     color: $color-black;
     font-size: 140%;
+
+    h2 {
+      margin-top: -10px;
+      font-size: 150%;
+    }
   }
 }
 
