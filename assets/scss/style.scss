@@ -1,9 +1,11 @@
-$color-primary: #0e95d4;
-$color-secondary: #ffd946;
-$color-tertiary: #063b54;
+$color-primary: #217acc;
+$color-secondary: #11afff;
+$color-tertiary: #6dcc36;
+$color-quaternary: #fde74c;
 $color-white: #ffffff;
-$footer-bg: #444;
-$footer-text: #eee;
+$color-black: #202020;
+$footer-bg: #11afff;
+$footer-text: #ffffff;
 
 /* GENERAL */
 body {
@@ -22,15 +24,15 @@ body,
 }
 
 .vspace {
-  height: 5vh;
-  min-height: 20px;
-  max-height: 80px;
+  height: 8vh;
+  min-height: 40px;
+  max-height: 100px;
 }
 
 .button {
   display: inline-block;
   margin: 15px auto;
-  background-color: $color-primary;
+  background-color: $color-secondary;
   padding: 0.8em 3em;
   color: $color-white;
   font-weight: bold;
@@ -105,7 +107,7 @@ body,
 #header-section {
   padding: 0 0 30px 0;
   border-bottom: 8px solid $color-secondary;
-  cursor: url(/assets/images/pencil.png), auto;
+  cursor: url(/assets/images/pen.png), auto;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -155,35 +157,80 @@ body,
     z-index: 1;
   }
 
+  .color-option {
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+    border-radius: 10px;
+    float: right;
+  }
+
+  .yellow-color-option {
+    background: $color-quaternary;
+    margin-left: 30px;
+  }
+
+  .green-color-option{
+    background: $color-tertiary;
+  }
+
+  .blue-color-option{
+    background: $color-secondary;
+  }
+
+  .selected-color {
+    box-shadow: 0px 0px 0px 3px #ACCDEC;
+  }
+
   .logo {
-    height: 100px;
+    height: 120px;
+  }
+  .triangle {
+    position: absolute;
+  }
+
+  .yellow-triangle {
+    height: 60px;
+    left: 18vw;
+    top: 16vh;
+  }
+
+  .green-triangle {
+    height: 80px;
+    left: 13vw;
+    top: 45vh;
+  }
+
+  .blue-triangle {
+    height: 80px;
+    right: 14vw;
+    top: 50vh;
   }
 
   #header-title {
     margin: 10px 0 0 0;
-    font-size: 450%;
+    font-size: 650%;
   }
 
   #header-date {
     margin: 0;
     font-size: 150%;
-    font-weight: 400;
+    font-weight: 100;
   }
 
   #header-image-container {
-    padding-top: 40px;
-
+    padding-top: 60px;
+    
     .header-image object {
-      width: 160px;
-      border-radius: 80px;
+      width: 50px;
       margin: auto;
-      cursor: url(/assets/images/pencil.png), auto;
+      cursor: url(/assets/images/pen.png), auto;
     }
 
     h2 {
       margin-top: 10px;
       font-family: "Rokkitt", serif;
-      font-size: 250%;
+      font-size: 150%;
     }
   }
 }
@@ -197,21 +244,38 @@ body,
   #blurb {
     margin: 0;
     padding: 20px 0 0 0;
-    color: $color-tertiary;
+    color: $color-black;
     font-size: 140%;
+
+    h2 {
+      margin-top: -10px;
+      font-size: 150%;
+    }
   }
 }
 
 /* ABOUT */
 #about-section {
-  color: $color-tertiary;
+  color: $color-black;
   margin: 10px 0;
   padding: 40px 0;
+  text-align: center;
+  
+  .about-triangles {
+    position: absolute;
+    height: 80px;
+    left: 10vw;
+    margin-top: -30px;
+  }
 
   .title {
-    color: $color-tertiary;
+    color: $color-black;
     font-size: 40px;
-    padding-bottom: 20px;
+    height: 50px;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 30px;
+    border-bottom: 5px solid $color-quaternary;
   }
 
   .grid {
@@ -230,6 +294,10 @@ body,
         font-size: 20px;
       }
     }
+
+    ul {
+      text-align: left;
+    }
   }
 }
 
@@ -237,13 +305,23 @@ body,
 #faq-section {
   margin-top: 20px;
   padding: 50px 0;
-  background-color: $color-primary;
-  border-top: 8px solid $color-secondary;
+  background-color: $color-white;
+  text-align: center;
 
+  .faq-triangles {
+    position: absolute;
+    height: 120px;
+    right: 10vw;
+    margin-top: -80px;
+  }
   .title {
-    color: $color-white;
+    color: $color-black;
     font-size: 40px;
-    padding: 10px 0;
+    height: 50px;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 20px;
+    border-bottom: 5px solid $color-tertiary;
   }
 
   .card {
@@ -252,31 +330,18 @@ body,
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
-    padding: 50px 30px 10px 30px;
-    width: 300px;
-    height: 300px;
+    padding: 20px 0px 10px 0px;
+    text-align: left;
 
     h3 {
       font-family: "Rokkitt", serif;
       font-size: 20px;
     }
-
-    &.one {
-      background-image: url(../images/stickywithtape.png);
-    }
-
-    &.two {
-      background-image: url(../images/stickywithtape2.png);
-    }
-
-    &.three {
-      background-image: url(../images/stickywithtape3.png);
-    }
   }
 
   .clarification {
     padding-top: 40px;
-    color: $color-white;
+    color: $color-black;
     a {
       color: $color-secondary;
       font-weight: 500;
@@ -291,7 +356,7 @@ body,
 #footer-section {
   padding: 40px;
   margin: 0;
-  background-color: $color-tertiary;
+  background-color: $color-secondary;
   color: $footer-text;
   border-radius: 0;
 
@@ -312,16 +377,19 @@ body,
   }
 
   #footer a {
-    color: $color-secondary;
+    color: $color-quaternary;
 
     &:hover {
-      color: darken($color-secondary, 10%);
+      color: darken($color-quaternary, 10%);
     }
   }
 }
 
 @media (max-width: 728px) {
   #header-section {
+    .triangle {
+        display: none;
+      }
     #header-image-container {
       .column {
         padding-left: 0.5em !important;

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Mentor @ Blueprint 2016</title>
+  <meta name="description" content="Welcome to Blueprint: MIT's high school hackathon!">
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="Blueprint 2016 is Here!">
+  <meta property="og:description" content="Welcome to Blueprint: MIT's high school hackathon. Learn from MIT students, make new friends, and build something cool. February 27 - 28.">
+  <meta property="og:image" content="http://blueprint.hackmit.org/assets/images/facebook.png">
+  <meta property="article:publisher" content="https://www.facebook.com/mitblueprint">
+  <meta property="og:site_name" content="Blueprint 2016">
+
+  <link href="/assets/images/favicon.png" rel="icon" type="image/png">
+  <link href='https://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+
+  <link href="/bower_components/semantic/dist/semantic.min.css" rel="stylesheet">
+  <link href="/assets/css/animate.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/vivus/dist/vivus.min.js"></script>
+  <script src="/bower_components/semantic/dist/semantic.min.js"></script>
+  <script src="/assets/js/blueprint-draw.js"></script>
+  <script src="/assets/js/page-behavior.js"></script>
+</head>
+
+<body>
+  <div id="view">
+    <div id="header-section" class="ui vertical masthead center aligned segment">
+      <span id="bpdb-btn-cont" style="display: none">
+        <i id="clear-bpdb-btn" class="big trash outline icon bpdb-btn" title="Clear"></i>
+        <i id="undo-bpdb-btn" class="big undo icon bpdb-btn" title="Undo"></i>
+        <i id="save-bpdb-btn" class="big send outline icon bpdb-btn" title="Send"></i>
+        <div id="pending-bpdb-btn" class="ui inline inverted small loader"></div>
+      </span>
+
+      <div id="bpdb-bg-cont" class="unselectable"><canvas id="bpdb-bg-canv"></canvas></div>
+      <div id="bpdb-stroke-cont" class="unselectable"><canvas id="bpdb-stroke-canv"></canvas></div>
+
+      <div class="vspace"></div>
+      <img class="logo" src="/assets/images/logo.svg"/>
+      <h1 id="header-title" class="ui inverted header title">blueprint</h1>
+      <h3 id="header-date" class="ui inverted header">February 27 & 28, 2016 @ MIT</h3>
+      <div id="header-image-container" class="ui centered grid container">
+        <div class="four wide column center aligned">
+          <div class="header-image" id="learn-svg"></div>
+          <script>
+          new Vivus('learn-svg', {
+            duration: 120, file: '/assets/images/learn.svg'
+          });
+          </script>
+
+          <h2 class="ui inverted header">learn</h2>
+        </div>
+        <div class="four wide column center aligned">
+          <div class="header-image" id="hack-svg"></div>
+          <script>
+          new Vivus('hack-svg', {
+            duration: 120, file: '/assets/images/hack.svg'
+          });
+          </script>
+
+          <h2 class="ui inverted header">hack</h2>
+        </div>
+        <div class="four wide column center aligned">
+          <div class="header-image" id="build-svg"></div>
+          <script>
+          new Vivus('build-svg', {
+            duration: 120, file: '/assets/images/build.svg'
+          });
+          </script>
+
+          <h2 class="ui inverted header">build</h2>
+        </div>
+      </div>
+    </div>
+    <div id="blurb-section" class="ui container">
+      <div id="blurb" class="ui centered grid">
+        <div class="sixteen wide column center aligned">
+          <p>Interested in mentoring or teaching for <b>Blueprint</b>, a weekend-long learnathon and hackathon for local high school students? Help teach curious students and inspire them to pursue computer science!</p>
+          <a class="button" href="https://go.hackmit.org/blueprint-mentor">Sign Up</a><br>
+          <a href="#" id="go-down"><i class="angle double down large icon"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="about-section" class="ui">
+    <div id="about" class="ui text container">
+     <h1 class="ui center aligned header title">ABOUT</h1>
+      <p>The goal of Blueprint is to teach high school students with basic computer science backgrounds how to develop and code a functional project (from start to finish).  We need your help to make this happen!  We are looking for undergrads and grads to fill the following roles:</p>
+      <div class="ui grid">
+        <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+          <div class="centered">
+            <h3>teachers</h3>
+            <p>Learnathon Only (Feb. 27)</p>
+          </div>
+          <ul>
+            <li>Lead a hands-on workshop on iOS or web development</li>
+            <li>Workshop should be no longer than 90 minutes</li>
+            <li>We'll work with you on developing a lesson plan!</li>
+            <li>Or, you can teach a short "tech talk" on a specialized topic in computer science! (Example topics could be computer vision, machine learning, or anything else you're passionate about.) </li>
+          </ul>
+        </div>
+        <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+          <div class="centered">
+            <h3>mentors</h3>
+            <p>Learnathon/Hackathon (Feb. 27/28)</p>
+          </div>
+          <ul>
+            <li>On the learnathon day, mentors will act as TAs, moving from group to group and helping them with any questions or roadblocks they have</li>
+            <li>On the hackathon day, mentors will help students with their own hacks</li>
+            <li>Mentorship will be facilitated by <a href="https://github.com/ehzhang/HELPq">HELPq</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="faq-section" class="ui">
+    <div id="faq" class="ui container">
+      <h1 class="ui center aligned header title">FAQ</h1>
+      <div class="ui cards">
+        <div class="ui centered card one">
+          <h3>Who can mentor/teach?</h3>
+          <p>We welcome any undergraduate or graduate students interested! We can't provide travel reimbursement, but non-MIT college students are still invited to sign up.</p>
+        </div>
+        <div class="ui centered card two">
+          <h3>Can I teach and mentor?</h3>
+	  <p>Yes! You can do any combination you'd like: just indicate so in the <a href="http://go.hackmit.org/blueprint-mentor">form</a>.</p>
+        </div>
+        <div class="ui centered card three">
+          <h3>Can I help out on Saturday only? Sunday only? Both days?</h3>
+          <p>Yes! Just indicate so in the <a href="http://go.hackmit.org/blueprint-mentor">form</a>.</p>
+        </div>
+        <div class="ui centered card one">
+          <h3>What kind of background will the high school students have?</h3>
+          <p>Students will have basic, foundational computer science backgrounds &mdash; think AP Computer Science or its equivalent.</p>
+        </div>
+	      <div class="ui centered card three">
+          <h3>What kind of background should teachers have?</h3>
+          <p>Workshops on the learnathon day will be focused on iOS and web development, so workshop teachers and mentors should have either iOS or web development experience (or both). Tech talks can be on any computer science topic.</p>
+        </div>
+        <div class="ui centered card two">
+          <h3>What kind of background should mentors have?</h3>
+          <p>Mentors on the learnathon day will act as TAs for the classes, so experience with iOS or web development is preferred. For the hackathon day, mentors with a wider range of experience are welcome.</p>
+        </div>
+      </div>
+      <div class="ui center aligned text container clarification">
+        <p>If you have other questions, please email us at <a href="mailto:blueprint@hackmit.org">blueprint@hackmit.org</a>! We're happy to help.</p>
+      </div>
+    </div>
+  </div>
+  <div id="footer-section" class="ui center aligned segment">
+    <div id="footer-social" class="ui container">
+      <a href="https://facebook.com/mitblueprint" target="_blank"><i class="large facebook icon"></i></a>
+      <a href="https://twitter.com/mitblueprint" target="_blank"><i class="large twitter icon"></i>
+      <a href="mailto:blueprint@hackmit.org"><i class="large send icon"></i></a>
+    </div>
+    <div id="footer" class="ui text container">
+      <p>Made with &hearts; by the <a href="https://hackmit.org">HackMIT team</a></p>
+    </div>
+  </div>
+  <script>
+    (function(h,a,c,k,m,i,t){h['GoogleAnalyticsObject']=m;h[m]=h[m]||function(){
+    (h[m].q=h[m].q||[]).push(arguments)},h[m].l=1*new Date();i=a.createElement(c),
+    t=a.getElementsByTagName(c)[0];i.async=1;i.src=k;t.parentNode.insertBefore(i,t)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63828172-12', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>

@@ -12,13 +12,16 @@ var BlueprintDrawboard = (function() {
      * config */
     var CANV_SELS = ['#bpdb-bg-canv', '#bpdb-stroke-canv'];
     var DIMS = [500, 400]; //default canvas size
-    var GRID_SIZE = 20; //in px
+    var GRID_SIZE = 40; //in px
     var LINE_SIZE = 3; //width of the lines
     var MIN_DIST = 8; //minimum separation between waypoints
     var COLORS = {
-      background: '#0E95D4',
-      grid: '#4EB5E6',
-      foreground: '#FFFFFF'
+      background: '#217ACC',
+      grid: '#6EA8DD',
+      foreground: '#FFFFFF',
+      yellow: '#FDE74C',
+      green: '#6DCC36',
+      blue: '#11AFFF'
     }; //all of the colors to be used
     var DISP_UNSMOOTHED = false;
     var FIREBASE_URL = 'https://luminous-heat-4368.firebaseio.com/';
@@ -34,6 +37,7 @@ var BlueprintDrawboard = (function() {
     var users, drawings;
     var oldDrawingId;
     var changedSinceLastSave;
+    var currentColor = COLORS.yellow;
 
     /******************
      * work functions */
@@ -64,7 +68,12 @@ var BlueprintDrawboard = (function() {
         canvas.height = DIMS[1];
         registerDynamicCanvas(canvas, function(dims) {
           var height = $('#header-section').outerHeight();
-          canvas.height = height - BOTTOM_BORDER_HT;
+          var m = 1;
+          if (CANV_SEL ==='#bpdb-bg-canv') {
+            m = 2;
+          }
+          canvas.height = m*(height - BOTTOM_BORDER_HT);
+          canvas.width = canvas.width*m/2;
           lastIdxDrawn = 0; //because it resized
           //only want this to trigger when the canvases are ready
           if (canvases.length === 2) render(lastIdxDrawn);
@@ -114,6 +123,24 @@ var BlueprintDrawboard = (function() {
           setTimeout(function() { ctrlDown = false; }, 100);
         }
       }); //ctrl z happens here
+
+      $('.yellow-color-option').click(function(e) {
+        $('.color-option').removeClass("selected-color");
+        $('.yellow-color-option').addClass("selected-color");
+        currentColor = COLORS.yellow;
+      });
+
+      $('.green-color-option').click(function(e) {
+        $('.color-option').removeClass("selected-color");
+        $('.green-color-option').addClass("selected-color");
+        currentColor = COLORS.green;
+      });
+
+      $('.blue-color-option').click(function(e) {
+        $('.color-option').removeClass("selected-color");
+        $('.blue-color-option').addClass("selected-color");
+        currentColor = COLORS.blue;
+      });
 
       $('#clear-bpdb-btn').click(function(e) {
         clearStrokes();
@@ -213,9 +240,17 @@ var BlueprintDrawboard = (function() {
 
       //draw the grid lines
       ctxes[0].fillStyle = COLORS.grid;
-      for (var xi = 0; xi < canvases[0].width; xi+=GRID_SIZE) {
-        ctxes[0].fillRect(xi, 0, 1, canvases[0].height);
+      ctxes[0].strokeStyle = COLORS.grid;
+      ctxes[0].lineWidth = 1;
+      var sqrt = Math.sqrt(3);
+      ctxes[0].beginPath();
+      for (var xi = - canvases[0].height; xi< canvases[0].height + canvases[0].width; xi+=2*GRID_SIZE/sqrt) {
+        ctxes[0].moveTo(xi, 0);
+        ctxes[0].lineTo(xi+canvases[0].height/sqrt, canvases[0].height);
+        ctxes[0].moveTo(xi,0);
+        ctxes[0].lineTo(xi-canvases[0].height/sqrt, canvases[0].height);
       }
+      ctxes[0].stroke();
       for (var yi = 0; yi < canvases[0].height; yi+=GRID_SIZE) {
         ctxes[0].fillRect(0, yi, canvases[0].width, 1);
       }
@@ -224,7 +259,7 @@ var BlueprintDrawboard = (function() {
       if (DISP_UNSMOOTHED) {
         drawStrokes(clickList, 'red', startIdx);
       }
-      drawStrokes(smoothedClicks, COLORS.foreground, startIdx);
+      drawStrokes(smoothedClicks, currentColor, startIdx);
     }
 
     /********************
@@ -282,9 +317,9 @@ var BlueprintDrawboard = (function() {
     function resizeCanvas(canvas, every) {
       var width = canvas.parentNode.offsetWidth;
       var height = canvas.parentNode.offsetHeight;
-      canvas.width = width;
-      canvas.height = height;
-
+      canvas.width = 2*width;
+      canvas.height = 2*height;
+      
       every([width, height]);
     }
 

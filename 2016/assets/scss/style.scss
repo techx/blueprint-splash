@@ -1,0 +1,355 @@
+$color-primary: #0e95d4;
+$color-secondary: #ffd946;
+$color-tertiary: #063b54;
+$color-white: #ffffff;
+$footer-bg: #444;
+$footer-text: #eee;
+
+/* GENERAL */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+.ui.text.container,
+.ui.header {
+  font-family: "Roboto", sans-serif;
+}
+
+.title {
+  font-family: 'Rokkitt', serif !important;
+}
+
+.vspace {
+  height: 5vh;
+  min-height: 20px;
+  max-height: 80px;
+}
+
+.button {
+  display: inline-block;
+  margin: 15px auto;
+  background-color: $color-primary;
+  padding: 0.8em 3em;
+  color: $color-white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: $color-tertiary;
+  color: $color-white;
+}
+
+#view {
+  min-height: 100vh;
+}
+
+@keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+     -webkit-transform: rotate(-360deg);
+      transform: rotate(-360deg);
+    }
+}
+
+@keyframes sending {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  20% {
+    margin-top: -20px;
+  }
+  40% {
+    -webkit-transform: rotate(60deg) scale(0.75);
+    transform: rotate(60deg) scale(0.75);
+    margin-top: 0px;
+  }
+  100% {
+   -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    margin-top: -40px;
+    margin-left: 100px;
+    opacity: 0;
+  }
+}
+
+::selection {
+  background: lighten($color-secondary, 25%);
+}
+
+::-moz-selection {
+  background: lighten($color-secondary, 25%);
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* HEADER */
+
+#header-section {
+  padding: 0 0 30px 0;
+  border-bottom: 8px solid $color-secondary;
+  cursor: url(/assets/images/pencil.png), auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  #bpdb-btn-cont {
+    position: absolute;
+    cursor: pointer;
+    top: 1em;
+    left: 1em;
+    color: $color-white;
+    z-index: 2;
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+
+  .bpdb-btn:hover {
+    color: darken($color-white, 10%);
+  }
+
+  .spin {
+    -webkit-animation: spin 1s;
+    animation: spin 1s;
+  }
+
+  .fly {
+    -webkit-animation: sending 1.5s;
+    animation: sending 1.5s;
+  }
+
+  #bpdb-bg-cont, #bpdb-stroke-cont {
+    position: absolute;
+    width: 100%;
+  }
+
+  #bpdb-bg-canv, #bpdb-stroke-cont {
+    width: 100%;
+  }
+
+  #bpdb-bg-cont {
+    z-index: -1;
+  }
+
+  #bpdb-stroke-cont {
+    z-index: 1;
+  }
+
+  .logo {
+    height: 100px;
+  }
+
+  #header-title {
+    margin: 10px 0 0 0;
+    font-size: 450%;
+  }
+
+  #header-date {
+    margin: 0;
+    font-size: 150%;
+    font-weight: 400;
+  }
+
+  #header-image-container {
+    padding-top: 40px;
+
+    .header-image object {
+      width: 160px;
+      border-radius: 80px;
+      margin: auto;
+      cursor: url(/assets/images/pencil.png), auto;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-family: "Rokkitt", serif;
+      font-size: 250%;
+    }
+  }
+}
+
+/* BLURB */
+
+#blurb-section {
+  border: 0 !important;
+  padding: 0 !important;
+
+  #blurb {
+    margin: 0;
+    padding: 20px 0 0 0;
+    color: $color-tertiary;
+    font-size: 140%;
+  }
+}
+
+/* ABOUT */
+#about-section {
+  color: $color-tertiary;
+  margin: 10px 0;
+  padding: 40px 0;
+
+  .title {
+    color: $color-tertiary;
+    font-size: 40px;
+    padding-bottom: 20px;
+  }
+
+  .grid {
+    .centered {
+      text-align: center;
+      padding: 20px 0 10px 0;
+
+      h3 {
+        margin-bottom: 0;
+        font-size: 28px;
+        font-family: "Rokkitt", serif;
+      }
+
+      p {
+        font-family: "Rokkitt", serif;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+/* FAQ */
+#faq-section {
+  margin-top: 20px;
+  padding: 50px 0;
+  background-color: $color-primary;
+  border-top: 8px solid $color-secondary;
+
+  .title {
+    color: $color-white;
+    font-size: 40px;
+    padding: 10px 0;
+  }
+
+  .card {
+    box-shadow: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding: 50px 30px 10px 30px;
+    width: 300px;
+    height: 300px;
+
+    h3 {
+      font-family: "Rokkitt", serif;
+      font-size: 20px;
+    }
+
+    &.one {
+      background-image: url(../images/stickywithtape.png);
+    }
+
+    &.two {
+      background-image: url(../images/stickywithtape2.png);
+    }
+
+    &.three {
+      background-image: url(../images/stickywithtape3.png);
+    }
+  }
+
+  .clarification {
+    padding-top: 40px;
+    color: $color-white;
+    a {
+      color: $color-secondary;
+      font-weight: 500;
+      &:hover {
+        color: darken($color-tertiary, 10%);
+      }
+    }
+  }
+}
+
+/* FOOTER */
+#footer-section {
+  padding: 40px;
+  margin: 0;
+  background-color: $color-tertiary;
+  color: $footer-text;
+  border-radius: 0;
+
+  #footer-social {
+    margin-bottom: 20px;
+
+    .icon {
+      margin: 0 10px;
+    }
+
+  }
+
+  a {
+    color: $footer-text;
+    &:hover {
+      color: darken($footer-text, 10%);
+    }
+  }
+
+  #footer a {
+    color: $color-secondary;
+
+    &:hover {
+      color: darken($color-secondary, 10%);
+    }
+  }
+}
+
+@media (max-width: 728px) {
+  #header-section {
+    #header-image-container {
+      .column {
+        padding-left: 0.5em !important;
+        padding-right: 0.5em !important;
+      }
+      .header-image object {
+        width: 100%;
+      }
+      h2 {
+        font-size: 200%;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  #header-section {
+    #header-image-container {
+      h2 {
+        font-size: 150%;
+      }
+    }
+  }
+}
+
+@media (min-height: 800px) {
+  #view {
+    height: 800px;
+    min-height: 0;
+  }
+}
