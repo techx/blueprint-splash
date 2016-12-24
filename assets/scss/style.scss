@@ -189,8 +189,11 @@ body,
   }
 
   .logo {
-    height: 120px;
+    height: 170px;
+    position: relative;
+    bottom: 8px;
   }
+
   .triangle {
     position: absolute;
   }
