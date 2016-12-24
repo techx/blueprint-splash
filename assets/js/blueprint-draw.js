@@ -244,17 +244,16 @@ var BlueprintDrawboard = (function() {
       ctxes[0].lineWidth = 1;
       var sqrt = Math.sqrt(3);
       ctxes[0].beginPath();
-      for (var xi = - canvases[0].height; xi< canvases[0].height + canvases[0].width; xi+=2*GRID_SIZE/sqrt) {
-        ctxes[0].moveTo(xi, 0);
-        ctxes[0].lineTo(xi+canvases[0].height/sqrt, canvases[0].height);
-        ctxes[0].moveTo(xi,0);
-        ctxes[0].lineTo(xi-canvases[0].height/sqrt, canvases[0].height);
+      for (var yi = -canvases[0].width; yi < canvases[0].width + canvases[0].height; yi+=2*GRID_SIZE/sqrt) {
+          ctxes[0].moveTo(0, yi);
+          ctxes[0].lineTo(canvases[0].width, yi+canvases[0].width/sqrt);
+          ctxes[0].moveTo(0, yi);
+          ctxes[0].lineTo(canvases[0].width, yi-canvases[0].width/sqrt);
       }
       ctxes[0].stroke();
-      for (var yi = 0; yi < canvases[0].height; yi+=GRID_SIZE) {
-        ctxes[0].fillRect(0, yi, canvases[0].width, 1);
+      for (var xi = 0; xi < canvases[0].width; xi+=GRID_SIZE) {
+        ctxes[0].fillRect(xi, 0, 1, canvases[0].height);
       }
-
       //plot the smoothed points
       if (DISP_UNSMOOTHED) {
         drawStrokes(clickList, 'red', startIdx);

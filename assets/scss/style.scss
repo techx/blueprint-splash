@@ -31,7 +31,7 @@ body,
 
 .button {
   display: inline-block;
-  margin: 15px auto;
+  margin: 25px auto;
   background-color: $color-secondary;
   padding: 0.8em 3em;
   color: $color-white;
@@ -46,8 +46,14 @@ body,
 }
 
 .button:hover {
-  background-color: $color-tertiary;
+  background-color: $color-primary;
   color: $color-white;
+}
+
+*, *:hover {
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
 }
 
 #view {
@@ -183,8 +189,11 @@ body,
   }
 
   .logo {
-    height: 120px;
+    height: 170px;
+    position: relative;
+    bottom: 8px;
   }
+
   .triangle {
     position: absolute;
   }
@@ -243,13 +252,19 @@ body,
 
   #blurb {
     margin: 0;
-    padding: 20px 0 0 0;
+    padding: 50px 0 0 0;
     color: $color-black;
-    font-size: 140%;
+    font-size: 125%;
 
     h2 {
       margin-top: -10px;
-      font-size: 150%;
+      font-size: 200%;
+    }
+
+    p {
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
     }
   }
 }
@@ -303,10 +318,14 @@ body,
 
 /* FAQ */
 #faq-section {
-  margin-top: 20px;
+
   padding: 50px 0;
   background-color: $color-white;
   text-align: center;
+
+  div.ui.cards {
+    margin: 25px 0 0 0;
+  }
 
   .faq-triangles {
     position: absolute;
@@ -330,7 +349,7 @@ body,
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
-    padding: 20px 0px 10px 0px;
+    padding: 5px 0px 5px 0px;
     text-align: left;
 
     h3 {
@@ -346,7 +365,7 @@ body,
       color: $color-secondary;
       font-weight: 500;
       &:hover {
-        color: darken($color-tertiary, 10%);
+        color: $color-primary;
       }
     }
   }
@@ -402,6 +421,12 @@ body,
         font-size: 200%;
       }
     }
+  }
+  #about-section .about-triangles {
+    height: 50px;
+  }
+  #faq-section .faq-triangles  {
+    height: 80px;
   }
 }
 
