@@ -300,7 +300,6 @@ body,
     font-size: 150%; } }
 @media (min-height: 800px) {
   #view {
-    height: 800px;
     min-height: 0; } }
 
 /*# sourceMappingURL=style.css.map */
