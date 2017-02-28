@@ -234,7 +234,7 @@ body,
 
   #header-image-container {
     padding-top: 60px;
-    
+
     .header-image object {
       width: 50px;
       margin: auto;
@@ -280,7 +280,7 @@ body,
   margin: 10px 0;
   padding: 40px 0;
   text-align: center;
-  
+
   .about-triangles {
     position: absolute;
     height: 80px;
@@ -319,6 +319,61 @@ body,
       text-align: left;
     }
   }
+}
+
+/* SCHEDULE */
+#schedule-section {
+  padding: 50px 0;
+  background-color: $color-white;
+  text-align: center;
+
+  div.ui.cards {
+    margin: 25px 0 0 0;
+  }
+
+  .faq-triangles {
+    position: absolute;
+    height: 120px;
+    right: 10vw;
+    margin-top: -80px;
+  }
+  .title {
+    color: $color-black;
+    font-size: 40px;
+    height: 50px;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 20px;
+    border-bottom: 5px solid $color-primary;
+  }
+
+  .card {
+    box-shadow: none;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding: 5px 0px 5px 0px;
+    text-align: left;
+
+    h3 {
+      font-family: "Rokkitt", serif;
+      font-size: 20px;
+    }
+  }
+
+  .clarification {
+    padding-top: 40px;
+    color: $color-black;
+    a {
+      color: $color-secondary;
+      font-weight: 500;
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
 }
 
 /* FAQ */
