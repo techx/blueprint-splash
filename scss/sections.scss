@@ -54,3 +54,15 @@ ul li:before {
     margin: 10px 20px;
 }
   
+.speaker-img {
+  width: 100%;
+  padding: 10px;
+  @include mobile {
+    width: 200px;
+  }
+}
+
+.speaker-content {
+  text-align: left;
+  padding: 10px;
+}

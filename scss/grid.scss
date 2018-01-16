@@ -1,6 +1,32 @@
 .grid-container {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  .grid-30 {
+    @include desktop {
+      flex-basis: 30%;
+    }
+    @include tablet {
+      flex-basis: 30%;
+    }
+    @include mobile {
+      flex-basis: 100%;
+    }
+  }
+
+  .grid-70 {
+    @include desktop {
+      flex-basis: 70%;
+    }
+    @include tablet {
+      flex-basis: 70%;
+    }
+    @include mobile {
+      flex-basis: 100%;
+    }
+  }
 
   .grid-50 {
     @include desktop {

@@ -60,7 +60,27 @@ p a {
 
 .grid-container, .schedule-container, .faq-container {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; }
+  @media screen and (min-width: 1008px) {
+    .grid-container .grid-30, .schedule-container .grid-30, .faq-container .grid-30 {
+      flex-basis: 30%; } }
+  @media screen and (min-width: 769px), print {
+    .grid-container .grid-30, .schedule-container .grid-30, .faq-container .grid-30 {
+      flex-basis: 30%; } }
+  @media screen and (max-width: 768px) {
+    .grid-container .grid-30, .schedule-container .grid-30, .faq-container .grid-30 {
+      flex-basis: 100%; } }
+  @media screen and (min-width: 1008px) {
+    .grid-container .grid-70, .schedule-container .grid-70, .faq-container .grid-70 {
+      flex-basis: 70%; } }
+  @media screen and (min-width: 769px), print {
+    .grid-container .grid-70, .schedule-container .grid-70, .faq-container .grid-70 {
+      flex-basis: 70%; } }
+  @media screen and (max-width: 768px) {
+    .grid-container .grid-70, .schedule-container .grid-70, .faq-container .grid-70 {
+      flex-basis: 100%; } }
   @media screen and (min-width: 1008px) {
     .grid-container .grid-50, .schedule-container .grid-50, .faq-container .grid-50, .schedule-container .schedule, .faq-container .faq {
       flex-basis: 50%; } }
@@ -320,6 +340,17 @@ ul li:before {
 
 .blurb .words div {
   margin: 10px 20px; }
+
+.speaker-img {
+  width: 100%;
+  padding: 10px; }
+  @media screen and (max-width: 768px) {
+    .speaker-img {
+      width: 200px; } }
+
+.speaker-content {
+  text-align: left;
+  padding: 10px; }
 
 .schedule-container .schedule {
   padding-left: 0.5rem;
