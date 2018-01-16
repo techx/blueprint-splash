@@ -1,4 +1,10 @@
 $(function() {
+
+    $('#register-btn').click(function() {
+      fbq('track', 'Lead');
+      fbq('track', 'CompleteRegistration');
+    });
+
     var scroll = $(window).scrollTop();
     var prev_scroll = 0;
 
