@@ -1,0 +1,56 @@
+// sections
+.sections {
+  margin-bottom: 30px;
+  text-align: center;
+  h2 {
+    line-height: initial;
+    border-bottom: 4pt solid #FE875C;
+    display: inline-block;
+    padding: 0 40px;
+    margin: 10px auto;
+    margin-top: 30px;
+  }  
+
+  li {
+    a {
+      color: $orange;
+    }
+  }
+}
+
+.left {
+  text-align: left;
+}
+
+ul {
+  text-align: left;
+  list-style-type: none;
+  li {
+    display: flex;
+  }
+}
+
+ul li:before {
+  content: '\25b6\fe0e ';
+  flex-grow: 0;
+  color: $orange;
+  margin-left: 0.5em;
+  padding-right: 0.8em;
+  font-size: 10pt;
+}
+  
+// blurb
+.blurb img {
+    max-height: 500px;
+}
+  
+.blurb .words {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.blurb .words div {
+    margin: 10px 20px;
+}
+  

@@ -1,0 +1,98 @@
+// Basic site styles
+html {
+  color: $dark-blue;
+  font-family: $body-font;
+  height: 100%;
+  line-height: 1.5;
+}
+
+::selection {
+  background: $dark-gray;
+  text-shadow: none;
+}
+
+body {
+  font-size: 1rem;
+  // background-image: url('/img/bg-tile.png');
+  background-size: 7rem;
+  background-attachment: fixed;
+}
+
+h1.bp-title {
+    font-size: 6em;
+}
+
+@for $index from 1 through 4 {
+  h#{$index} {
+    font-family: $header-font;
+    font-weight: nth($font-weight-h, $index);
+    letter-spacing: nth($letter-spacing-h, $index);
+
+    @include mobile {
+      font-size: nth($font-size-hm, $index);
+    }
+    @include tablet {
+      font-size: nth($font-size-ht, $index);
+    }
+    @include desktop {
+      font-size: nth($font-size-hd, $index);
+    }
+  }
+}
+
+#explode-container {
+  z-index: -99;
+  opacity: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 500px; 
+
+  canvas {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+
+.heading {
+  pointer-events: none;
+  a {
+    pointer-events: auto;
+  }
+}
+
+.section {
+  /* hack to ensure jumping to div via link doesn't cut off 
+  the header - https://stackoverflow.com/a/22095246 */
+  padding-top: 35px;
+  margin-top: -35px;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  @include mobile {
+    padding: 0 20px;
+  }
+  @include tablet {
+    padding: 0 50px;
+    margin-top: 165px;
+  }
+  @include desktop {
+    padding: 0 30px;
+    margin-top: 165px;
+  }
+}
+
+.bg-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -99999;
+  top: 0;
+  left: 0;
+  background-image: url('../img/bg-tile.png');
+  background-size: 7rem;
+  background-attachment: fixed;
+}

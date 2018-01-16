@@ -1,0 +1,69 @@
+.heading {
+  text-align: center;
+  line-height: initial;
+  width: 100%;
+  @include desktop {
+    position: fixed;
+    top: 40px;
+    z-index: 2;
+  }
+  @include tablet {
+    position: fixed;
+    top: 40px;
+    z-index: 2;
+  }
+  @include mobile {
+    margin-top: 40px;
+  } 
+
+  h1 {
+    color: $light-blue;
+    // display: inline-block;
+    // @include mobile {
+    //   font-size: 3.5rem;
+    // }
+    // @include tablet {
+    //   font-size: 5rem;
+    // }
+    // @include desktop {
+    //   font-size: 6rem;
+    // }
+  }
+
+  .date {
+    position: relative;
+    @include mobile {
+      font-size: 0.9rem;
+      top: -1.2rem;
+      left: 5.3rem;
+    }
+    @include tablet {
+      font-size: 1.5rem;
+      top: -1.8rem;
+      left: 8.8rem;
+    }
+    @include desktop {
+      font-size: 1.5rem;
+      top: -1.8rem;
+      left: 8.8rem;
+    }
+  }
+
+  .bp-title {
+    @include mobile {
+      font-size: 4rem;
+    }
+    @include tablet {
+      font-size: 6rem;
+    }
+    @include desktop {
+      font-size: 6rem;
+    }
+  }
+}
+
+.nestle {
+  @include mobile {
+    display: none;
+  }
+}

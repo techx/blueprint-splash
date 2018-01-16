@@ -1,0 +1,19 @@
+$faq-column-space: 1rem;
+
+.faq-container {
+  @extend .grid-container;
+
+  .faq {
+    @extend .grid-50;
+    h4 {
+      margin: 0;
+      padding: 0;
+      line-height: 1em;
+    }
+
+    // Spacing between columns
+    padding-left: ($faq-column-space / 2);
+    padding-right: ($faq-column-space / 2);
+    padding-bottom: 1.5rem;
+  }
+}

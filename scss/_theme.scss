@@ -1,0 +1,42 @@
+// _theme.scss
+// Site theme variables; used throughout site
+
+// colors
+$dark-blue: #0C3A51;
+$light-blue: #34CAE5;
+$orange: #FE875C;
+$dark-orange: #EB7D3E;
+$dark-gray: #C7DCE6;
+$light-gray: #E7F7FF;
+
+// fonts
+$body-font: monaco, Consolas, Lucida Console, monospace;
+$header-font: 'Rokkitt', serif;
+$font-size-hd: 6rem, 4rem, 3rem, 2rem;
+$font-size-ht: 6rem, 4rem, 3rem, 2rem;
+$font-size-hm: 3.5rem, 3rem, 2.5rem, 2rem;
+$font-weight-h: 800, 800, 600, 500;
+$letter-spacing-h: 0.06rem, 0.05rem, 0, 0;
+
+// helper classes
+.big {
+    font-size: 20pt;
+}
+
+.btn {
+    color: $light-gray;
+    background-color: $orange;
+    border-radius: 0.5rem;
+    padding: 0.7rem 1.9rem;
+    font-family: $header-font;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.btn:hover {
+  background-color: $dark-orange;
+}
+
+p a {
+    color: $orange;
+}

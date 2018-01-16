@@ -1,0 +1,362 @@
+/*!
+ *  v0.0.1 (https://github.com/techx/blueprint-2018-splash#readme)
+ * Copyright 2018-2018 
+ * Licensed under  (https://github.com/techx/blueprint-2018-splash/blob/master/LICENSE)
+ */
+html {
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+html, body, div,
+nav, header, main, section, footer,
+h1, h2, h3, p, a, img,
+form, input,
+ol, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  outline: none;
+  vertical-align: baseline;
+  background: transparent;
+  line-height: inherit; }
+
+:focus {
+  outline: none; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+  a:hover, a:link, a:visited, a:active, a:focus {
+    text-decoration: none; }
+
+.big {
+  font-size: 20pt; }
+
+.btn {
+  color: #E7F7FF;
+  background-color: #FE875C;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.9rem;
+  font-family: "Rokkitt", serif;
+  font-size: 1.5rem;
+  display: inline-block; }
+
+.btn:hover {
+  background-color: #EB7D3E; }
+
+p a {
+  color: #FE875C; }
+
+.grid-container, .schedule-container, .faq-container {
+  display: flex;
+  flex-wrap: wrap; }
+  @media screen and (min-width: 1008px) {
+    .grid-container .grid-50, .schedule-container .grid-50, .faq-container .grid-50, .schedule-container .schedule, .faq-container .faq {
+      flex-basis: 50%; } }
+  @media screen and (min-width: 769px), print {
+    .grid-container .grid-50, .schedule-container .grid-50, .faq-container .grid-50, .schedule-container .schedule, .faq-container .faq {
+      flex-basis: 50%; } }
+  @media screen and (max-width: 768px) {
+    .grid-container .grid-50, .schedule-container .grid-50, .faq-container .grid-50, .schedule-container .schedule, .faq-container .faq {
+      flex-basis: 100%; } }
+
+html {
+  color: #0C3A51;
+  font-family: monaco, Consolas, Lucida Console, monospace;
+  height: 100%;
+  line-height: 1.5; }
+
+::selection {
+  background: #C7DCE6;
+  text-shadow: none; }
+
+body {
+  font-size: 1rem;
+  background-size: 7rem;
+  background-attachment: fixed; }
+
+h1.bp-title {
+  font-size: 6em; }
+
+h1 {
+  font-family: "Rokkitt", serif;
+  font-weight: 800;
+  letter-spacing: 0.06rem; }
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 3.5rem; } }
+  @media screen and (min-width: 769px), print {
+    h1 {
+      font-size: 6rem; } }
+  @media screen and (min-width: 1008px) {
+    h1 {
+      font-size: 6rem; } }
+
+h2 {
+  font-family: "Rokkitt", serif;
+  font-weight: 800;
+  letter-spacing: 0.05rem; }
+  @media screen and (max-width: 768px) {
+    h2 {
+      font-size: 3rem; } }
+  @media screen and (min-width: 769px), print {
+    h2 {
+      font-size: 4rem; } }
+  @media screen and (min-width: 1008px) {
+    h2 {
+      font-size: 4rem; } }
+
+h3 {
+  font-family: "Rokkitt", serif;
+  font-weight: 600;
+  letter-spacing: 0; }
+  @media screen and (max-width: 768px) {
+    h3 {
+      font-size: 2.5rem; } }
+  @media screen and (min-width: 769px), print {
+    h3 {
+      font-size: 3rem; } }
+  @media screen and (min-width: 1008px) {
+    h3 {
+      font-size: 3rem; } }
+
+h4 {
+  font-family: "Rokkitt", serif;
+  font-weight: 500;
+  letter-spacing: 0; }
+  @media screen and (max-width: 768px) {
+    h4 {
+      font-size: 2rem; } }
+  @media screen and (min-width: 769px), print {
+    h4 {
+      font-size: 2rem; } }
+  @media screen and (min-width: 1008px) {
+    h4 {
+      font-size: 2rem; } }
+
+#explode-container {
+  z-index: -99;
+  opacity: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 500px; }
+  #explode-container canvas {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0; }
+
+.heading {
+  pointer-events: none; }
+  .heading a {
+    pointer-events: auto; }
+
+.section {
+  /* hack to ensure jumping to div via link doesn't cut off 
+  the header - https://stackoverflow.com/a/22095246 */
+  padding-top: 35px;
+  margin-top: -35px; }
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto; }
+  @media screen and (max-width: 768px) {
+    .wrapper {
+      padding: 0 20px; } }
+  @media screen and (min-width: 769px), print {
+    .wrapper {
+      padding: 0 50px;
+      margin-top: 165px; } }
+  @media screen and (min-width: 1008px) {
+    .wrapper {
+      padding: 0 30px;
+      margin-top: 165px; } }
+
+.bg-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -99999;
+  top: 0;
+  left: 0;
+  background-image: url("../img/bg-tile.png");
+  background-size: 7rem;
+  background-attachment: fixed; }
+
+.menu-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-image: url("../img/bg-tile.png");
+  background-size: 7rem; }
+
+.menu-shadow {
+  position: absolute;
+  float: left;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: -1; }
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px auto;
+  max-width: 600px; }
+
+.menu a {
+  flex: 1;
+  text-align: center; }
+
+.menu .menu-heading {
+  color: #34CAE5;
+  font-weight: 700;
+  font-family: "Rokkitt", serif;
+  font-size: 1.4rem; }
+
+.heading {
+  text-align: center;
+  line-height: initial;
+  width: 100%; }
+  @media screen and (min-width: 1008px) {
+    .heading {
+      position: fixed;
+      top: 40px;
+      z-index: 2; } }
+  @media screen and (min-width: 769px), print {
+    .heading {
+      position: fixed;
+      top: 40px;
+      z-index: 2; } }
+  @media screen and (max-width: 768px) {
+    .heading {
+      margin-top: 40px; } }
+  .heading h1 {
+    color: #34CAE5; }
+  .heading .date {
+    position: relative; }
+    @media screen and (max-width: 768px) {
+      .heading .date {
+        font-size: 0.9rem;
+        top: -1.2rem;
+        left: 5.3rem; } }
+    @media screen and (min-width: 769px), print {
+      .heading .date {
+        font-size: 1.5rem;
+        top: -1.8rem;
+        left: 8.8rem; } }
+    @media screen and (min-width: 1008px) {
+      .heading .date {
+        font-size: 1.5rem;
+        top: -1.8rem;
+        left: 8.8rem; } }
+  @media screen and (max-width: 768px) {
+    .heading .bp-title {
+      font-size: 4rem; } }
+  @media screen and (min-width: 769px), print {
+    .heading .bp-title {
+      font-size: 6rem; } }
+  @media screen and (min-width: 1008px) {
+    .heading .bp-title {
+      font-size: 6rem; } }
+
+@media screen and (max-width: 768px) {
+  .nestle {
+    display: none; } }
+
+.sections {
+  margin-bottom: 30px;
+  text-align: center; }
+  .sections h2 {
+    line-height: initial;
+    border-bottom: 4pt solid #FE875C;
+    display: inline-block;
+    padding: 0 40px;
+    margin: 10px auto;
+    margin-top: 30px; }
+  .sections li a {
+    color: #FE875C; }
+
+.left {
+  text-align: left; }
+
+ul {
+  text-align: left;
+  list-style-type: none; }
+  ul li {
+    display: flex; }
+
+ul li:before {
+  content: '\25b6\fe0e ';
+  flex-grow: 0;
+  color: #FE875C;
+  margin-left: 0.5em;
+  padding-right: 0.8em;
+  font-size: 10pt; }
+
+.blurb img {
+  max-height: 500px; }
+
+.blurb .words {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.blurb .words div {
+  margin: 10px 20px; }
+
+.schedule-container .schedule {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem; }
+  .schedule-container .schedule h4 {
+    margin: 0;
+    margin-bottom: 10px; }
+  .schedule-container .schedule table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    word-break: break-all; }
+    .schedule-container .schedule table td:first-child {
+      white-space: nowrap;
+      border-right: 1px solid black; }
+    .schedule-container .schedule table td {
+      padding: 0 5px; }
+    .schedule-container .schedule table tr:not(:last-child) {
+      border-bottom: 1px solid black; }
+
+.faq-container .faq {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 1.5rem; }
+  .faq-container .faq h4 {
+    margin: 0;
+    padding: 0;
+    line-height: 1em; }
+
+.footer {
+  position: relative;
+  background-color: #0C3A51;
+  color: #E7F7FF;
+  text-align: center;
+  padding: 40px; }
+  .footer .social-icons img {
+    height: 30px; }
+  .footer a {
+    color: #FE875C; }

@@ -1,0 +1,16 @@
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  .grid-50 {
+    @include desktop {
+      flex-basis: 50%;
+    }
+    @include tablet {
+      flex-basis: 50%;
+    }
+    @include mobile {
+      flex-basis: 100%;
+    }
+  }
+}

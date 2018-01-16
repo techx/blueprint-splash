@@ -1,0 +1,45 @@
+.menu-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  background-image: url('../img/bg-tile.png');
+  background-size: 7rem;
+}
+
+.menu-shadow {
+  position: absolute;
+  float: left;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: -1;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // line-height: 22pt;
+  margin: 15px auto;
+  max-width: 600px;
+
+}
+
+.menu a {
+  // color: inherit;
+  // text-decoration: none;
+  // margin: 0 50px;
+  flex:1;
+  text-align: center;
+}
+
+.menu .menu-heading {
+  color: $light-blue;
+  font-weight: 700;
+  font-family: $header-font;
+  font-size: 1.4rem;
+}

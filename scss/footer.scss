@@ -1,0 +1,18 @@
+// footer
+.footer {
+  position: relative; // Get z-index working.
+  background-color: $dark-blue;
+  color: $light-gray;
+  text-align: center;
+  padding: 40px;
+
+  .social-icons {
+    img {
+      height: 30px;
+    }
+  }
+
+  a {
+    color: $orange;
+  }
+}
