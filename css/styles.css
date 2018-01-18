@@ -61,7 +61,6 @@ p a {
 .grid-container, .schedule-container, .faq-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center; }
   @media screen and (min-width: 1008px) {
     .grid-container .grid-30, .schedule-container .grid-30, .faq-container .grid-30 {
@@ -347,6 +346,9 @@ ul li:before {
   @media screen and (max-width: 768px) {
     .speaker-img {
       width: 200px; } }
+
+.speaker-img-container {
+  align-items: center; }
 
 .speaker-content {
   text-align: left;
