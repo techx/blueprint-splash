@@ -118,7 +118,7 @@ body,
 #header-section {
   padding: 0 0 30px 0;
   border-bottom: 8px solid $color-secondary;
-  cursor: url(assets/images/pen.png), auto;
+  cursor: url(../images/pen.png), auto;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -238,7 +238,7 @@ body,
     .header-image object {
       width: 50px;
       margin: auto;
-      cursor: url(assets/images/pen.png), auto;
+      cursor: url(../images/pen.png), auto;
     }
 
     h2 {
