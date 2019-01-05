@@ -1,0 +1,168 @@
+$blueprint: #34BAC8;
+
+#register {
+
+    display: flex;
+    @include mobile-large {
+        left: 0;
+        top: 0;
+        position: relative;
+        padding-bottom: 15vh;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        height: auto;
+    }
+}
+
+.mediumBlueB {
+  position: absolute;
+  z-index: -30;
+  height: 130vh;
+  top: 3vh;
+  @include desktop{
+    left: 17vh;
+  }
+  @include small-desktop-down{
+      left: 7vh;
+  }
+
+}
+
+
+
+.register-container {
+    position: relative;
+    width: auto;
+
+    @include tablet-portrait{
+        margin: auto;
+    }
+    @include mobile-large{
+        height: auto;
+    }
+    @include tablet-up{
+        margin: 0;
+    }
+    // flex: 0 0 100%;
+    h1 {
+        position: relative;
+        text-align: center;
+        color: $blueprint;
+        flex: 0 0 100%;
+        margin-bottom: 3%;
+        font-family:'Geomanist-Bold';
+        @include tablet-up{
+            font-size: 5em;
+            letter-spacing: 0.1em;
+            top: 20vh;
+        }
+        @include mobile-large{
+            font-size: 4em;
+            top: 0;
+        }
+
+    }
+    p{
+        font-family: Geomanist-Medium;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        @include tablet-up{
+            font-size: 1.2em;
+            top: 20vh;
+        }
+
+        @include mobile-large {
+          left: 0;
+          top: 0;
+          font-size: 1.1em;
+        }
+    }
+}
+
+
+@keyframes slide-in-register {
+  0% {
+    transform: translateX(-200%);
+  }
+
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translate3d(0,0,0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(200%);
+  }
+
+  100% {
+    transform: translateY(0);
+    -webkit-transform: translate3d(0,0,0);
+  }
+}
+
+#register .reg-desktop{
+    display: none;
+    @include desktop{
+        display: block;
+    }
+    @include big-desktop{
+        display: block;
+    }
+    @include tablet-up{
+        display: block;
+    }
+}
+
+#register .letter {
+  position: absolute;
+  transform: translateX(-1000%);
+
+}
+
+#register.active .blue-letter {
+  animation: slide-in-register 1s forwards;
+  height: 58vh;
+  top: 58vh;
+  @include desktop{
+    left: 10vh;
+  }
+  @include small-desktop-down{
+      left: 0vh;
+  }
+
+
+  z-index: -20;
+}
+
+#register.active .yellow-letter {
+  animation: slide-up 1s forwards;
+  animation-delay: 0.125s;
+  height: 90vh;
+  top: 18.5vh;
+  @include desktop{
+    left: 37vh;
+  }
+  @include small-desktop-down{
+      left: 25vh;
+  }
+  z-index:-10;
+}
+
+#register.active .red-bar {
+  animation: slide-up 1s forwards;
+  animation-delay: 0s;
+  @include desktop{
+    left: 25vh;
+  }
+  @include small-desktop-down{
+      left: 15vh;
+  }
+  top: 30vh;
+  height: 76vh;
+  width: 20px;
+  z-index: -40;
+
+}

@@ -1,335 +1,377 @@
-<html>
-<!--
- __
- /  |
- $$ |____
- $$      \
- $$$$$$$  |
- $$ |  $$ | L U E P R I N T 2 0 1 8
- $$ |__$$ |
- $$    $$/
- $$$$$$$/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+    <!-- Link to local files -->
+    <link rel="stylesheet" type="text/css" href="css/styles.min.css">
+    <!-- Favicon stuffs -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicons/safari-pinned-tab.svg" color="#34bac8">
+    <link rel="shortcut icon" href="./assets/favicons/favicon.ico">
+    <!-- Social media stuffs -->
+    <title>Blueprint 2019</title>
+    <meta name="description" content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!"/>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@MITBlueprint">
+    <meta name="twitter:title" content="Blueprint 2019">
+    <meta name="twitter:description" content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!">
+    <meta name="twitter:image" content="http://blueprint.hackmit.org/assets/thumbnail.png">
+    <!-- Facebook -->
+    <meta property="og:title" content="Blueprint 2019"/>
+    <meta property="og:url" content="blueprint.hackmit.org" />
+    <meta property="og:image" content="http://blueprint.hackmit.org/assets/thumbnail.png"/>
+    <meta property="og:image:height" content="1080">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:description" content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!"/>
+    <meta property="og:site_name" content="Blueprint 2019"/>
+</head>
 
- -->
-  <head>
-    <link rel="icon" type="image/png" href="/img/favicon.png" />
+<body>
+    <div style="overflow-x: hidden; overflow-y: hidden;">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    <title>Blueprint 2018</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-
-    <meta proeperty="og:title" content="Blueprint 2018"/>
-    <meta property="og:image" content="./img/favicon.png"/>
-
-    <link href="https://fonts.googleapis.com/css?family=Rokkitt:500,600,800" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/styles.min.css" />
-    <!-- Facebook Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init',       '1248563001937607'); // Insert your pixel ID here.
-    fbq('addPixelId', '128200464453427'); // Insert your pixel ID here.
-    fbq('track', 'PageView');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1248563001937607&ev=PageView&noscript=1"/>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=128200464453427&ev=PageView&noscript=1"/>
-    </noscript>
-
-    <!-- DO NOT MODIFY -->
-    <!-- End Facebook Pixel Code -->
-  </head>
-  <body>
-    <div class="bg-container"></div>
-    <div class="menu-container">
-      <div class="menu-shadow"></div>
-      <div class="menu">
-        <a href="#about">about</a>
-        <a href="#schedule">schedule</a>
-        <!--<a href="#" class="menu-heading">
-          blueprint
-        </a>-->
-        <span class="nestle">
-
-        </span>
-        <a href="#faq">FAQ</a>
-        <a href="#sponsors">sponsors</a>
-      </div>
-    </div>
-    <div class="heading">
-      <h1 class="bp-title"><a href="#">blueprint</a></h1>
-      <span class="date">feb 17 &amp; 18, 2018</span>
-    </div>
-    <div class="wrapper">
-      <div id="explode-container"></div>
-      <div class="sections">
-        <div class="blurb">
-          <div class="words big">
-            <div>learn</div>
-            <div>imagine</div>
-            <div>create</div>
-          </div>
-
-          <p>
-            Blueprint is a weekend-long learnathon and hackathon for local high school students held at MIT's campus. Learn from MIT students, make new friends, and build something cool!
-          </p>
-          <br />
-          <a class="btn register-btn" href="https://my.hackmit.org/" target="blank" rel="noreferrer noopener">APP DASHBOARD</a>
+        <div class="sticky navlogo" onclick="navHandler('home')">
+            <img id="logo-static" src="./assets/favicons/logo.svg" alt="Blueprint logo"/>
+            <img id="logo-hover" src="./assets/favicons/logo_blue.svg" alt="Blueprint logo">
         </div>
+        <div class="sticky navbar">
+            <div class="navButton" id="register-button" onclick="navHandler('register')">register</div>
+            <div class="navButton" id="faq-button" onclick="navHandler('faq')">faq</div>
+            <div class="navButton" id="schedule-button"onclick="navHandler('schedule')">schedule</div>
+            <div class="navButton" id="about-button" onclick="navHandler('about')">about</div>
+        </div>
+
+        <div class="letters-container">
+            <img class="letters" src="./assets/mobile/b-together.svg">
+        </div>
+
+        <div id="home" class="section">
+            <div class="background"></div>
+            <div class="left"></div>
+            <div class="right">
+                <div style="">
+                    <div id="print-container">
+                        <font>>print</font><font id="open-paren">(</font><font>"hello,</font>
+                    </div>
+
+                    <div id="bp-container">
+                        <font id="bp" class="bp">blueprint!"</font><font id="close-paren" class="bp">)</font>
+                        <div class="content">
+                            <div id="date">
+                                february 23 & 24, 2019
+                            </div>
+                            <div id="content">
+                                Blueprint is a weekend-long learnathon and hackathon for local high school students held on MIT’s campus. Learn from MIT students, make new friends, and build something cool!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <img class="blue-letter animatable" src="./assets/letters/blue-normal.svg" />
+            <img class="red-letter animatable" src="./assets/letters/red-bolditalic.svg" />
+            <img class="yellow-letter animatable" src="./assets/letters/yellow-thinslanted.svg" />
+        </div>
+
+        <div class="block-separator">
+            <img class="blocks" src="./assets/mobile/3blocks.svg">
+        </div>
+
+        <div class="space"></div>
 
         <div id="about" class="section">
-          <h2 class="section-heading">about</h2>
-          <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. After Blueprint you'll have not only this project, but also the tools to learn more about programming on your own and take your skills even further.</p>
-          <div class="grid-container">
-            <div class="grid-50">
-              <h3>learnathon</h3>
-              <p class="left">date: saturday, february 17</p>
-              <ul>
-                <li>Participate in hands-on workshops taught by MIT students and industry professionals on programming fundamentals, web programming, or iOS development</li>
-                <li>Attend short “tech talks” on specialized computer science topics</li>
-                <li><span>Eager to get started? Check out <a href="https://starthacking.org" target="_blank" rel="noreferrer noopener">StartHacking.org</a></span></li>
-              </ul>
-            </div>
-            <div class="grid-50">
-              <h3>hackathon</h3>
-              <p class="left">date: sunday, february 18</p>
-              <ul>
-                <li>Put your new skills to practice!</li>
-                <li>Form a team and experience the challenge and reward of building a project from scratch</li>
-                <li>Consult mentors for personalized feedback and help with your project</li>
-                <li><span>Interested in mentoring? Sign up <a href="https://go.hackmit.org/mentor" target="_blank" rel="noreferrer noopener">here</a></span></li>
-              </ul>
-            </div>
-          </div>
-          <h3>speaker</h3>
-          <div class="grid-container speaker-img-container">
-            <div class="grid-30">
-              <img class="speaker-img" src="assets/andrew.jpg" />
-            </div>
-            <div class="grid-70 speaker-content">
-              Andrew Sutherland is the founder and CTO of Quizlet, the user-powered learning platform used by more than 23 million students and teachers each month. Andrew founded Quizlet in 2005 while a sophomore at Albany High School in California, originally building a simple website to help himself study French vocabulary. He studied computer science at MIT, which he left after three years to continue working on Quizlet. As CTO, Andrew is in charge of building the technology that powers more than 180 million study sets and allows millions of students to learn more efficiently. In 2012 and 2013, he was featured in Forbes Magazine's 30 under 30 List for Education.
-            </div>
-          </div>
-        </div>
-        <div id="schedule" class="section">
-          <h2>schedule</h2>
-          <div class="schedule-container">
-            <div class="schedule">
-              <h4>saturday, february 17</h4>
-              <h4 style="font-size:1.5rem">learnathon @ MIT Stata Center</h4>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>8:30 AM</td>
-                    <td>Check-in and Breakfast</td>
-                  </tr>
-                  <tr>
-                    <td>9:30 AM</td>
-                    <td>Opening Talk</td>
-                  </tr>
-                  <tr>
-                    <td>10:00 AM</td>
-                    <td>Workshop #1 (iOS/Web/StartHacking)</td>
-                  </tr>
-                  <tr>
-                    <td>11:30 AM</td>
-                    <td>Tech Talk #1</td>
-                  </tr>
-                  <tr>
-                    <td>12:00 PM</td>
-                    <td>Lunch</td>
-                  </tr>
-                  <tr>
-                    <td>1:00 PM</td>
-                    <td>Workshop #2 (iOS/Web/StartHacking)</td>
-                  </tr>
-                  <tr>
-                    <td>2:00 PM</td>
-                    <td>Workshop #3 (iOS/Web/StartHacking)</td>
-                  </tr>
-                  <tr>
-                    <td>3:00 PM</td>
-                    <td>Tech Talk #2</td>
-                  </tr>
-                  <tr>
-                    <td>3:30 PM</td>
-                    <td>Workshop #4 (iOS/Web/StartHacking)</td>
-                  </tr>
-                  <tr>
-                    <td>4:30 PM</td>
-                    <td>Closing Talk</td>
-                  </tr>
-                  <tr>
-                    <td>5:00 PM</td>
-                    <td>End of Learnathon</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="grid-50 schedule">
-              <h4>sunday, february 18</h4>
-              <h4 style="font-size:1.5rem">hackathon @ MIT Media Lab</h4>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>7:00 AM</td>
-                    <td>Check-in and Breakfast</td>
-                  </tr>
-                  <tr>
-                    <td>8:00 AM</td>
-                    <td>Opening Talk</td>
-                  </tr>
-                  <tr>
-                    <td>8:30 AM</td>
-                    <td>Hacking Starts, Team Formation</td>
-                  </tr>
-                  <tr>
-                    <td>11:30 AM</td>
-                    <td>MIT Student Panel</td>
-                  </tr>
-                  <tr>
-                    <td>12:30 PM</td>
-                    <td>Lunch</td>
-                  </tr>
-                  <tr>
-                    <td>2:30 PM</td>
-                    <td>Campus Excursion</td>
-                  </tr>
-                  <tr>
-                    <td>4:00 PM</td>
-                    <td>Tim the Beaver Meet and Greet</td>
-                  </tr>
-                  <tr>
-                    <td>5:30 PM</td>
-                    <td>Hacking Ends, Dinner</td>
-                  </tr>
-                  <tr>
-                    <td>6:00 PM</td>
-                    <td>Judging</td>
-                  </tr>
-                  <tr>
-                    <td>7:30 PM</td>
-                    <td>Closing Talks, Demos</td>
-                  </tr>
-                  <tr>
-                    <td>8:30 PM</td>
-                    <td>End of Hackathon</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <div id="faq" class="section">
-          <h2>FAQ</h2>
-          <div class="faq-container">
-            <div class="faq">
-              <h4>what's the schedule?</h4>
-              <p>
-                See above! Blueprint is not an overnight event.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>when can I apply?</h4>
-              <p>
-                Applications are closed for Blueprint 2018.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>who can attend?</h4>
-              <p>
-                Blueprint is for high school students. Experience in programming is not required for the learnathon, but strongly encouraged for the hackathon. The iOS and web tracks require a basic knowledge of programming fundamentals, and the StartHacking track is designed for first time coders.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>how do teams work? what if I don't have a team?</h4>
-              <p>
-                Teams are a great way to meet new people or bond with friends, so we highly recommend them! Don't worry if you don't have a team now; we'll have team formation and ideation sessions at the beginning of Blueprint so you can find some pals. Teams can be up to four people.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>can I mentor?</h4>
-              <p>
-                If you're a college student or professional interested in helping teach high schoolers for Blueprint, head over to our <a href="https://go.hackmit.org/mentor" target="_blank" rel="noreferrer noopener">mentorship form</a>.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>what should I bring?</h4>
-              <p>
-                Bring a photo ID and a laptop (and charger!). We'll provide breakfast, lunch, dinner, swag, and everything else you need.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>where is it? how do I get there?</h4>
-              <p>
-                Blueprint will be held on MIT’s campus. The Learnathon on Saturday will be held in the <a href="http://whereis.mit.edu/?go=32" target="_blank" rel="noreferrer noopener">Ray and Maria Stata Center</a> and the Hackathon on Sunday will be held at the <a href="http://whereis.mit.edu/?go=E14" target="_blank" rel="noreferrer noopener">MIT Media Lab</a>. Follow the signs in the lobby to the event!
-              </p>
-            </div>
-            <div class="faq">
-              <h4>does Blueprint cost money?</h4>
-              <p>
-              Nope! We'll cover meals, snacks, drinks, a Blueprint t-shirt, and an unforgettable experience :) We can't reimburse travel or overnight lodging costs, though. Hotels near MIT include the <a href="http://www.kendallhotel.com/" target="_blank" rel="noreferrer noopener">Kendall Hotel</a> and the <a href="http://www.marriott.com/hotels/travel/boscb-boston-marriott-cambridge/" target="_blank" rel="noreferrer noopener">Marriott</a>.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>what about parking?</h4>
-              <p>
-              Parking is free on a first-come, first-serve basis on weekends in several lots: the <a href="http://whereis.mit.edu/?go=P40" target="_blank" rel="noreferrer noopener">65 Waverly Street Lot</a>, the <a href="http://whereis.mit.edu/?go=W98" target="_blank" rel="noreferrer noopener">W98 Lots</a>, and the <a href="http://whereis.mit.edu/?go=P34" target="_blank" rel="noreferrer noopener">W91 Lot</a>. There is also some metered parking on Vassar Street. MIT Facilities' list of pay lots near campus can be found <a href="http://web.mit.edu/facilities/transportation/parking/visitors/public_parking.html" target="_blank" rel="noreferrer noopener">here</a>.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>do I have to come to both the learnathon and the hackathon?</h4>
-              <p>
-                Nope! You can attend either one or both days.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>what will I eat?</h4>
-              <p>
-                We'll provide food for all meals from Saturday's breakfast to Sunday's lunch. We'll do our best to accommodate all allergies and dietary restrictions as well.
-              </p>
-            </div>
-            <div class="faq">
-              <h4>can my parents come with me?</h4>
-              <p>
-                Blueprint is a student-only event from check-in on. We're grateful for your parents' support of our program!
-              </p>
-            </div>
-          </div>
-          <br />
-          <p>
-          If you have other questions, please email us at <a href="mailto:blueprint@hackmit.org">blueprint@hackmit.org</a>! We're happy to help.
-          </p>
-        </div>
-        <div id="sponsors" class="section">
-          <h2 class="section-heading">sponsors</h2>
-          <p>
-            Interested in sponsoring? Contact us at <a href="mailto:sponsor@hackmit.org">sponsor@hackmit.org</a>
-          </p>
-        </div>
-      </div>
-    </div>
+            <div class="background"></div>
 
-    <div class="footer">
-      <p class="social-icons">
-        <a href="mailto:blueprint@hackmit.org"><img src="assets/Mail Icon@2x.png" /></a>
-        <a href="https://www.facebook.com/mitblueprint" target="_blank" rel="noreferrer noopener"><img src="assets/Facebook Icon@2x.png" /></a>
-        <a href="https://twitter.com/mitblueprint" target="_blank" rel="noreferrer noopener"><img src="assets/Twitter Icon@2x.png" /></a>
-        <a href="https://instagram.com/mitblueprint" target="_blank" rel="noreferrer noopener"><img src="assets/Instagram Icon@2x.png" /></a>
-      </p>
-      <p>made with &lt;3 by the <a href="https://hackmit.org" target="_blank" rel="noreferrer noopener">HackMIT team</a></p>
+            <div class="left"></div>
+            <div class="right">
+                <div id="about-container" class="about-container">
+                    <h1>about</h1>
+                    <p>
+                        Over the course of Blueprint, you’ll form a team, decide on a project, and develop it from start to finish with the support of our mentors. After Blueprint, you’ll not only have this project but also the tools to learn more about programming on your own and take your skills even further.
+                    </p>
+                </div>
+
+                <div id="learnathon-container" class="learnathon-container">
+                    <h2 class="learnathon">
+                        learnathon
+                    </h2>
+                    <p>
+                        <span class="learnathon date">date:</span> saturday, february 23
+                    </p><br><br>
+                    <ul>
+                        <li>Participate in hands-on workshops taught by MIT students and industry professionals on programming fundamentals, web programming, or Arduino</li>
+                        <li>Attend short ‘tech talks’ on specialized computer science topics</li>
+                        <li>Eager to get started? Check out <a target="_blank" href="https://starthacking.org/">StartHacking.org</a></li>
+                    </ul>
+                </div>
+                <div id="hackathon-container" class="hackathon-container">
+                    <h2 class="hackathon">
+                        hackathon
+                    </h2>
+                    <p>
+                        <span class="hackathon date">date:</span> sunday, february 24
+                    </p><br><br>
+                    <ul>
+                        <li>Put your new skills to practice!</li>
+                        <li>Form a team and experience the challenge and reward of building a project from scratch</li>
+                        <li>Consult mentors for personalized feedback and help with your project</li>
+                        <li>Interested in mentoring? Sign up <a target="_blank" href="https://go.hackmit.org/mentor">here</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <img class="about-bar" id="redbar" src="./assets/letters/redbar-2.svg"/>
+            <img class="about-bar" id="darkbluebar" src="./assets/letters/darkbluebar-2.svg"/>
+            <img class="about-bar" id="yellowbar" src="./assets/letters/yellowbar-2.svg"/>
+            <img class="about-bar" id="lightbluebar" src="./assets/letters/lightbluebar-2.svg"/>
+            <img class="about-bar" id="bluebar" src="./assets/letters/bluebar-2.svg"/>
+
+            <img class="blue-letter animatable" src="./assets/letters/blue-normal.svg" />
+            <img class="aboutb" id="yellowb" src="./assets/letters/yellowb-2.svg"/>
+            <img class="aboutb" id="darkblueb" src="./assets/letters/darkblueb-2.svg"/>
+        </div>
+
+        <div class="space"></div>
+
+        <div class="bars-separator">
+            <img class="bars" src="./assets/mobile/bars.svg">
+        </div>
+
+        <div id="schedule" class="section">
+            <div class="background"></div>
+            <div class="left"></div>
+            <div class="right">
+                <div id="about-container" class="about-container">
+                    <h1>schedule</h1> <br><br><br>
+                </div>
+                <div id="learnathon-container" class="learnathon-container">
+                <h2 class="learnathon centered">
+                    learnathon
+                </h2>
+                <p class="centered">
+                    <span class="learnathon date">date:</span> saturday, february 23 <br>
+                    <span class="learnathon date">location:</span> MIT Stata Center
+                </p>
+                <table class="learnathon-schedule" id="learnathon-schedule">
+                    <tr><td>8:30 AM</td><td>check-in and breakfast</td></tr>
+                    <tr><td>9:30 AM</td><td>opening ceremony</td></tr>
+                    <tr><td>10:00 AM</td><td>workshop #1 </td></tr>
+                    <tr><td>11:30 AM</td><td>tech talk #1</td></tr>
+                    <tr><td>12:00 PM</td><td>lunch, activities expo</td></tr>
+                    <tr><td>1:00 PM</td><td>workshop #2 </td></tr>
+                    <tr><td>2:00 PM</td><td>workshop #3 </td></tr>
+                    <tr><td>3:00 PM</td><td>tech talk #2</td></tr>
+                    <tr><td>3:30 PM</td><td>workshop #4 </td></tr>
+                    <tr><td>4:30 PM</td><td>closing ceremony</td></tr>
+                    <tr><td>5:00 PM</td><td>end of learnathon</td></tr>
+                  </table>
+                </div>
+                <div id="hackathon-container" class="hackathon-container">
+                    <h2 class="hackathon centered">
+                        hackathon
+                    </h2>
+                    <p class="centered">
+                        <span class="hackathon date">date:</span> sunday, february 24 <br>
+                        <span class="hackathon date">location:</span> MIT Media Lab
+                    </p>
+                    <table class="hackathon-schedule" id="hackathon-schedule">
+                        <tr><td>7:00 AM</td><td>check-in and breakfast</td></tr>
+                        <tr><td>8:00 AM</td><td>opening ceremony</td></tr>
+                        <tr><td>8:30 AM</td><td>hacking starts, team formation</td></tr>
+                        <tr><td>11:30 AM</td><td>MIT student panel</td></tr>
+                        <tr><td>12:00 PM</td><td>lunch</td></tr>
+                        <tr><td>2:30 PM</td><td>campus excursion</td></tr>
+                        <tr><td>4:00 PM</td><td>Tim the Beaver meet and greet</td></tr>
+                        <tr><td>5:30 PM</td><td>hacking ends, dinner</td></tr>
+                        <tr><td>6:00 PM</td><td>judging</td></tr>
+                        <tr><td>7:30 PM</td><td>demos and closing ceremony</td></tr>
+                        <tr><td>8:30 PM</td><td>end of hackathon</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <img class="blue-letter animatable" src="./assets/letters/blue-normal.svg" />
+            <div class="yellow-bar-container"><div class="yellow-bar animatable"></div></div>
+
+            <img class="lightblueb animatable" src="./assets/letters/lightblueb-3.svg"/>
+            <img class="redb animatable" src="./assets/letters/redb-3.svg"/>
+
+            <img class="schedule-dots" id="yellow-dot" src="./assets/letters/yellowdot-3.svg"/>
+            <img class="schedule-dots" id="blue-dot" src="./assets/letters/darkbluedot-3.svg"/>
+            <img class="schedule-dots" id="red-dot" src="./assets/letters/reddot-3.svg"/>
+        </div>
+
+
+        <div class="space"></div>
+
+        <div class="dots-separator">
+            <img class="dots" src="./assets/mobile/dots.svg">
+        </div>
+
+        <div id="faq" class="section">
+            <div class="background"></div>
+            <div class="left"></div>
+            <div class="right">
+                <div id="faq-container" class="faq-container">
+                    <h1>faq</h1>
+
+                    <div class="faq-content scrollable" id="faq-content">
+                        <div class="faq-questions" id="faq-questions">
+                            <div class="question">
+                                <font size="3">></font> what's the schedule?
+                            </div>
+                            <div class="answer">
+                                See above! Note that Blueprint is not an overnight event.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> when can I apply?
+                            </div>
+                            <div class="answer">
+                                Applications are now open! Apply by January 25th, 2019 at 11:59 PM EST <a target="_blank" href="https://my.hackmit.org">here</a>.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> who can attend?
+                            </div>
+                            <div class="answer">
+                                Blueprint is for high school students and experience in programming is not required for the learnathon or the hackathon. The Arduino and Web tracks require a basic knowledge of programming fundamentals and the StartHacking track is designed for first time coders.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> how do teams work? what if I don't have a team?
+                            </div>
+                            <div class="answer">
+                                Teams can be up to 4 people. They are a great way to meet new people or bond with friends so we highly recommend them! Don’t worry if you don’t have a team now; we’ll have team formation and ideation sessions at the beginning of Blueprint so you can find some pals.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> can I mentor?
+                            </div>
+                            <div class="answer">
+                                If you’re a college student or professional interested in helping teach high school students for Blueprint, head over to our mentorship form <a target="_blank" href="https://go.hackmit.org/mentor">here</a>.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> what should I bring?
+                            </div>
+                            <div class="answer">
+                                Bring a photo ID and a laptop (and charger!). We’ll provide breakfast, lunch, dinner, swag, and everything else you need.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> where is it? how do I get there?
+                            </div>
+                            <div class="answer">
+                                Blueprint will be held on MIT’s campus. The learnathon on Saturday will be held in the <a target="_blank" href="http://whereis.mit.edu/?go=32">Ray and Maria Stata Center</a> and the hackathon on Sunday will be held at the <a target="_blank" href="http://whereis.mit.edu/?go=E14">MIT Media Lab</a>. Follow the signs in the lobby to the event!
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> does blueprint cost money?
+                            </div>
+                            <div class="answer">
+                                Nope! We’ll cover meals, snacks, drinks, a Blueprint t-shirt, and an unforgettable experience :) However, we can’t reimburse travel or overnight lodging costs. Hotels near MIT include the <a target="_blank" href="http://www.kendallhotel.com/">Kendall Hotel</a> and the <a target="_blank" href="http://www.marriott.com/hotels/travel/boscb-boston-marriott-cambridge/">Marriott</a>.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> what about parking?
+                            </div>
+                            <div class="answer">
+                                Parking is free on a first-come, first-serve basis on weekends in several lots: the <a target="_blank" href="http://whereis.mit.edu/?go=P40">65 Waverly Street Lot</a>, the <a target="_blank" href="http://whereis.mit.edu/?go=W98">W98 Lots</a>, the <a target="_blank" href="http://whereis.mit.edu/?go=P5">Hayward Street Lot</a>, and the <a target="_blank" href="http://whereis.mit.edu/?go=P34">W91 Lot</a>. There is also some metered parking on Vassar Street. MIT Facilities' list of pay lots near campus can be found <a target="_blank" href="http://web.mit.edu/facilities/transportation/parking/visitors/public_parking.html">here</a>.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> do I have to come to both the learnathon and the hackathon?
+                            </div>
+                            <div class="answer">
+                                Nope! You can attend either one or both days.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> what will I eat?
+                            </div>
+                            <div class="answer">
+                                We’ll provide food for all meals from Saturday breakfast to Sunday lunch. We’ll do our best to accomodate all allergies and dietary restrictions as well.
+                            </div>
+
+                            <div class="question">
+                                <font size="3">></font> can my parents come with me?
+                            </div>
+                            <div class="answer">
+                                Blueprint is a student-only even from check-in and onwards. We’re grateful for your parents’ support of our program!
+                            </div>
+                        </div>
+                        <p id="faq-contact" style="padding-top: 20px;">If you have other questions, please email us at <a target="_blank" href="mailto:blueprint@hackmit.org">blueprint@hackmit.org</a>! We're happy to help.</p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="faq-logos">
+                <img src="assets/letters/nobluesquaresb-4.svg" class="faq-desktop" id="faq-b"/>
+                <img src="assets/letters/redsquare-4.svg" id="faq-redsquare" class="blocks faq-desktop"/>
+                <img src="assets/letters/lightbluesquare-4.svg" id="faq-lightbluesquare" class="blocks faq-desktop"/>
+                <img src="assets/letters/yellowsquare-4.svg" id="faq-yellowsquare" class="blocks faq-desktop"/>
+                <img src="assets/letters/italicdarkbluethin-4.svg" class="faq-desktop" id="faq-italicb"/>
+            </div>
+
+
+        </div>
+
+        <div class="space"></div>
+
+        <div class="lines-separator">
+            <img class="lines" src="./assets/mobile/3bars.svg">
+        </div>
+
+        <div id="register" class="section">
+            <div class="background"></div>
+            <div class="left"></div>
+            <div class="right">
+
+            <div id="register-container" class="register-container">
+                <h1>register</h1>
+                <p> Registration is currently closed. Check back on January 4th, 2019! </p>
+            </div>
+
+            </div>
+
+            <div class="footer">
+                made with ❤ by the <a target="_blank" href="https://www.hackmit.org">HackMIT team</a>
+                <div class="logos">
+
+
+
+
+                    <div class="logo" id="ig" onclick="window.open('https://www.instagram.com/mitblueprint/', '_blank');"></div>
+                    <div class="logo" id="twitter" onclick="window.open('https://twitter.com/mitblueprint', '_blank');"></div>
+                    <div class="logo" id="fb" onclick="window.open('https://www.facebook.com/mitblueprint', '_blank');"></div>
+                    <div class="logo" id="mail" onclick="window.location='mailto:blueprint@hackmit.org';"></div>
+                </div>
+
+            </div>
+
+            <img class="red-bar letter reg-desktop" src="./assets/letters/redbar-5.svg">
+            <img id = "mediumBlueB letter" class = "mediumBlueB reg-desktop" src="./assets/letters/mediumblue-1.svg">
+            <img class="yellow-letter letter reg-desktop" src="./assets/letters/thinyellowb-5.svg">
+            <img class="blue-letter letter reg-desktop" src="./assets/letters/boldlightblueb-5.svg">
+        </div>
+
+        <script type="text/javascript" src="js/main.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-63828172-1', 'auto');
+            ga('send', 'pageview');
+        </script>
     </div>
-    <script src="js/main.js"></script>
-    <script type="text/javascript" src="js/vendor/three.min.js"></script>
-    <script type="text/javascript" src="js/vendor/OrbitControls.js"></script>
-    <script type="text/javascript" src="js/vendor/THREE.MeshLine.js"></script>
-    <script type="text/javascript" src="js/animate.js"></script>
-  </body>
+</body>
+
 </html>

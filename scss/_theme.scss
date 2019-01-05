@@ -1,42 +1,462 @@
-// _theme.scss
-// Site theme variables; used throughout site
+// Colors
+// Background
+$bg-color: #FFFFFF;
+$dot-color: #EDEDED;
+// Branding colors
+$dark-accent: #0C416C;
+$blueprint: #34BAC8;
+$light-accent: #9FDCDF;
+$hackathon: #EC5760;
+$learnathon: #F6C55E;
+$black: #34363C;
+$medium: #7C8081;
+$light: #DFE2E5;
 
-// colors
-$dark-blue: #0C3A51;
-$light-blue: #34CAE5;
-$orange: #FE875C;
-$dark-orange: #EB7D3E;
-$dark-gray: #C7DCE6;
-$light-gray: #E7F7FF;
+// Background dot dimensions
+$dot-size: 2px;
+$dot-space: 40px;
 
-// fonts
-$body-font: monaco, Consolas, Lucida Console, monospace;
-$header-font: 'Rokkitt', serif;
-$font-size-hd: 6rem, 4rem, 3rem, 2rem;
-$font-size-ht: 6rem, 4rem, 3rem, 2rem;
-$font-size-hm: 3.5rem, 3rem, 2.5rem, 2rem;
-$font-weight-h: 800, 800, 600, 500;
-$letter-spacing-h: 0.06rem, 0.05rem, 0, 0;
-
-// helper classes
-.big {
-    font-size: 20pt;
+@font-face {
+    font-family: 'Geomanist';
+    src: url('../assets/fonts/Geomanist-Regular-Webfont/geomanist-regular-webfont.eot');
+    src: url('../assets/fonts/Geomanist-Regular-Webfont/geomanist-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/Geomanist-Regular-Webfont/geomanist-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/Geomanist-Regular-Webfont/geomanist-regular-webfont.woff') format('woff'),
+         url('../assets/fonts/Geomanist-Regular-Webfont/geomanist-regular-webfont.ttf') format('truetype'),
+         url('../assets/fonts/Geomanist-Regular-Webfont/geomanist-regular-webfont.svg#geomanistregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.btn {
-    color: $light-gray;
-    background-color: $orange;
-    border-radius: 0.5rem;
-    padding: 0.7rem 1.9rem;
-    font-family: $header-font;
-    font-size: 1.5rem;
-    display: inline-block;
+@font-face {
+    font-family: 'Geomanist-Bold';
+    src: url('../assets/fonts/Geomanist-Bold-Webfont/geomanist-bold-webfont.eot');
+    src: url('../assets/fonts/Geomanist-Bold-Webfont/geomanist-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/Geomanist-Bold-Webfont/geomanist-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/Geomanist-Bold-Webfont/geomanist-bold-webfont.woff') format('woff'),
+         url('../assets/fonts/Geomanist-Bold-Webfont/geomanist-bold-webfont.ttf') format('truetype'),
+         url('../assets/fonts/Geomanist-Bold-Webfont/geomanist-bold-webfont.svg#geomanistregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.btn:hover {
-  background-color: $dark-orange;
+@font-face {
+    font-family: 'Geomanist-Medium';
+    src: url('../assets/fonts/Geomanist-Medium-Webfont/geomanist-medium-webfont.eot');
+    src: url('../assets/fonts/Geomanist-Medium-Webfont/geomanist-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/Geomanist-Medium-Webfont/geomanist-medium-webfont.woff2') format('woff2'),
+         url('../assets/fonts/Geomanist-Medium-Webfont/geomanist-medium-webfont.woff') format('woff'),
+         url('../assets/fonts/Geomanist-Medium-Webfont/geomanist-medium-webfont.ttf') format('truetype'),
+         url('../assets/fonts/Geomanist-Medium-Webfont/geomanist-medium-webfont.svg#geomanistregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-p a {
-    color: $orange;
+@font-face {
+    font-family: 'Geomanist-Light';
+    src: url('../assets/fonts/Geomanist-Light-Webfont/geomanist-light-webfont.eot');
+    src: url('../assets/fonts/Geomanist-Light-Webfont/geomanist-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/Geomanist-Light-Webfont/geomanist-light-webfont.woff2') format('woff2'),
+         url('../assets/fonts/Geomanist-Light-Webfont/geomanist-light-webfont.woff') format('woff'),
+         url('../assets/fonts/Geomanist-Light-Webfont/geomanist-light-webfont.ttf') format('truetype'),
+         url('../assets/fonts/Geomanist-Light-Webfont/geomanist-light-webfont.svg#geomanistregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon-Grotesque-Black';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/Brandon-Grotesque/brandon-grotesque-black-58a8a3e824392.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Brandon-Grotesque-Light';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/Brandon-Grotesque/brandon-grotesque-light-58a8a4b38001d.woff') format('woff');
+}
+
+
+.section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    // overflow: hidden;
+    .background{
+        height: 80vh;
+        width: 80vw;
+        position: absolute;
+        background-image:
+          radial-gradient($dot-color $dot-size, transparent 0),
+          radial-gradient($dot-color $dot-size, transparent 0);
+        background-size: $dot-space $dot-space;
+        top: 20vh;
+        left: 20vw;
+        z-index: -100;
+        @include mobile-large {
+            display: none;
+        }
+    }
+}
+
+
+.space{
+    position: relative;
+    height: 100vh;
+    @include mobile-large {
+        display: none;
+    }
+}
+
+.footer{
+    position: absolute;
+    width: 100vw;
+    @include mobile-large{
+        text-align: center;
+    }
+
+    @include tablet-up{
+        padding-right: 20px;
+        text-align: right;
+    }
+
+    bottom: 0;
+    left: 0;
+    padding-bottom: 10px;
+    a{
+        height: 100%;
+        width: 100%;
+
+    }
+
+    @include tablet-up{
+        font-size: 14px;
+    }
+    @include mobile-large{
+        font-size: 13px;
+    }
+    .logos{
+        position: relative;
+        @include mobile-large{
+            margin: auto;
+            width: 160px;
+        }
+    }
+    .logo{
+        position: relative;
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        @include tablet-up{
+            margin-top: 10px;
+            margin-left: 10px;
+            height: 40px;
+            width: 40px;
+            float:right;
+        }
+        @include mobile-large{
+            height: 30px;
+            width: 30px;
+            margin: 5px;
+            float: right;
+        }
+
+    }
+    .logo:hover{
+        cursor: pointer;
+    }
+    #mail{
+        background-image: url('../assets/mail.png')
+    }
+    #mail:hover{
+        background-image: url('../assets/mail2.png')
+    }
+    #fb{
+        background-image: url('../assets/fb.png');
+
+    }
+    #fb:hover{
+        background-image: url('../assets/fb2.png');
+    }
+    #twitter{
+        background-image: url('../assets/twitter.png');
+
+    }
+    #twitter:hover{
+        background-image: url('../assets/twitter2.png');
+    }
+    #ig{
+        background-image: url('../assets/insta.png');
+
+    }
+    #ig:hover{
+        background-image: url('../assets/insta2.png');
+    }
+
+}
+
+// MOBILE STUFFS
+// Differentiate big and small screen width views
+.tablet-up-only{
+    display: none;
+    @include tablet-up{
+        display: block;
+    }
+}
+.mobile-only{
+    display: none;
+    @include mobile-large{
+        display: block;
+    }
+}
+
+.letters-container {
+    @include tablet-up {
+        display: none;
+    }
+    position: relative;
+    top: 10vh;
+    margin-bottom: -20vh;
+}
+
+%mobile-separator {
+    @include tablet-up {
+        display: none;
+    }
+    display: flex;
+    width: 100vw;
+}
+
+.block-separator {
+    @extend %mobile-separator;
+    justify-content: center;
+    // margin-top: 20vh;
+    margin-bottom: -7vh;
+}
+
+.bars-separator {
+    @extend %mobile-separator;
+    margin-top: 5vh;
+}
+
+.dots-separator {
+    @extend %mobile-separator;
+    justify-content: center;
+}
+
+.lines-separator {
+    @extend %mobile-separator;
+    justify-content: flex-end;
+    margin-top: 8vh;
+    margin-bottom: 5vh;
+}
+
+.blocks {
+    width: 15vw;
+}
+
+.bars {
+    width: 60vw;
+    @include tablet-portrait {
+        width: initial;
+    }
+}
+
+.dots {
+    width: 40vw;
+}
+
+.lines {
+    width: 70vw;
+    @include tablet-portrait {
+        width: initial;
+    }
+}
+
+.navlogo{
+    position: relative;
+    z-index: 150;
+    top: 20px;
+    left: 25px;
+    width: 35px;
+    height: 35px;
+    #logo-static{
+        display: block;
+    }
+    #logo-hover{
+        display: none;
+    }
+    img{
+        height: 30px;
+        width: 30px;
+    }
+    @include mobile-large {
+        display: none;
+    }
+}
+
+.navlogo:hover{
+    cursor: pointer;
+    #logo-static{
+        display: none;
+    }
+    #logo-hover{
+        display:block;
+    }
+}
+
+
+
+.sticky{
+    position: fixed;
+}
+
+.navbar{
+    z-index: 100;
+    @include tablet-up {
+        top: 0;
+        right: 0;
+        height: 60px;
+    }
+    @include small-desktop-down{
+        left: 0;
+        right: auto;
+    }
+    width: 100vw;
+    background-color: $bg-color;
+    .navButton{
+        font-family: Geomanist-Medium;
+        font-size: 1.1em;
+        color: $dark-accent;
+        background-color: transparent;
+        border: none;
+        float: right;
+        display: block;
+        text-align: center;
+        padding: .3em;
+        margin-top: 10px;
+        @include tablet-up{
+            padding-right: 20px;
+        }
+
+    }
+    .navButton:hover{
+        color: #34BAC8;
+        cursor: pointer;
+    }
+    @include mobile-large {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        padding-top: 1vh;
+        position: static;
+        font-size: 0.8em;
+    }
+}
+
+#about-button.active{
+    color: #34BAC8;
+}
+
+#schedule-button.active{
+    color: #34BAC8;
+}
+
+#faq-button.active{
+    color: #34BAC8;
+}
+
+#register-button.active{
+    color: #34BAC8;
+}
+
+body {
+    font-family: Geomanist;
+    @include tablet-up {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    @include mobile-large {
+        background-image:
+          radial-gradient($dot-color 1px, transparent 0),
+          radial-gradient($dot-color 1px, transparent 0);
+         background-size: 20px 20px;
+    }
+
+}
+
+h1 {
+    color: $blueprint;
+    font-family: Geomanist-Bold;
+    font-size: 55px;
+    letter-spacing: 0.1em;
+    @include desktop{
+        padding-top: 0;
+    }
+    @include medium-desktop-down{
+        padding-top: 5vh;
+    }
+}
+
+h2 {
+    font-family: Geomanist-Medium;
+    font-size: 35px;
+    letter-spacing: 0.05em;
+    @include mobile-large{
+        padding-top: 20px;
+    }
+    @include tablet-up{
+        padding-top: 0;
+    }
+}
+
+.learnathon {
+    color: $learnathon;
+}
+
+.hackathon {
+    color: $hackathon;
+}
+
+p, li {
+    color: black;
+    font-family: Geomanist-Light;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    line-height: 23pt;
+
+}
+
+p{
+    @include mobile-large{
+        margin-bottom: 20px;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li:before {
+    content: ">";
+    font-family: Geomanist-Bold;
+    padding-right: 5px;
+}
+
+
+::-webkit-scrollbar{
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb{
+  background: rgba(0, 0, 0, 0.2);
 }

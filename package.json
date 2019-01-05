@@ -1,25 +1,32 @@
 {
-  "name": "blueprint-2018-splash",
+  "name": "blueprint-2019-splash",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "Splash page for Blueprint 2019!",
+  "main": "js/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no tests specified\" && exit 1",
+    "start": "gulp dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techx/blueprint-2018-splash.git"
+    "url": "git+https://github.com/techx/blueprint-2019-splash.git"
   },
+  "author": "",
+  "license": "CC BY-SA",
   "bugs": {
-    "url": "https://github.com/techx/blueprint-2018-splash/issues"
+    "url": "https://github.com/techx/blueprint-2019-splash/issues"
   },
-  "homepage": "https://github.com/techx/blueprint-2018-splash#readme",
+  "homepage": "https://github.com/techx/blueprint-2019-splash#readme",
   "dependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.0",
-    "gulp-header": "^1.8.9",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0"
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-header": "^2.0.7",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "natives": "^1.1.6"
+  },
+  "devDependencies": {
+    "gulp-autoprefixer": "^5.0.0"
   }
 }

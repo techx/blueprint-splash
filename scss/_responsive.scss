@@ -1,62 +1,38 @@
-// Responsive Breakpoints
-// Used throughout site for responsive styling
-
-$screen-gap: 24px;
-$screen-tablet: 769px;
-$screen-desktop: 960px + (2*$screen-gap);
-$screen-widescreen: 1152px + (2*$screen-gap);
-$screen-fullhd: 1344px +  (2*$screen-gap);
-
-@mixin mobile { // mobile screens
-  @media screen and (max-width: $screen-tablet - 1px) {
-    @content;
-  }
+@mixin mobile-small {
+  @media screen and (max-width: 365px) { @content; }
+}
+@mixin mobile {
+  @media screen and (max-width: 600px) { @content; }
+}
+@mixin mobile-large {
+  @media screen and (max-width: 899px) { @content; }
+}
+@mixin tablet-portrait {
+  @media screen and (min-width: 601px) { @content; }
+}
+@mixin tablet-up {
+  @media screen and (min-width: 900px) { @content; }
 }
 
-@mixin tablet { // tablet and larger
-  @media screen and (min-width: $screen-tablet), print {
-    @content;
-  }
+@mixin big-tablet-down{
+    @media screen and (max-width: 1100px) { @content; }
 }
 
-@mixin tablet-only { // only tablet
-  @media screen and (min-width: $screen-tablet) and (max-width: $screen-desktop - 1px) {
-    @content;
-  }
+@mixin desktop {
+  @media screen and (min-width: 1200px) { @content; }
 }
-
-@mixin touch { // mobile and tablet
-  @media screen and (max-width: $screen-desktop - 1px) {
-    @content;
-  }
+@mixin small-desktop-down{
+    @media screen and (max-width: 1200px) { @content; }
 }
-
-@mixin desktop { // desktop and up
-  @media screen and (min-width: $screen-desktop) {
-    @content;
-  }
+@mixin small-desktop-up{
+    @media screen and (min-width: 1201px) { @content; }
 }
-
-@mixin desktop-only { // only desktop
-  @media screen and (min-width: $screen-desktop) and (max-width: $screen-widescreen - 1px) {
-    @content;
-  }
+@mixin medium-desktop-down{
+    @media screen and (max-width: 1449px) { @content; }
 }
-
-@mixin widescreen { // widescreen and up
-  @media screen and (min-width: $screen-widescreen) {
-    @content;
-  }
+@mixin medium-desktop-up{
+    @media screen and (min-width: 1450px) { @content; }
 }
-
-@mixin widescreen-only { // only widescreen
-  @media screen and (min-width: $screen-widescreen) and (max-width: $screen-fullhd - 1px) {
-    @content;
-  }
-}
-
-@mixin fullhd { // full-hd and up
-  @media screen and (min-width: $screen-fullhd) {
-    @content;
-  }
+@mixin big-desktop {
+  @media screen and (min-width: 1800px) { @content; }
 }
