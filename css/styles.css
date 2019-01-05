@@ -160,20 +160,17 @@ a {
     position: relative;
     background-size: contain;
     background-repeat: no-repeat;
-    border-radius: 3px; }
+    border-radius: 3px;
+    height: 30px;
+    width: 30px;
+    float: right; }
     @media screen and (min-width: 900px) {
       .footer .logo {
         margin-top: 10px;
-        margin-left: 10px;
-        height: 40px;
-        width: 40px;
-        float: right; } }
+        margin-left: 10px; } }
     @media screen and (max-width: 899px) {
       .footer .logo {
-        height: 30px;
-        width: 30px;
-        margin: 5px;
-        float: right; } }
+        margin: 5px; } }
   .footer .logo:hover {
     cursor: pointer; }
   .footer #mail {
@@ -1322,7 +1319,7 @@ a {
 
 .register-container {
   position: relative;
-  width: auto; }
+  width: 100%; }
   @media screen and (min-width: 601px) {
     .register-container {
       margin: auto; } }

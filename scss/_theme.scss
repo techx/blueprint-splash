@@ -150,18 +150,16 @@ $dot-space: 40px;
         background-size: contain;
         background-repeat: no-repeat;
         border-radius: 3px;
+        height: 30px;
+        width: 30px;
+        float: right;
         @include tablet-up{
             margin-top: 10px;
             margin-left: 10px;
-            height: 40px;
-            width: 40px;
-            float:right;
         }
         @include mobile-large{
-            height: 30px;
-            width: 30px;
             margin: 5px;
-            float: right;
+
         }
 
     }
