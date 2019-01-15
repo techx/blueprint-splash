@@ -1,0 +1,25 @@
+{
+  "name": "blueprint-2018-splash",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techx/blueprint-2018-splash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/techx/blueprint-2018-splash/issues"
+  },
+  "homepage": "https://github.com/techx/blueprint-2018-splash#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-header": "^1.8.9",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0"
+  }
+}
