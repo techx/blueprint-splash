@@ -167,10 +167,10 @@ $dot-space: 40px;
         cursor: pointer;
     }
     #mail{
-        background-image: url('../assets/mail.png')
+        background-image: url('../assets/mail.png');
     }
     #mail:hover{
-        background-image: url('../assets/mail2.png')
+        background-image: url('../assets/mail2.png');
     }
     #fb{
         background-image: url('../assets/fb.png');
@@ -194,6 +194,11 @@ $dot-space: 40px;
         background-image: url('../assets/insta2.png');
     }
 
+}
+
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    content:url('../assets/mail2.png') url('../assets/fb2.png') url('../assets/twitter2.png') url('../assets/insta2.png');
 }
 
 // MOBILE STUFFS
