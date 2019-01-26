@@ -197,7 +197,11 @@ $dot-space: 40px;
 }
 
 body::after{
-    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    position:absolute;
+    width:0;
+    height:0;
+    overflow:hidden;
+    z-index:-1;
     content:url('../assets/mail2.png') url('../assets/fb2.png') url('../assets/twitter2.png') url('../assets/insta2.png');
 }
 
