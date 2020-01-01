@@ -1,378 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+                   /~@@~\,
+ _______ . _\_\___/\ __ /\___|_|_ . _______
+/ ____  |=|      \  <_+>  /      |=|  ____ \
+~|    |\|=|======\\______//======|=|/|    |~
+ |_   |    \      |      |      /    |    |
+  \==-|     \     |  BP  |     /     |----|~~)
+  |   |      |    |      |    |      |____/~/
+  |   |       \____\____/____/      /    / /
+  |   |         {----------}       /____/ /
+  |___|        /~~~~~~~~~~~~\     |_/~|_|/
+   \_/        [/~~~~~||~~~~~\]     /__|\
+   | |         |    ||||    |     (/|[[\)
+   [_]        |     |  |     |
+              |_____|  |_____|
+              (_____)  (_____)
+              |     |  |     |
+              |     |  |     |
+              |/~~~\|  |/~~~\|
+              /|___|\  /|___|\
+             <_______><_______>
+-->
 <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <!-- Link to local files -->
     <link rel="stylesheet" type="text/css" href="css/styles.min.css">
-    <!-- Favicon stuffs -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
-    <link rel="manifest" href="./assets/favicons/site.webmanifest">
-    <link rel="mask-icon" href="./assets/favicons/safari-pinned-tab.svg" color="#34bac8">
-    <link rel="shortcut icon" href="./assets/favicons/favicon.ico">
-    <!-- Social media stuffs -->
-    <title>Blueprint 2019</title>
+    <link rel="icon" href="./assets/png/small_b.png" type="image/png" >
+    <title>Blueprint 2020</title>
     <meta name="description" content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!"/>
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@MITBlueprint">
-    <meta name="twitter:title" content="Blueprint 2019">
-    <meta name="twitter:description" content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!">
-    <meta name="twitter:image" content="http://blueprint.hackmit.org/assets/thumbnail1.png">
-    <!-- Facebook -->
-    <meta property="og:title" content="Blueprint 2019"/>
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://blueprint.hackmit.org/" />
-    <meta property="og:image" content="http://blueprint.hackmit.org/assets/thumbnail1.png"/>
-    <meta property="og:image:height" content="1080">
-    <meta property="og:image:width" content="1920">
-    <meta property="og:description" content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!"/>
-    <meta property="og:site_name" content="Blueprint 2019"/>
 </head>
 
 <body>
+    <video autoplay muted id="loading" src="assets/video/animation2.mp4"></video>
+    <!-- <div id="loading-bg"></div> -->
+    <!-- <img src="assets/arcade2.png" id="loading-bg"/> -->
+    <div class="grid-bg"></div>   
+    <div id="squares"></div>
     <div style="overflow-x: hidden; overflow-y: hidden;">
 
-        <div class="sticky navlogo" onclick="navHandler('home')">
-            <img id="logo-static" src="./assets/favicons/logo.svg" alt="Blueprint logo"/>
-            <img id="logo-hover" src="./assets/favicons/logo_blue.svg" alt="Blueprint logo">
+        <a id="menu-button" href="#home">menu</a>
+        <div id="home" class="container">
+            <div class="logo">
+                <img class="logo" id="main-logo" src="assets/SVG/blueprintlogo.svg" />
+                <h3>february 8-9, 2020</h1>
+            </div>
+            <p>Blueprint is a weekend-long learnathon and hackathon for local high school students held on MIT's campus. Learn from MIT students, make new friends, and make something cool!</p>
+            <ul class="items">
+                <li >
+                    <a id="menu-play" class="default hover" href="#play" id="play-button">
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
+                        <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
+                        <h2>play</h2>
+                    </a>
+                </li>
+                <li>
+                    <a id="menu-register" href="#register">
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
+                        <img class="selected" src="assets/SVG/menu_select.svg" />
+                        <h2>register</h2>
+                    </a>
+                </li>
+                <li>
+                    <a id="menu-schedule" href="#schedule">
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
+                        <img class="selected" src="assets/SVG/menu_select.svg" />
+                        <h2>schedule</h2>
+                    </a>
+                </li>
+                <li>
+                    <a id="menu-faq" href="#faq">
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
+                        <img class="selected" src="assets/SVG/menu_select.svg" />
+                        <h2>faq</h2>
+                    </a>
+                </li>
+                <li>
+                    <a id="menu-about" href="#about">
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
+                        <img class="selected" src="assets/SVG/menu_select.svg" />
+                        <h2>about</h2>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="sticky navbar">
-            <div class="navButton" id="register-button" onclick="navHandler('register')">register</div>
-            <div class="navButton" id="faq-button" onclick="navHandler('faq')">faq</div>
-            <div class="navButton" id="schedule-button"onclick="navHandler('schedule')">schedule</div>
-            <div class="navButton" id="about-button" onclick="navHandler('about')">about</div>
+        <div id="register" class="container hidden">
+            <h1>register</h1>
+
+            <p> Registration will open soon. <br> Sign up <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6txpG1fgB0ewYJvVPm3WyJEJlwP4x2UK81wNizSVIDCjbuA/viewform" target="_blank"><font color="24E5FF">here</font></a> to get notified when registration goes live!</p>
+        </div>                     
+        <div id="faq" class="container hidden">
+            <p class="page-title">faq</p>
+            <br>
+            <div id="default-faq-select" class="question faq-q">
+                <span>&#9658;</span>
+                what's the schedule?
+            </div>
+            <div class="answer">schedule is on the website</div>
+            <div class="question faq-q">
+                <span>&#9658;</span>
+                when can I apply?
+            </div>
+            <div class="answer">Stay tuned for applications!</div>
+            <div class="question faq-q">
+                <span>&#9658;</span>
+                how do teams work? what if I don't have a team?
+            </div>
+            <div class="answer">Teams are a great way to meet new people or bond with friends, so we highly recommend them! Don't worry if you don't have a team now; we'll have team formation and ideation sessions at the beginning of Blueprint so you can find some pals. Teams can be up to four people.
+            </div>
+            <div class="question faq-q">
+                <span>&#9658;</span>
+                can I mentor?
+            </div>
+            <div class="answer">If you're a college student or professional interested in helping teach high schoolers for Blueprint, head over to our <a href="https://go.hackmit.org/mentor" target="_blank" rel="noreferrer noopener">mentorship form</a>.
+            </div>
+            <div class="question faq-q">
+                <span>&#9658;</span>
+                what should I bring?
+            </div>
+            <div class="answer">Bring a photo ID and a laptop (and charger!). We'll provide breakfast, lunch, dinner, swag, and everything else you need.
+            </div>
+            <div class="question faq-q">
+                <span>&#9658;</span>
+                where is it? how do I get there?
+            </div>
+            <div class="answer">Blueprint will be held on MIT’s campus. The Learnathon on Saturday will be held in the <a href="http://whereis.mit.edu/?go=32" target="_blank" rel="noreferrer noopener">Ray and Maria Stata Center</a> and the Hackathon on Sunday will be held at the <a href="http://whereis.mit.edu/?go=E14" target="_blank" rel="noreferrer noopener">MIT Media Lab</a>. Follow the signs in the lobby to the event!
+            </div>
+            <div class="question faq-q">
+            <span>&#9658;</span>
+                does Blueprint cost money?
+            </div>
+            <div class="answer">Nope! We'll cover meals, snacks, drinks, a Blueprint t-shirt, and an unforgettable experience :) We can't reimburse travel or overnight lodging costs, though. Hotels near MIT include the <a href="http://www.kendallhotel.com/" target="_blank" rel="noreferrer noopener">Kendall Hotel</a> and the <a href="http://www.marriott.com/hotels/travel/boscb-boston-marriott-cambridge/" target="_blank" rel="noreferrer noopener">Marriott</a>.
+            </div>
+            <div class="question faq-q">
+            <span>&#9658;</span>
+                what about parking?
+            </div>
+            <div class="answer">Parking is free on a first-come, first-serve basis on weekends in several lots: the <a href="http://whereis.mit.edu/?go=P40" target="_blank" rel="noreferrer noopener">65 Waverly Street Lot</a>, the <a href="http://whereis.mit.edu/?go=W98" target="_blank" rel="noreferrer noopener">W98 Lots</a>, and the <a href="http://whereis.mit.edu/?go=P34" target="_blank" rel="noreferrer noopener">W91 Lot</a>. There is also some metered parking on Vassar Street. MIT Facilities' list of pay lots near campus can be found <a href="http://web.mit.edu/facilities/transportation/parking/visitors/public_parking.html" target="_blank" rel="noreferrer noopener">here</a>.
+            </div>
+
+            <div class="question faq-q">
+            <span>&#9658;</span>
+            do I have to come to both the learnathon and the hackathon?
+            </div>
+            <div class="answer">Nope! You can attend either one or both days.
+            </div>
+
+            <div class="question faq-q">
+            <span>&#9658;</span>
+            what will I eat?
+            </div>
+            <div class="answer">We'll provide food for all meals from Saturday's breakfast to Sunday's lunch. We'll do our best to accommodate all allergies and dietary restrictions as well.
+            </div>
+
+            <div class="question faq-q">
+            <span>&#9658;</span>
+            can my parents come with me?
+            </div>
+            <div class="answer">Blueprint is a student-only event from check-in on. We're grateful for your parents' support of our program!
+            </div>
+            <div class="spacer" style="height: 20vh"></div>
         </div>
-
-        <div class="letters-container">
-            <img class="letters" src="./assets/mobile/b-together.svg">
-        </div>
-
-        <div id="home" class="section">
-            <div class="background"></div>
-            <div class="left"></div>
-            <div class="right">
-                <div style="">
-                    <div id="print-container">
-                        <font>>print</font><font id="open-paren">(</font><font>"hello,</font>
-                    </div>
-
-                    <div id="bp-container">
-                        <font id="bp" class="bp">blueprint!"</font><font id="close-paren" class="bp">)</font>
-                        <div class="content">
-                            <div id="date">
-                                february 23 & 24, 2019
-                            </div>
-                            <div id="content">
-                                Blueprint is a weekend-long learnathon and hackathon for local high school students held on MIT’s campus. Learn from MIT students, make new friends, and build something cool!
-                            </div>
+        <div id="about" class="container hidden">
+            <h1>about</h1>
+            <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. After Blueprint, you'll not only have this project but also the tools to learn more.</p>
+                <div class="schedule-items">
+                        <div id="about-learn" class="question hover">
+                            <!-- <span>&#9658;</span> -->
+                            <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
+                            <h2>learnathon</h2>
                         </div>
-                    </div>
-                </div>
+                        <div class="answer">
+                            <p class="about-date">date: saturday, february 8th</p>
+                            <ul>
+                                <li>Participate in hands-on workshops taught by MIT students and industry professionals on programming fundamentals, web programming, or Arduino</li>
+                                <li>Attend short 'tech talks' on specialized computer science topics</li>
+                                <li>Eager to get started? Check out <a href="https://starthacking.org/" target="_blank"><font color="24E5FF">StartHacking.org</font></a>!</li>
+                                  
+                            </ul>
+                        </div>
+                        <div id="about-hack" class="question">
+                            <!-- <span>&#9658;</span> -->
+                            <img class="selected" src="assets/SVG/menu_select.svg" />
+                            <h2>hackathon</h2>
+                        </div>
+                        <div class="answer">
+                            <p class="about-date">date: sunday, february 9th</p>
+                            <ul>
 
+                                <li>Put your new skills to practice!</li>
+                                <li>Form a team and experience the challenge and reward of building a project from scratch</li>
+                                <li>Consult mentors for personalized feedback and help with your project</li>
+                                <li>Interested in mentoring? Sign up <a href="https://go.hackmit.org/mentor" target="_blank"><font color="24E5FF">here</font></a>!</li>
+                                      
+                            </ul>
+                        </div>
+                </div>
+            <div class="spacer"></div>
+        </div>
+        <div id="schedule" class="container hidden">
+            <div class="page-title">
+                schedule
             </div>
-            <img class="blue-letter animatable" src="./assets/letters/blue-normal.svg" />
-            <img class="red-letter animatable" src="./assets/letters/red-bolditalic.svg" />
-            <img class="yellow-letter animatable" src="./assets/letters/yellow-thinslanted.svg" />
-        </div>
-
-        <div class="block-separator">
-            <img class="blocks" src="./assets/mobile/3blocks.svg">
-        </div>
-
-        <div class="space"></div>
-
-        <div id="about" class="section">
-            <div class="background"></div>
-
-            <div class="left"></div>
-            <div class="right">
-                <div id="about-container" class="about-container">
-                    <h1>about</h1>
-                    <p>
-                        Over the course of Blueprint, you’ll form a team, decide on a project, and develop it from start to finish with the support of our mentors. After Blueprint, you’ll not only have this project but also the tools to learn more about programming on your own and take your skills even further.
-                    </p>
+            <br>
+            <div class="schedule-items">
+                <div id="schedule-learn" class="question hover">
+                    <!-- <span>&#9658;</span> -->
+                    <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
+                    <h2>learnathon</h2>
                 </div>
+                <div class="answer">
+                    <p class="schedule-date"><span style="color: #EC0E6A">date:</span> saturday, february 8th</p>
+                    <p class="schedule-date"><span style="color: #EC0E6A">location:</span> MIT Stata Center</p>
+                    <table class="schedule-table">
+                        <tr>
+                            <td class="schedule-time">8:30 am</td>
+                            <td>check-in and breakfast</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">9:30 am</td>
+                            <td>opening ceremony</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">10:00 am</td>
+                            <td>workshop #1</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">11:30 am</td>
+                            <td>tech talk #1</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">12:00 pm</td>
+                            <td>lunch</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">1:00 pm</td>
+                            <td>workshop #2</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">2:00 pm</td>
+                            <td>break</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">2:15 pm</td>
+                            <td>workshop #3</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">3:15 pm</td>
+                            <td>tech talk #2</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">3:45 pm</td>
+                            <td>break</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">4:00 pm</td>
+                            <td>workshop #4</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">5:00 pm</td>
+                            <td>closing ceremony</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">5:15 pm</td>
+                            <td>end of learnathon</td>
+                        </tr>
 
-                <div id="learnathon-container" class="learnathon-container">
-                    <h2 class="learnathon">
-                        learnathon
-                    </h2>
-                    <p>
-                        <span class="learnathon date">date:</span> saturday, february 23
-                    </p><br><br>
-                    <ul>
-                        <li>Participate in hands-on workshops taught by MIT students and industry professionals on programming fundamentals, web programming, or Arduino</li>
-                        <li>Attend short ‘tech talks’ on specialized computer science topics</li>
-                        <li>Eager to get started? Check out <a target="_blank" href="https://starthacking.org/">StartHacking.org</a></li>
-                    </ul>
+                    </table>
                 </div>
-                <div id="hackathon-container" class="hackathon-container">
-                    <h2 class="hackathon">
-                        hackathon
-                    </h2>
-                    <p>
-                        <span class="hackathon date">date:</span> sunday, february 24
-                    </p><br><br>
-                    <ul>
-                        <li>Put your new skills to practice!</li>
-                        <li>Form a team and experience the challenge and reward of building a project from scratch</li>
-                        <li>Consult mentors for personalized feedback and help with your project</li>
-                        <li>Interested in mentoring? Sign up <a target="_blank" href="https://go.hackmit.org/mentor">here</a></li>
-                    </ul>
+                <div id="schedule-hack" class="question">
+                    <!-- <span>&#9658;</span> -->
+                    <img class="selected" src="assets/SVG/menu_select.svg" />
+                    <h2>hackathon</h2>
                 </div>
-            </div>
-
-            <img class="about-bar" id="redbar" src="./assets/letters/redbar-2.svg"/>
-            <img class="about-bar" id="darkbluebar" src="./assets/letters/darkbluebar-2.svg"/>
-            <img class="about-bar" id="yellowbar" src="./assets/letters/yellowbar-2.svg"/>
-            <img class="about-bar" id="lightbluebar" src="./assets/letters/lightbluebar-2.svg"/>
-            <img class="about-bar" id="bluebar" src="./assets/letters/bluebar-2.svg"/>
-
-            <img class="blue-letter animatable" src="./assets/letters/blue-normal.svg" />
-            <img class="aboutb" id="yellowb" src="./assets/letters/yellowb-2.svg"/>
-            <img class="aboutb" id="darkblueb" src="./assets/letters/darkblueb-2.svg"/>
-        </div>
-
-        <div class="space"></div>
-
-        <div class="bars-separator">
-            <img class="bars" src="./assets/mobile/bars.svg">
-        </div>
-
-        <div id="schedule" class="section">
-            <div class="background"></div>
-            <div class="left"></div>
-            <div class="right">
-                <div id="about-container" class="about-container">
-                    <h1>schedule</h1> <br><br><br>
-                </div>
-                <div id="learnathon-container" class="learnathon-container">
-                <h2 class="learnathon centered">
-                    learnathon
-                </h2>
-                <p class="centered">
-                    <span class="learnathon date">date:</span> saturday, february 23 <br>
-                    <span class="learnathon date">location:</span> MIT Stata Center
-                </p>
-                <table class="learnathon-schedule" id="learnathon-schedule">
-                    <tr><td>8:30 AM</td><td>check-in and breakfast</td></tr>
-                    <tr><td>9:30 AM</td><td>opening ceremony</td></tr>
-                    <tr><td>10:00 AM</td><td>workshop #1 </td></tr>
-                    <tr><td>11:30 AM</td><td>tech talk #1</td></tr>
-                    <tr><td>12:00 PM</td><td>lunch, activities expo</td></tr>
-                    <tr><td>1:00 PM</td><td>workshop #2 </td></tr>
-                    <tr><td>2:00 PM</td><td>workshop #3 </td></tr>
-                    <tr><td>3:00 PM</td><td>tech talk #2</td></tr>
-                    <tr><td>3:30 PM</td><td>workshop #4 </td></tr>
-                    <tr><td>4:30 PM</td><td>closing ceremony</td></tr>
-                    <tr><td>5:00 PM</td><td>end of learnathon</td></tr>
-                  </table>
-                </div>
-                <div id="hackathon-container" class="hackathon-container">
-                    <h2 class="hackathon centered">
-                        hackathon
-                    </h2>
-                    <p class="centered">
-                        <span class="hackathon date">date:</span> sunday, february 24 <br>
-                        <span class="hackathon date">location:</span> MIT Media Lab
-                    </p>
-                    <table class="hackathon-schedule" id="hackathon-schedule">
-                        <tr><td>7:00 AM</td><td>check-in and breakfast</td></tr>
-                        <tr><td>8:00 AM</td><td>opening ceremony</td></tr>
-                        <tr><td>8:30 AM</td><td>hacking starts, team formation</td></tr>
-                        <tr><td>11:30 AM</td><td>MIT student panel</td></tr>
-                        <tr><td>12:00 PM</td><td>lunch</td></tr>
-                        <tr><td>2:30 PM</td><td>campus excursion</td></tr>
-                        <tr><td>4:00 PM</td><td>Tim the Beaver meet and greet</td></tr>
-                        <tr><td>5:30 PM</td><td>hacking ends, dinner</td></tr>
-                        <tr><td>6:00 PM</td><td>judging</td></tr>
-                        <tr><td>7:30 PM</td><td>demos and closing ceremony</td></tr>
-                        <tr><td>8:30 PM</td><td>end of hackathon</td></tr>
+                <div class="answer">
+                    <p class="schedule-date"><span style="color: #EC0E6A">date:</span> sunday, february 9th</p>
+                    <p class="schedule-date"><span style="color: #EC0E6A">location:</span> MIT Media Lab</p>
+                    <table class="schedule-table">
+                        <tr>
+                            <td class="schedule-time">7:00 am</td>
+                            <td>check-in and breakfast</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">8:00 am</td>
+                            <td>opening ceremony</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">8:30 am</td>
+                            <td>hacking starts, team formation</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">11:30 am</td>
+                            <td>MIT student panel</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">12:30 pm</td>
+                            <td>lunch</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">2:30 pm</td>
+                            <td>campus excursion</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">4:00 pm</td>
+                            <td>Tim the Beaver meet and greet</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">5:30 pm</td>
+                            <td>hacking ends, dinner</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">6:00 pm</td>
+                            <td>judging</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">7:30 pm</td>
+                            <td>demos and closing ceremony</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">8:30 pm</td>
+                            <td>end of hackathon</td>
+                        </tr>
                     </table>
                 </div>
             </div>
-
-            <img class="blue-letter animatable" src="./assets/letters/blue-normal.svg" />
-            <div class="yellow-bar-container"><div class="yellow-bar animatable"></div></div>
-
-            <img class="lightblueb animatable" src="./assets/letters/lightblueb-3.svg"/>
-            <img class="redb animatable" src="./assets/letters/redb-3.svg"/>
-
-            <img class="schedule-dots" id="yellow-dot" src="./assets/letters/yellowdot-3.svg"/>
-            <img class="schedule-dots" id="blue-dot" src="./assets/letters/darkbluedot-3.svg"/>
-            <img class="schedule-dots" id="red-dot" src="./assets/letters/reddot-3.svg"/>
+            <div class="spacer"></div>
         </div>
-
-
-        <div class="space"></div>
-
-        <div class="dots-separator">
-            <img class="dots" src="./assets/mobile/dots.svg">
-        </div>
-
-        <div id="faq" class="section">
-            <div class="background"></div>
-            <div class="left"></div>
-            <div class="right">
-                <div id="faq-container" class="faq-container">
-                    <h1>faq</h1>
-
-                    <div class="faq-content scrollable" id="faq-content">
-                        <div class="faq-questions" id="faq-questions">
-                            <div class="question">
-                                <font size="3">></font> what's the schedule?
-                            </div>
-                            <div class="answer">
-                                See above! Note that Blueprint is not an overnight event.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> when can I apply?
-                            </div>
-                            <div class="answer">
-                                Applications are now open! Apply by January 25th, 2019 at 11:59 PM EST <a target="_blank" href="https://my.hackmit.org">here</a>.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> who can attend?
-                            </div>
-                            <div class="answer">
-                                Blueprint is for high school students and experience in programming is not required for the learnathon or the hackathon. The Arduino and Web tracks require a basic knowledge of programming fundamentals and the StartHacking track is designed for first time coders.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> how do teams work? what if I don't have a team?
-                            </div>
-                            <div class="answer">
-                                Teams can be up to 4 people. They are a great way to meet new people or bond with friends so we highly recommend them! Don’t worry if you don’t have a team now; we’ll have team formation and ideation sessions at the beginning of Blueprint so you can find some pals.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> can I mentor?
-                            </div>
-                            <div class="answer">
-                                If you’re a college student or professional interested in helping teach high school students for Blueprint, head over to our mentorship form <a target="_blank" href="https://go.hackmit.org/mentor">here</a>.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> what should I bring?
-                            </div>
-                            <div class="answer">
-                                Bring a photo ID and a laptop (and charger!). We’ll provide breakfast, lunch, dinner, swag, and everything else you need.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> where is it? how do I get there?
-                            </div>
-                            <div class="answer">
-                                Blueprint will be held on MIT’s campus. The learnathon on Saturday will be held in the <a target="_blank" href="http://whereis.mit.edu/?go=32">Ray and Maria Stata Center</a> and the hackathon on Sunday will be held at the <a target="_blank" href="http://whereis.mit.edu/?go=E14">MIT Media Lab</a>. Follow the signs in the lobby to the event!
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> does blueprint cost money?
-                            </div>
-                            <div class="answer">
-                                Nope! We’ll cover meals, snacks, drinks, a Blueprint t-shirt, and an unforgettable experience :) However, we can’t reimburse travel or overnight lodging costs. Hotels near MIT include the <a target="_blank" href="http://www.kendallhotel.com/">Kendall Hotel</a> and the <a target="_blank" href="http://www.marriott.com/hotels/travel/boscb-boston-marriott-cambridge/">Marriott</a>.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> what about parking?
-                            </div>
-                            <div class="answer">
-                                Parking is free on a first-come, first-serve basis on weekends in several lots: the <a target="_blank" href="http://whereis.mit.edu/?go=P40">65 Waverly Street Lot</a>, the <a target="_blank" href="http://whereis.mit.edu/?go=W98">W98 Lots</a>, the <a target="_blank" href="http://whereis.mit.edu/?go=P5">Hayward Street Lot</a>, and the <a target="_blank" href="http://whereis.mit.edu/?go=P34">W91 Lot</a>. There is also some metered parking on Vassar Street. MIT Facilities' list of pay lots near campus can be found <a target="_blank" href="http://web.mit.edu/facilities/transportation/parking/visitors/public_parking.html">here</a>.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> do I have to come to both the learnathon and the hackathon?
-                            </div>
-                            <div class="answer">
-                                Nope! You can attend either one or both days.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> what will I eat?
-                            </div>
-                            <div class="answer">
-                                We’ll provide food for all meals from Saturday breakfast to Sunday lunch. We’ll do our best to accomodate all allergies and dietary restrictions as well.
-                            </div>
-
-                            <div class="question">
-                                <font size="3">></font> can my parents come with me?
-                            </div>
-                            <div class="answer">
-                                Blueprint is a student-only even from check-in and onwards. We’re grateful for your parents’ support of our program!
-                            </div>
-                        </div>
-                        <p id="faq-contact" style="padding-top: 20px;">If you have other questions, please email us at <a target="_blank" href="mailto:blueprint@hackmit.org">blueprint@hackmit.org</a>! We're happy to help.</p>
-
-                    </div>
+        <div id="win" class="container hidden">
+            <div class="page-title">congrats!</div>
+            <br>
+            <div class="schedule-items">
+                <p class="score-label">your time was:</p>
+                <div id="score-box">
+                    <div id="score" class="game-time">0.0</div> 
+                    
                 </div>
-
-            </div>
-            <div class="faq-logos">
-                <img src="assets/letters/nobluesquaresb-4.svg" class="faq-desktop" id="faq-b"/>
-                <img src="assets/letters/redsquare-4.svg" id="faq-redsquare" class="blocks faq-desktop"/>
-                <img src="assets/letters/lightbluesquare-4.svg" id="faq-lightbluesquare" class="blocks faq-desktop"/>
-                <img src="assets/letters/yellowsquare-4.svg" id="faq-yellowsquare" class="blocks faq-desktop"/>
-                <img src="assets/letters/italicdarkbluethin-4.svg" class="faq-desktop" id="faq-italicb"/>
-            </div>
-
-
-        </div>
-
-        <div class="space"></div>
-
-        <div class="lines-separator">
-            <img class="lines" src="./assets/mobile/3bars.svg">
-        </div>
-
-        <div id="register" class="section">
-            <div class="background"></div>
-            <div class="left"></div>
-            <div class="right">
-
-            <div id="register-container" class="register-container">
-                <h1>register</h1>
-                <p>  Registration is now closed! </p><p> Sign up <a href="https://goo.gl/forms/FUqZSvmAP1dSRsHi2">here</a> for next year's mailing list. </p>
-            </div>
-
-            </div>
-
-            <div class="footer">
-                made with ❤ by the <a target="_blank" href="https://www.hackmit.org">HackMIT team</a>
-                <div class="logos">
-
-
-
-
-                    <div class="logo" id="ig" onclick="window.open('https://www.instagram.com/mitblueprint/', '_blank');"></div>
-                    <div class="logo" id="twitter" onclick="window.open('https://twitter.com/mitblueprint', '_blank');"></div>
-                    <div class="logo" id="fb" onclick="window.open('https://www.facebook.com/mitblueprint', '_blank');"></div>
-                    <div class="logo" id="mail" onclick="window.location='mailto:blueprint@hackmit.org';"></div>
+                <p class="score-sublabel">seconds</p>
+                <div id="win-button" class="replay-btn">
+                    <!-- <span>&#9658;</span> -->
+                    <img class="selected" src="assets/SVG/menu_select.svg" />
+                    <h2>play again</h2>
                 </div>
-
+                <!-- <a id="win-button" href="#play">play again</a> -->
+  <!--               <a id="win-button" href="#home">menu</a> -->
             </div>
-
-            <img class="red-bar letter reg-desktop" src="./assets/letters/redbar-5.svg">
-            <img id = "mediumBlueB letter" class = "mediumBlueB reg-desktop" src="./assets/letters/mediumblue-1.svg">
-            <img class="yellow-letter letter reg-desktop" src="./assets/letters/thinyellowb-5.svg">
-            <img class="blue-letter letter reg-desktop" src="./assets/letters/boldlightblueb-5.svg">
         </div>
-
-        <script type="text/javascript" src="js/main.js"></script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-            ga('create', 'UA-63828172-1', 'auto');
-            ga('send', 'pageview');
-        </script>
+        <div id="lose" class="container hidden">
+            <div class="page-title">you lost!</div>
+            <br>
+            <div class="schedule-items">
+                <p class="score-label">blocks left:</p>
+                <div id="blocks-left">00</div>
+                <div id="win-button" class="replay-btn">
+                    <img class="selected" src="assets/SVG/menu_select.svg" />
+                    <h2>play again</h2>
+                </div>
+                <!-- <a id="win-button" href="#play">play again</a>
+                <a id="win-button" href="#home">menu</a> -->
+            </div>
+        </div>
+        <div id="play" class="container hidden">
+            <div id="score-container">
+                <a id="game-time-label">time: <span class="game-time">0</span></a>
+                <a id="blocks-left-label">blocks: <span class="blocks-left">70</span></a>
+            </div>
+            <canvas id="brickerbreaker-canvas"></canvas>
+        </div>
     </div>
-</body>
+    <script type="text/javascript" src="js/sounds.js"></script>
+    <script type="text/javascript" src="js/selectors.js"></script>
+    <script type="text/javascript" src="js/brickbreaker.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
+</body>
 </html>

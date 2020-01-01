@@ -1,269 +1,49 @@
 #about {
-    display: flex;
-    @include mobile-large {
-        p, h2 {
-            text-align: center;
-        }
+    top: 10%;
+    transform: translateX(-50%);
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+        padding-left: 100px;
+        text-align: left;
+      }
+      
+      li {
+        padding-left: 1em;
+        text-indent: -1em;
+        padding-bottom: 0.5em;
+      }
+      
+      li:before {
+        content: ">";
+        padding-right: 10px;
     }
-    height: auto;
+}
+
+h1 {
+    color: #4699D3;
+    font-family: Bitwise, sans-serif;
+    font-size: 80px;
     position: relative;
-    @include mobile-large {
-        padding: 5vw;
-    }
+    //top: 0px;
+    text-align: center;
 }
 
-
-.left {
-    flex: 1 1 50%;
-    @include mobile-large {
-        display: none;
-    }
-}
-
-.right {
-    flex: 1 0 50%;
-    display: flex;
-    flex-flow: row wrap;
-    @include tablet-up {
-        p, ul {
-                padding-right: 4%;
-        }
-        padding: 3%;
-    }
-    h2 {
-        margin-bottom: 2%;
-    }
-}
-
-.about-container {
-    flex: 1 0 100%;
-    h1 {
-        text-align: center;
-        margin-bottom: 3%;
-    }
-}
-
-.learnathon-container {
-    flex: 1 0 50%;
-    ul li:before{
-        color: $learnathon;
-    }
-}
-
-.hackathon-container {
-    flex: 1 0 50%;
-    ul li:before{
-        color: $hackathon;
-    }
-}
-
-.date {
-    font-family: Geomanist-Medium;
-}
-
-
-/* color bar */
-
-@keyframes slide-down-about {
-  0% {
-    opacity: 1;
-    transform: translateY(-800%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.about-bar{
-    position: absolute;
-    display: none;
-    @include desktop{
-        margin-left: 10vw;
-        width: 1.8vh;
-    }
-    @include medium-desktop-down{
-        margin-left: 9vw;
-        width: 1.6vh;
-    }
-    @include small-desktop-down{
-        margin-left: 2.3vw;
-        width: 1.4vh;
-    }
-}
-
-#about.active .about-bar{
+p {
+    color: #fff;
     display: block;
-    @include mobile-large {
-        display: none;
-    }
-
+    font-family: Hermit, sans-serif;
+    margin: 12px auto 0;
+    // position: relative;
+    text-align: center;
+    width: 65%;
+    padding-bottom: 1em;
 }
 
-#about.active #redbar{
-    z-index: -20;
-    animation-duration: 1.5s;
-    animation-name: slide-down-about;
-    @include desktop{
-
-        top: 88vh;
-    }
-    @include medium-desktop-down{
-        top: 88vh;
-    }
-    @include small-desktop-down{
-        top: 86vh;
-    }
-}
-
-#about.active #darkbluebar{
-    z-index: -20;
-    animation-duration: 1.8s;
-    animation-name: slide-down-about;
-    @include desktop{
-        top: 66vh;
-    }
-    @include medium-desktop-down{
-        top: 69vh;
-    }
-    @include small-desktop-down{
-        top: 69vh;
-    }
-
-}
-
-#about.active #yellowbar{
-    z-index: -20;
-    animation-duration: 2s;
-    animation-name: slide-down-about;
-    @include desktop{
-        top: 34vh;
-    }
-    @include medium-desktop-down{
-        top: 42vh;
-    }
-    @include small-desktop-down{
-        top: 44vh;
-    }
-}
-
-#about.active #lightbluebar{
-    z-index: -50;
-    animation-duration: 2.2s;
-    animation-name: slide-down-about;
-    @include desktop{
-        top: 30vh;
-    }
-    @include medium-desktop-down{
-        top: 38vh;
-    }
-    @include small-desktop-down{
-        top: 41vh;
-    }
-}
-#about.active #bluebar{
-    z-index: -20;
-    animation-duration: 2.4s;
-    animation-name: slide-down-about;
-    @include desktop{
-        top: 15vh;
-    }
-    @include medium-desktop-down{
-        top: 25vh;
-    }
-    @include small-desktop-down{
-        top: 30vh;
-    }
-}
-
-
-/* others */
-
-#about.active .blue-letter {
-  /* animation */
-  animation-duration: 0.75s;
-  animation-name: slide-in;
-
-  /* positioning */
-
-
-  @include desktop{
-      margin-top: 15vh;
-      height: 95vh;
-      margin-left: 12vw;
-  }
-  @include medium-desktop-down{
-      height: 80vh;
-      margin-left: 11vw;
-      margin-top: 25vh;
-  }
-  @include small-desktop-down{
-      margin-top: 30vh;
-      height: 70vh;
-      margin-left: 4vw;
-  }
-
-
-}
-
-
-.aboutb{
-    position: absolute;
-    display: none;
-    @include desktop{
-        top: 53vh;
-        height: 52vh;
-    }
-    @include medium-desktop-down{
-        top: 57vh;
-        height: 47vh;
-    }
-    @include small-desktop-down{
-        top: 59vh;
-        height: 44vh;
-    }
-
-
-
-}
-
-#about.active .aboutb{
-    display: block;
-    @include mobile-large{
-        display: none;
-    }
-}
-
-
-#about.active #darkblueb{
-    animation-duration: 2s;
-    animation-name: slide-in;
-    z-index: -5;
-    @include desktop{
-        left: 19vw;
-    }
-    @include medium-desktop-down{
-        left: 14vw;
-    }
-    @include small-desktop-down{
-        left: 6vw;
-    }
-}
-
-#about.active #yellowb{
-    animation-duration: 1.5s;
-    animation-name: slide-in;
-    z-index: -10;
-    @include desktop{
-        left: 20vw;
-    }
-    @include medium-desktop-down{
-        left: 15vw;
-    }
-    @include small-desktop-down{
-        left: 7vw;
-    }
-
+.about-date {
+	margin-top: 10px;
+	margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
 }

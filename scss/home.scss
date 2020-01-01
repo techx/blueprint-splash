@@ -1,261 +1,132 @@
-$blueprint: #34BAC8;
+#loading-bg {
+    position: fixed;
+    overflow: hidden;
+    min-width: 100vw;
+    min-height: 100vh;
+    // min-height: 100%;
+    // width: 200vw;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.25s ease;
 
-#home{
-    display: flex;
-    @include mobile-large{
-        height: 40em;
-    }
-    @include tablet-portrait{
-        height: 50em;
-    }
-    @include tablet-up{
-        height: 100vh;
-    }
-
-
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#home #print-container{
+
+#loading {
+    position: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.25s ease;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
     position: relative;
-    top: 25vh;
-    width: 100%;
-    color: $black;
-    @include mobile-large{
-        padding: 5vw;
-        font-size: 20pt;
-        letter-spacing: 3pt;
-    }
-    @include tablet-portrait{
-        padding: 10vw;
-        font-size: 30pt;
-        letter-spacing: 3.5pt;
-    }
-    @include tablet-up{
-        padding: 0;
-        height: 50px;
-        font-size: 40px;
-        letter-spacing: 5px;
+    width: 640px;
+
+    img {
+        width: 100%;
     }
 
-
-    #open-paren{
-        font-family: Brandon-Grotesque-Light;
-        font-weight: bold;
-        @include mobile-large{
-            font-size: 19pt;
-        }
-        @include tablet-portrait{
-            font-size: 29pt;
-        }
-        @include tablet-up{
-            font-size: 39px;
-        }
-
-    }
-
-
-
-
-
-}
-
-#home #bp-container{
-    position: relative;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    height: 100vh;
-    @include mobile-large{
-        top: 22vh;
-        width: 100vw;
-    }
-    @include tablet-portrait{
-        top: 16vh;
-        width: 100vw;
-    }
-    @include tablet-up{
-        top: 25vh;
-        left: 3vw;
-        width: 530px;
-    }
-    @include medium-desktop-up{
-        top: 25vh;
-        left: 6vw;
-        width: 530px;
-    }
-
-    .bp{
-        color: $blueprint;
-
-        @include mobile-large{
-            position: relative;
-            left: 13vw;
-            letter-spacing: 3pt;
-        }
-        @include mobile-small{
-            left: 2vw;
-            position: relative;
-            letter-spacing: 3pt;
-        }
-        @include tablet-portrait{
-            position: relative;
-            left: 20vw;
-            letter-spacing: 5pt;
-        }
-        @include tablet-up{
-            left: 0;
-            letter-spacing: 10px;
-        }
-    }
-
-    #bp{
-        font-family: Geomanist-Bold;
-
-
-        @include mobile-large{
-            font-size: 38pt;
-        }
-        @include tablet-portrait{
-            font-size: 55pt;
-        }
-        @include tablet-up{
-            font-size: 80px;
-        }
-    }
-
-    #close-paren{
-        font-family: Brandon-Grotesque-Black;
-
-        @include mobile-large{
-            font-size: 39pt;
-        }
-        @include tablet-portrait{
-            font-size: 56pt;
-        }
-        @include tablet-up{
-            font-size: 85px;
-        }
-    }
-
-    .content{
-
-
-        @include mobile-large{
-            width: 100vw;
-        }
-        @include tablet-portrait{
-            width: 100vw;
-        }
-        @include tablet-up{
-            width: 355px;
-            float: right;
-        }
-
-    }
-
-    #date{
-        font-family: Geomanist;
-        text-align: right;
-
-        @include mobile-large{
-            padding-right: 15vw;
-            font-size: 15pt;
-        }
-        @include tablet-portrait{
-            font-size: 20pt;
-        }
-        @include tablet-up{
-            font-size: 30px;
-            letter-spacing: 3px;
-        }
-
-    }
-
-    #content{
-        font-family: Geomanist-Light;
-        margin-top: 50px;
-
-        @include mobile-large{
-            position: absolute;
-            text-align: center;
-            padding: 20px;
-            font-size: 18px;
-            letter-spacing: 0.02em;
-            line-height: 23pt;
-            float: center;
-        }
-        @include tablet-portrait{
-            padding: 30px;
-        }
-        @include tablet-up{
-            padding: 0;
-            text-align: left;
-            line-height: 30px;
-            font-size: 20px;
-        }
-
+    h3 {
+        color: #fff;
+        font-family: Bitwise, sans-serif;
+        font-size: 32px;
+        position: absolute;
+        right: -16px;
+        bottom: -4px;
     }
 }
 
-
-#home .animatable {
-  animation-duration: 1s;
-  animation-name: slide-in;
+p {
+    color: #fff;
+    font-family: Hermit, sans-serif;
+    margin-top: 12px;
+    text-align: center;
 }
 
-#home .blue-letter {
-  animation-delay: 0.125s;
-  animation-name: slide-in;
-  -webkit-transform: translate3d(0,0,0);
-  z-index: -100;
-  @include desktop{
-      height: 95vh;
-      margin-left: 12vw;
-      margin-top: 15vh;
-  }
-  @include small-desktop-down{
-      height: 70vh;
-      margin-left: 5vh;
-      margin-top: 30vh;
-  }
+.items {
+    display: table;
+    list-style-type: none;
+    margin: 16px auto 0;
+    
+    li {
+        a {
+            display: block;
+            &.hover {
+                h2 {
+                    color: #4699d3;
+                }
+            }
+            
+            // &.default {
+            //     h2 {
+            //         color: #4699d3;
+            //     }
+            // }
+            img {
+                display: inline-block;
+                height: 32px;
+                margin-right: 16px;
+                vertical-align: middle;
+            }
 
-}
+            h2 {
+                color: #fff;
+                display: inline-block;
+                font-family: Hermit, sans-serif;
+                font-size: 36px;
+                vertical-align: middle;
 
-#home .yellow-letter {
-  animation-delay: 0.5s;
-  -webkit-transform: translate3d(0,0,0);
-  z-index: -25;
-  @include desktop{
-      height: 105vh;
-      margin-left: 0;
-      margin-top: 0;
-  }
-  @include small-desktop-down{
-      height: 80vh;
-      margin-top: 20vh;
-      margin-left: -15vh;
-  }
+                
+            }
 
-}
+            img.selected {
+                opacity: 0;
+                &#default-select{
+                    opacity: 1;
+                }
+            }
 
-#home .red-letter {
-    -webkit-transform: translate3d(0,0,0);
-    z-index: -50;
-    @include desktop{
-        height: 45vh;
-        margin-left: 35vw;
-        margin-top: 56vh;
+            // &:hover {
+            //     h2 {
+            //         color: #4699d3;
+            //     }
+            // }
+        }
     }
-    @include small-desktop-down{
-        height: 40vh;
-        margin-left: 35vh;
-        margin-top: 60vh;
-    }
-
 }
 
+@media only screen and (max-width: 760px) {
+    .logo {
+        width: 80vw;
 
-.letter {
-  @include mobile-large {
-      display: none;
-  }
+        h3 {
+            font-size: 4vw;
+        }
+    }
+
+    .items {
+        li {
+            a {
+                img {
+                    height: 24px;
+                    margin-right: 12px;
+                }
+
+                h2 {
+                    font-size: 28px;
+                }
+            }
+        }
+    }
 }

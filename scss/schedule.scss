@@ -1,285 +1,123 @@
-#schedule {
-    display: flex;
-    h1 {
-        @include tablet-up {
-            margin-bottom: -5%;
+.schedule-items {
+    display: block;
+    list-style-type: none;
+    margin: auto;
+    div.hover {
+        h2 {
+            color: #4699d3;
         }
     }
-    height: auto;
-    @include mobile-large {
-        padding: 5vw;
-        padding-top: 0;
+
+    div.default {
+        h2 {
+            color: #4699d3;
+        }
+    }
+
+    img {
+        display: inline-block;
+        height: 32px;
+        margin-right: 16px;
+        vertical-align: middle;
+        transition: transform 0.1s ease-in;
+    }
+
+    img.selected {
+        opacity: 0;
+        &#default-select{
+            opacity: 1;
+
+        }
+    }
+    
+    h2 {
+        color: #fff;
+        display: inline-block;
+        font-family: Hermit, sans-serif;
+        font-size: 36px;
+        vertical-align: middle;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
+    .question {
+        color: #fff;
+        cursor: pointer;
+    	width: 280px;
+    	margin: 0 auto;
+    	margin-top: 10px;
+
+        span {
+            margin-right: 12px;
+            font-size: 24px;
+        }
+
+        
+
+        &:hover {
+            color: #4699d3;
+        }
+
+        
+
+        &.active {
+            &.schedule-learn {
+                color: #fff600;
+            }
+
+            &.schedule-hack {
+                color: #ec0e6a;
+            }
+        }
     }
 }
 
-@keyframes bounce-up{
-    0%{
-        transform: translateY(200%);
-    }
-    25%{
-        transform: translateY(-30%);
-    }
-    50%{
-        transform: translateY(20%);
-    }
-    75%{
-        transform: translateY(-10%);
-    }
-    100%{
-        transform: translateY(0%);
-        -webkit-transform: translate3d(0,0,0);
-    }
-}
+    
+.schedule-table {
+    margin: 0 auto;
+    display: table;
+    padding-left: 80px;
 
+    tr {
+        td {
+        	line-height: 18px;
+            text-align: left;
+        	font-family: Hermit, sans-serif;
+            font-size: 18px;
+            color: #fff;
+			padding: 5px;
+            width: 320px;
 
+            &.schedule-time {
+            	color: $main_yellow;
+                width: 120px;
 
+				a {
+					margin-right: 30px;
+				}
+            }
 
-#yellow-dot{
-    left: 45vw;
-    display: none;
-}
-#schedule.active #yellow-dot{
-    animation: bounce-up 1s forwards;
-    display: block;
-    @media screen and (max-width: 1100px){
-        display: none;
-    }
-    @media screen and (max-height: 800px){
-        display: none;
-    }
-
-}
-#blue-dot{
-    left: 50vw;
-    display: none;
-}
-#schedule.active #blue-dot{
-    animation: bounce-up 2s forwards;
-    display: block;
-    @media screen and (max-width: 1100px){
-        display: none;
-    }
-    @media screen and (max-height: 800px){
-        display: none;
-    }
-}
-#red-dot{
-    left: 55vw;
-    display: none;
-}
-#schedule.active #red-dot{
-    animation: bounce-up 1.5s forwards;
-    display: block;
-    @media screen and (max-width: 1100px){
-        display: none;
-    }
-    @media screen and (max-height: 800px){
-        display: none;
+            &:hover {
+                h2 {
+                    color: #4699d3;
+                }
+            }
+        }
     }
 }
 
-.schedule-dots{
-    transform: translateY(500%);
-    position: absolute;
-    opacity: .7;
-    height: 52px;
-    top: 90vh;
-    z-index: 100;
-
-
-}
-
-%schedule {
-    @extend p;
-    td {
-        font-family: Geomanist-Medium;
-        white-space: nowrap;
-    }
-    td + td {
-        color: black;
-        font-family: Geomanist-Light;
-        white-space: initial;
-    }
-}
-
-.learnathon-schedule {
-    @extend %schedule;
-    td {
-        color: $learnathon;
-    }
-}
-
-.hackathon-schedule {
-    @extend %schedule;
-    td {
-        color: $hackathon;
-    }
-}
-
-.centered {
-    @include tablet-up {
-        padding-right: 10%;
-    }
-    text-align: center;
+#schedule {
+	top: 10%;
+    transform: translateX(-50%);
 }
 
 
-/* blue letter */
-
-#schedule.active .blue-letter {
-  /* animation */
-  animation-name: slide-in;
-  animation-duration: 0.75s;
-  z-index: -100;
-
-  @include desktop{
-      /* positioning */
-      margin-left: 12vw;
-      margin-top: 15vh;
-
-      /* style */
-      height: 95vh;
-  }
-  @include medium-desktop-down{
-      height: 80vh;
-      margin-left: 11vw;
-      margin-top: 25vh;
-  }
-  @include small-desktop-down{
-      margin-top: 30vh;
-      height: 70vh;
-      margin-left: 4vw;
-  }
-
-}
-
-
-/* yellow bar */
-
-@keyframes yellow-bar {
-  0% {
-    opacity: 1;
-    transform: rotate(0);
-  }
-
-  50% {
-    transform: rotate(55deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform: rotate(45deg);
-  }
-}
-
-#schedule.active .yellow-bar {
-  /* animation */
-  animation-delay: 0.5s;
-  animation-duration: 0.5s;
-  animation-name: yellow-bar;
-  transform-origin: top left;
-  z-index: -50;
-
-  /* positioning */
-
-
-  /* style */
-
-  background: $learnathon;
-  @include desktop{
-      top: 15vh;
-      height: 12px;
-      width: 140vh;
-  }
-  @include medium-desktop-down{
-      top: 30vh;
-      height: 10px;
-      width: 120vh;
-  }
-  @include small-desktop-down{
-      top: 40vh;
-      height: 8px;
-      width: 90vh;
-  }
-
-  overflow: hidden;
-}
-
-.yellow-bar-container{
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
-
-
-/* blue-red letter */
-
-@keyframes blue-red-letter {
-  0% {
-    margin-left: calc(-37vh);
-    margin-top: calc(5vh + 10px);
-    opacity: 1;
-  }
-
-  100% {
-    margin-left: calc(10vh);
-    margin-top: calc(52vh + 10px);
-    opacity: 1;
-    -webkit-transform: translate3d(0,0,0);
-  }
-}
-
-
-
-#schedule.active .lightblueb {
-  /* animation */
-  animation-delay: 1.5s;
-  animation-duration: 1.25s;
-  animation-name: blue-red-letter;
-  z-index: -75;
-
-  /* style */
-  @include desktop{
-      height: 41vh;
-      top: -.1vh;
-
-  }
-  @include medium-desktop-down{
-      height: 34vh;
-      top: 5vh;
-      left: -5.3vh;
-  }
-  @include small-desktop-down{
-      left: -12.5vh;
-      top: 5vh;
-      height: 30vh;
-  }
-
-}
-
-#schedule.active .redb {
-  /* animation */
-  animation-delay: 1.25s;
-  animation-duration: 1s;
-  animation-name: blue-red-letter;
-  z-index: -60;
-  /* style */
-  @include desktop{
-      height: 41vh;
-      top: .8vh;
-      left: 1vh;
-
-  }
-  @include medium-desktop-down{
-      height: 34vh;
-      top: 5.5vh;
-      left: -4.8vh;
-  }
-  @include small-desktop-down{
-      left: -12vh;
-      top: 5.5vh;
-      height: 30vh;
-  }
-
+.schedule-date {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 20px;
+    font-weight: bold;
 }

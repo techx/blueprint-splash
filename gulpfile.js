@@ -13,21 +13,21 @@ function reload(done) {
 }
 
 // Set the banner content
-var banner = ['/*!\n',
-  ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2018-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/techx/<%= pkg.name %>/blob/master/LICENSE)\n',
-  ' */\n',
-  ''
-].join('');
+// var banner = ['/*!\n',
+//   ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+//   ' * Copyright 2018-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
+//   ' * Licensed under <%= pkg.license %> (https://github.com/techx/<%= pkg.name %>/blob/master/LICENSE)\n',
+//   ' */\n',
+//   ''
+// ].join('');
 
 // Compiles SCSS files from /scss into /css
 function style() {
   return gulp.src(['scss/styles.scss'])
     .pipe(sass())
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
+    // .pipe(header(banner, {
+    //   pkg: pkg
+    // }))
     .pipe(gulp.dest('css'))
     .pipe(browserSync.reload({
       stream: true

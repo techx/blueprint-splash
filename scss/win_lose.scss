@@ -1,0 +1,59 @@
+#lose {
+    .page-title{
+        color: $main_red;
+        font-size: 5em;
+    }
+}
+
+#win {
+    .page-title{
+        color: $main_yellow;
+        font-size: 5em;
+    }
+}
+
+#win-button {
+    color: #fff;
+    font-family: Hermit, sans-serif;
+    font-size: 24px;
+    position: relative;
+    margin: 10px auto;
+    text-align: center;
+    display: block;
+    &:hover {
+        color: $main_yellow;
+    }
+    .selected {
+        opacity: 1;
+    }
+    cursor: pointer;
+
+}
+
+#score {
+    font-family: Bitwise, san-serif;
+    font-size: 100px;
+    color: $main_yellow;
+    text-align: center;
+}
+
+#blocks-left {
+    font-family: Bitwise, san-serif;
+    height: 25vh;
+    font-size: 100px;
+    color: $main_red;
+    text-align: center;
+}
+
+#score-box {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.score-sublabel {
+    padding-left: 10px;
+    width: auto;
+    margin-bottom: 90px;
+    margin-top: 0;
+}
