@@ -335,6 +335,12 @@ function pointInCircle(x, y, cx, cy, radius) {
 }
 
 /** DRAWING **/
+const borderTolerance = 0.5
+
+function clearWithTolerance(context, top, bot, width, height) {
+	context.clearRect(top + borderTolerance/2, bot + borderTolerance/2, width + borderTolerance, height + borderTolerance)
+}
+
 function drawScene() {
 	context.clearRect(0, 0, canvas.width, canvas.height)
 	drawLogo()
@@ -389,7 +395,7 @@ function strokeSquare(row, col) {
 function clearSquare(row, col) {
 	topX = logoTopX() + boxSize() * col
 	topY = logoRect.y + boxSize() * row
-	context.clearRect(topX, topY, boxSize(), boxSize())
+	clearWithTolerance(context, topX, topY, boxSize(), boxSize())
 }
 
 
