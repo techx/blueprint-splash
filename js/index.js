@@ -137,7 +137,7 @@ function shouldAnimate() {
   return true;
 }
 
-if (!shouldAnimate()) {
+if (!shouldAnimate() || isMobile) {
   const video = document.getElementById("loading");
   video.classList.add("hidden");
 }
