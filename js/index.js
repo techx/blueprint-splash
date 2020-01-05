@@ -138,7 +138,9 @@ function shouldAnimate() {
 }
 
 if (shouldAnimate() && !isMobile) {
-  document.getElementById("loading").play();
+  const video = document.getElementById("loading");
+  video.css("display", "block");
+  video.play();
 }
 
 document.onkeydown = shouldAnimate() ? function(e) {
@@ -152,7 +154,7 @@ document.onkeydown = shouldAnimate() ? function(e) {
     document.addEventListener('keydown', handleMenu);
 
     setTimeout(function() {
-      video.classList.add("hidden");
+      video.css("display", "none");
     }, 500);
   }
 } : null;
