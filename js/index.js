@@ -137,9 +137,8 @@ function shouldAnimate() {
   return true;
 }
 
-if (!shouldAnimate() || isMobile) {
-  const video = document.getElementById("loading");
-  video.classList.add("hidden");
+if (shouldAnimate() && !isMobile) {
+  document.getElementById("loading").play();
 }
 
 document.onkeydown = shouldAnimate() ? function(e) {
