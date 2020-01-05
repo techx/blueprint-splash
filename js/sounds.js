@@ -19,7 +19,7 @@ for (let [key, src] of Object.entries(sounds)){
 
 // Play sound
 function playSound(key){
-  console.log(key)
+  // console.log(key)
   doink = document.getElementById(key)
   doink.currentTime = 0;
   doink.play()

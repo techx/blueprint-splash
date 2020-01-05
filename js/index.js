@@ -8,19 +8,18 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 }
 
 if (isMobile) {
-  document.getElementById("play-button").classList.add("hidden");
+  document.getElementById("menu-play").classList.add("hidden");
 }
 
 // Menu button
 const menuButton = document.getElementById("menu-button");
 menuButton.onclick = function(){ 
   playSound("back")
-  if(window.location.hash.substring(1) === "play"){stopGame() }
 }
 
 
 function updatePage() {
-
+  if(window.location.hash.substring(1) === "home"){stopGame() }
   const pages = ["home", "play", "about", "register", "schedule", "faq", "win", "lose"];
   const newPageId = window.location.hash.substring(1);
 
@@ -137,9 +136,13 @@ function shouldAnimate() {
   return true;
 }
 
-if (!shouldAnimate() || isMobile) {
-  const video = document.getElementById("loading");
-  video.classList.add("hidden");
+if (shouldAnimate() && !isMobile) {
+  const video = document.createElement("video");
+  video.setAttribute("autoplay", "");
+  video.setAttribute("muted", "");
+  video.setAttribute("id", "loading");
+  video.setAttribute("src", "assets/video/animation2.mp4");
+  document.body.insertBefore(video, document.body.childNodes[0]);
 }
 
 document.onkeydown = shouldAnimate() ? function(e) {
@@ -147,7 +150,6 @@ document.onkeydown = shouldAnimate() ? function(e) {
   // Spacebar
   if (e.keyCode === 32) {
     video.style.opacity = 0;
-    console.log("SPACE")
 
     //add button pressing
     document.addEventListener('keydown', handleMenu);

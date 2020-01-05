@@ -89,7 +89,13 @@ function startBrickGame() {
 	stopGame()
 
   	listener = setInterval(gameTick, 1000/framesPerSecond)
-  	canvas.addEventListener('mousemove', updateMousePos)
+  	if(!isMobile){
+		canvas.addEventListener('mousemove', updateMousePos)
+  	}
+	else {
+		canvas.addEventListener('touchstart', updateTouchPos)
+		canvas.addEventListener('touchmove', updateTouchPos)
+	}
 }
 
 function resetBricks() {
@@ -149,6 +155,7 @@ function gameTick() {
 	positionUpdate()
 	drawScene()
 	updateScore()
+	// console.log(touch.screenX, touch.screenY)
 }
 
 function updateMousePos(event){
@@ -161,6 +168,18 @@ function updateMousePos(event){
   	//check that in bounds
   	mouseX = Math.min(Math.max(paddleXR(), mouseX), gameWidth - paddleXR())
   	paddleX = mouseX
+}
+
+function updateTouchPos(event){
+	var rect = canvas.getBoundingClientRect();
+  	var root = document.documentElement;
+
+ 	touchX = event.touches[0].clientX - rect.left - root.scrollLeft;
+  	touchY = event.touches[0].clientY - rect.top - root.scrollTop;
+  	//check that in bounds
+  	touchX = Math.min(Math.max(paddleXR(), touchX), gameWidth - paddleXR())
+
+  	paddleX = touchX
 }
 
 /** WIN/LOSS STATE **/

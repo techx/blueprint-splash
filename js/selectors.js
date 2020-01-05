@@ -23,7 +23,7 @@ for(let i=0; i < faqItems.length; i++){
     currentFaq = i
   }
   faqItems[i].onclick = function(){
-    console.log("bruh2")
+    // console.log("bruh2")
     playSound("expand")
     if(faqItems[i].childNodes[1].style.transform === ""){
       faqItems[i].childNodes[1].style.transform = "rotate(90deg)"
@@ -84,7 +84,7 @@ for (let [key, menuItems] of Object.entries(allItems)){
     }
     if(key !== 'home'){
       item.onclick = function(){
-        console.log("bruh1")
+        // console.log("bruh1")
         playSound("expand")
         if(item.childNodes[3].style.transform === "rotate(90deg)"){
           item.childNodes[3].style.transform = ""
