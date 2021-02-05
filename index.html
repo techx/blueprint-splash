@@ -1,379 +1,879 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-                   /~@@~\,
- _______ . _\_\___/\ __ /\___|_|_ . _______
-/ ____  |=|      \  <_+>  /      |=|  ____ \
-~|    |\|=|======\\______//======|=|/|    |~
- |_   |    \      |      |      /    |    |
-  \==-|     \     |  BP  |     /     |----|~~)
-  |   |      |    |      |    |      |____/~/
-  |   |       \____\____/____/      /    / /
-  |   |         {----------}       /____/ /
-  |___|        /~~~~~~~~~~~~\     |_/~|_|/
-   \_/        [/~~~~~||~~~~~\]     /__|\
-   | |         |    ||||    |     (/|[[\)
-   [_]        |     |  |     |
-              |_____|  |_____|
-              (_____)  (_____)
-              |     |  |     |
-              |     |  |     |
-              |/~~~\|  |/~~~\|
-              /|___|\  /|___|\
-             <_______><_______>
--->
+
 <head>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Link to local files -->
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/styles.min.css">
-    <link rel="icon" href="./assets/png/small_b.png" type="image/png" >
-    <title>Blueprint 2020</title>
-    <meta name="description" content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!"/>
+    <title>Blueprint 2021</title>
+    <meta name="description"
+        content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!" />
 </head>
 
 <body>
-    <!-- <div id="loading-bg"></div> -->
-    <!-- <img src="assets/arcade2.png" id="loading-bg"/> -->
-    <div class="grid-bg"></div>   
-    <div id="squares"></div>
     <div style="overflow-x: hidden; overflow-y: hidden;">
 
-        <a id="menu-button" href="#home">menu</a>
-        <div id="home" class="container">
-            <div class="logo">
-                <img class="logo" id="main-logo" src="assets/SVG/blueprintlogo.svg" />
-                <h3>february 8-9, 2020</h1>
+        <!-- cover section -->
+        <div id="cover" class="section">
+            <img class="buildings-layer-1" src="assets/background/Buildings_Layer_1.svg" />
+            <img class="buildings-layer-2" src="assets/background/Buildings_Layer_2.svg" />
+            <img id="car" src="assets/vehicles/Car.svg" />
+            <img id="car_flipped" src="assets/vehicles/Car_Flipped.svg" />
+            <img id="tren" src="assets/vehicles/Train.svg" />
+
+            <div class="content">
+                <div id="cover-desktop">
+                    <img class="logo-square" src="assets/logos/Logo.svg" />
+                    <div class="navbar-wrap">
+                        <div class="navbar">
+                            <a href="#about" class="navbar-btn">
+                                <h4 class="navbar-txt">About</h4>
+                            </a>
+                            <a href="#tracks" class="navbar-btn">
+                                <h4 class="navbar-txt">Tracks</h4>
+                            </a>
+                            <a href="#faq" class="navbar-btn">
+                                <h4 class="navbar-txt">Faq</h4>
+                            </a>
+                            <a href="#schedule" class="navbar-btn">
+                                <h4 class="navbar-txt">Schedule</h4>
+                            </a>
+                            <a href="https://my.hackmit.org" class="navbar-btn" target="_blank">
+                                <h4 class="navbar-txt" id="register">Register</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <img class="logo" src="assets/logos/Blueprint.svg" />
+                    <div class="description"> february 20-21, 2021</div>
+                    <a href="#about" class="triangle-button bounce"><img src="assets/background/White_Triangle.svg" id="triangle"/></a>
+                </div>
             </div>
-            <p>Blueprint is a weekend-long learnathon and hackathon for local high school students held on MIT's campus. Learn from MIT students, make new friends, and make something cool!</p>
-            <ul class="items">
-                <li >
-                    <a id="menu-play" class="default hover" href="#play" id="play-button">
-                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
-                        <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
-                        <h2>play</h2>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-register" href="#register" target="_blank">
-                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
-                        <img class="selected" src="assets/SVG/menu_select.svg" />
-                        <h2>register</h2>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-schedule" href="#schedule">
-                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
-                        <img class="selected" src="assets/SVG/menu_select.svg" />
-                        <h2>schedule</h2>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-faq" href="#faq">
-                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
-                        <img class="selected" src="assets/SVG/menu_select.svg" />
-                        <h2>faq</h2>
-                    </a>
-                </li>
-                <li>
-                    <a id="menu-about" href="#about">
-                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
-                        <img class="selected" src="assets/SVG/menu_select.svg" />
-                        <h2>about</h2>
-                    </a>
-                </li>
-            </ul>
         </div>
-        <div id="register" class="container hidden">
-            <h1>register</h1>
 
-            <p> Blueprint 2020 is over! <br> Please Fill out the <a href="https://forms.gle/cjB3RJC1wPcrSUZeA" target="_blank"><font color="24E5FF">Blueprint 2021 Interest Form</font></a> to get notified when registration opens again next year!</p>
-        </div>                     
-        <div id="faq" class="container hidden">
-            <p class="page-title">faq</p>
-            <br>
-            <div id="default-faq-select" class="question faq-q">
-                <span>&#9658;</span>
-                what's the schedule?
-            </div>
-            <div class="answer">The schedule is on the website.</div>
-            <div class="question faq-q">
-                <span>&#9658;</span>
-                when can I apply?
-            </div>
-            <div class="answer">Stay tuned for applications!</div>
-            <div class="question faq-q">
-                <span>&#9658;</span>
-                how do teams work? what if I don't have a team?
-            </div>
-            <div class="answer">Teams are a great way to meet new people or bond with friends, so we highly recommend them! Don't worry if you don't have a team now; we'll have team formation and ideation sessions at the beginning of Blueprint so you can find some pals. Teams can be up to four people.
-            </div>
-            <div class="question faq-q">
-                <span>&#9658;</span>
-                can I mentor?
-            </div>
-            <div class="answer">If you're a college student or professional interested in helping teach high schoolers for Blueprint, head over to our <a href="https://go.hackmit.org/mentor" target="_blank" rel="noreferrer noopener">mentorship form</a>.
-            </div>
-            <div class="question faq-q">
-                <span>&#9658;</span>
-                what should I bring?
-            </div>
-            <div class="answer">Bring a photo ID and a laptop (and charger!). We'll provide breakfast, lunch, dinner, swag, and everything else you need.
-            </div>
-            <div class="question faq-q">
-                <span>&#9658;</span>
-                where is it? how do I get there?
-            </div>
-            <div class="answer">Blueprint will be held on MIT’s campus. The Learnathon on Saturday will be held in the <a href="http://whereis.mit.edu/?go=32" target="_blank" rel="noreferrer noopener">Ray and Maria Stata Center</a> and the Hackathon on Sunday will be held at the <a href="http://whereis.mit.edu/?go=E14" target="_blank" rel="noreferrer noopener">MIT Media Lab</a>. Follow the signs in the lobby to the event!
-            </div>
-            <div class="question faq-q">
-            <span>&#9658;</span>
-                does Blueprint cost money?
-            </div>
-            <div class="answer">Nope! We'll cover meals, snacks, drinks, a Blueprint t-shirt, and an unforgettable experience :) We can't reimburse travel or overnight lodging costs, though. Hotels near MIT include the <a href="http://www.kendallhotel.com/" target="_blank" rel="noreferrer noopener">Kendall Hotel</a> and the <a href="http://www.marriott.com/hotels/travel/boscb-boston-marriott-cambridge/" target="_blank" rel="noreferrer noopener">Marriott</a>.
-            </div>
-            <div class="question faq-q">
-            <span>&#9658;</span>
-                what about parking?
-            </div>
-            <div class="answer">Parking is free on a first-come, first-serve basis on weekends in several lots: the <a href="http://whereis.mit.edu/?go=P40" target="_blank" rel="noreferrer noopener">65 Waverly Street Lot</a>, the <a href="http://whereis.mit.edu/?go=W98" target="_blank" rel="noreferrer noopener">W98 Lots</a>, and the <a href="http://whereis.mit.edu/?go=P34" target="_blank" rel="noreferrer noopener">W91 Lot</a>. There is also some metered parking on Vassar Street. MIT Facilities' list of pay lots near campus can be found <a href="http://web.mit.edu/facilities/transportation/parking/visitors/public_parking.html" target="_blank" rel="noreferrer noopener">here</a>.
-            </div>
 
-            <div class="question faq-q">
-            <span>&#9658;</span>
-            do I have to come to both the learnathon and the hackathon?
+        <!-- about section -->
+        <div id="about" class="section">
+            <!-- put images here -->
+            <img id="red-planet-first" data-aos="fade-left" data-aos-duration="3000" data-aos-offset="500"
+                src="assets/background/space_elements/Red_Planet_First.svg" alt="Red Planet">
+            <img id="default-stars" data-aos="fade-left" data-aos-duration="2000" data-aos-offset="500"
+                src="assets/background/space_elements/Stars.svg" alt="Stars">
+            <div class="content">
+                <h1 class="header">About</h1>
+                <p id="about-text">
+                    Blueprint 2021 is a weekend-long virtual learnathon and hackathon for high school
+                    students. Learn from MIT students, make new friends, and make something cool!
+                    Over the course of Blueprint, you'll form a team, decide on a project, and
+                    develop it from start to finish with the support of our mentors. After Blueprint,
+                    you'll not only have this project but also the tools to learn more.
+                </p>
+                <img id="purple-planet-second" data-aos="fade-right" data-aos-duration="3000" data-aos-offset="500"
+                    src="assets/background/space_elements/Purple_Planet_Second.svg" alt="Red Planet">
+                <img id="music-constellation-double-about" data-aos="fade-left" data-aos-duration="2000"
+                    data-aos-offset="500" src="assets/background/space_elements/Music_Constellation.svg" alt="Stars">
+                <div id="descriptions">
+                    <div id="learnathon">
+                        <h2 class="header" id="learnathon-header">Learnathon</h2>
+                        <p id="date">february 20th, 2021</p>
+                        <ul>
+                            <li>Participate in hands-on workshops taught by MIT students and
+                                industry professional on programming fundamentals, web programming,
+                                or app development
+                            </li>
+                            <li>Attend short tech talks on specialized computer science topics</li>
+                            <li>Eager to get started? Check out
+                                <a href="https://www.starthacking.org/" target="_blank"
+                                    id="start-hacking">StartHacking.org</a>!
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="hackathon">
+                        <h2 class="header" id="hackathon-header">Hackathon</h2>
+                        <p id="date">february 21st, 2021</p>
+                        <ul>
+                            <li>Put your new skills to practice!</li>
+                            <li>Form a team and experience the challenge and reward of building a
+                                project from scratch
+                            </li>
+                            <li>Consult mentors for personalize feedback and help with your project</li>
+                            <li>Interested in mentoring? Sign up <a
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSeEPIFmQ_dWbwP9MdJgz-xbckq1vfp7w-sgRDKNV2Kr1YFkmQ/viewform?usp=sf_link"
+                                    target="_blank" id="here">here</a>!</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="answer">Nope! You can attend either one or both days.
-            </div>
-
-            <div class="question faq-q">
-            <span>&#9658;</span>
-            what will I eat?
-            </div>
-            <div class="answer">We'll provide food for all meals from Saturday's breakfast to Sunday's lunch. We'll do our best to accommodate all allergies and dietary restrictions as well.
-            </div>
-
-            <div class="question faq-q">
-            <span>&#9658;</span>
-            can my parents come with me?
-            </div>
-            <div class="answer">Blueprint is a student-only event from check-in on. We're grateful for your parents' support of our program!
-            </div>
-            <div class="spacer" style="height: 20vh"></div>
         </div>
-        <div id="about" class="container hidden">
-            <h1>about</h1>
-            <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. After Blueprint, you'll not only have this project but also the tools to learn more.</p>
-                <div class="schedule-items">
-                        <div id="about-learn" class="question hover">
-                            <!-- <span>&#9658;</span> -->
-                            <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
-                            <h2>learnathon</h2>
+
+        <!-- tracks section -->
+        <div id="tracks" class="section">
+            <!-- put images here -->
+            <img id="music-constellation-double-tracks" data-aos="fade-left" data-aos-duration="2000"
+                data-aos-offset="500" src="assets/background/space_elements/Music_Constellation.svg" alt="Stars">
+            <div class="content">
+                <h1 class="header">Tracks</h1>
+                <div id="track-imgs">
+                    <div class="track" id="app-dev">
+                        <img src="assets/tracks/App_Dev.svg" id="app-dev-img">
+                        <p>App Dev</p>
+                    </div>
+                    <div class="track" id="start-hack">
+                        <img src="assets/tracks/Start_Hacking.svg" id="start-hack-img">
+                        <p>Start Hacking</p>
+                    </div>
+                    <div class="track" id="web-dev-beg">
+                        <img src="assets/tracks/Web_Dev_Beg.svg" id="web-dev-img">
+                        <p>Web Dev Beginner</p>
+                    </div>
+                    <div class="track" id="web-dev-adv">
+                        <img src="assets/tracks/Web_Dev_Adv.svg" id="web-dev-adv-img">
+                        <p>Web Dev Advanced</p>
+                    </div>
+                </div>
+
+                <div id="track-imgs-mobile">
+                    <div class="row">
+                        <div class="track" id="app-dev-mobile">
+                            <img src="assets/tracks/App_Dev.svg" id="app-dev-img">
+                            <p>App Dev</p>
+                        </div>
+                        <div class="track" id="start-hack-mobile">
+                            <img src="assets/tracks/Start_Hacking.svg" id="start-hack-img">
+                            <p>Start Hacking</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="track" id="web-dev-beg-mobile">
+                            <img src="assets/tracks/Web_Dev_Beg.svg" id="web-dev-img">
+                            <p>Web Dev Beginner</p>
+                        </div>
+                        <div class="track" id="web-dev-adv-mobile">
+                            <img src="assets/tracks/Web_Dev_Adv.svg" id="web-dev-adv-img">
+                            <p>Web Dev Advanced</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Modal -->
+                <div id="track-desktop">
+                    <div id="app-dev-modal" class="modal" style="display: none;">
+                        <div class="modal-content">
+                            <img src="assets/tracks/Popup_App.svg" id="app-planet-popup" class="popup-planet" />
+                            <span class="close">&times;</span>
+                            <div class="modal-header">
+                                <h1 class='modal-title'>App Dev</h1>
+                                <div id="app-nav" class="app-dev-nav modal-navbar">
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="app-dev-description">Description</h4>
+                                    </a>
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="app-dev-questions">Guiding Questions</h4>
+                                    </a>
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="app-dev-resources">Resources</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-text">
+
+                                <div id="app-dev-description-text" class="modal-hidden">
+                                    <p>App dev is for anyone who wants to learn how to build their own iOS and/or
+                                        Android app from scratch! We will start from the very beginning, teaching
+                                        students how to use XCode (iOS) and Android Studio (Android). Classes will be
+                                        taught in Swift (iOS) and Java (Android). Students will be able to build a
+                                        functioning mobile app during the hackathon and maybe even publish it on the
+                                        Apple App Store or Google Play Store!
+                                    </p>
+                                </div>
+                                <br>
+                                <div id="app-dev-questions-text" class="modal-hidden" data-track="app-dev">
+                                    <ul>
+                                        <li>Are you interested in building your own game?</li>
+                                        <li>Can you make an app that would make your life easier?</li>
+                                        <li>What’s an app you wish existed?</li>
+                                        <li>What’s a website you wish had an app version?</li>
+                                    </ul>
+                                </div>
+                                <div id="app-dev-resources-text" class="modal-hidden">
+                                    <h2>iOS/Swift</h2>
+                                    <ul>
+                                        <li><a target="_blank"
+                                                href="https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/">Start
+                                                Developing iOS Apps</a></li>
+                                        <li><a target="_blank"
+                                                href="https://www.appcoda.com/learnswift/build-your-first-app.html">Hello
+                                                World! Build Your First App with Swift</a></li>
+                                        <li><a target="_blank"
+                                                href="https://www.raywenderlich.com/4919757-your-first-ios-and-swiftui-app">Your
+                                                First iOS and SwiftUI App</a></li>
+                                        <li><a target="_blank" href="https://codewithchris.com/xcode-tutorial/">XCode
+                                                Tutorial for Beginners</a></li>
+                                        <li><a target="_blank" href="https://learnappmaking.com/xcode-tutorial/">XCode
+                                                12 Tutorial for Beginners</a></li>
+                                    </ul>
+                                    <p>
+
+                                    </p>
+                                    <br>
+                                    <h2>Android</h2>
+                                    <ul>
+                                        <li><a target="_blank"
+                                                href="https://developer.android.com/codelabs/build-your-first-android-app#0">Build
+                                                Your First Android App</a></li>
+                                        <li><a target="_blank"
+                                                href="https://google-developer-training.github.io/android-developer-fundamentals-course-concepts-v2/unit-1-get-started/lesson-1-build-your-first-app/1-1-c-your-first-android-app/1-1-c-your-first-android-app.html">Your
+                                                First Android App</a></li>
+                                        <li><a target="_blank"
+                                                href="https://code.tutsplus.com/tutorials/creating-your-first-android-app--cms-34497">My
+                                                First App: How to Create Your First Android App Step by Step</a></li>
+                                        <li><a target="_blank"
+                                                href="https://www.androidauthority.com/android-studio-tutorial-beginners-637572/">Android
+                                                Studio Tutorial for Beginners</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <img src="assets/tracks/Popup_Buildings.svg" class="popup-building" />
+                        </div>
+                    </div>
+
+                    <div id="start-hack-modal" class="modal" style="display: none;">
+                        <div class="modal-content">
+                            <img src="assets/tracks/Popup_Start_Hacking.svg" id="start-planet-popup"
+                                class="popup-planet" />
+                            <span class="close">&times;</span>
+                            <div class="modal-header">
+                                <h1 class="modal-title">Start Hacking</h1>
+                                <div id="start-hack-nav" class="start-hack-nav modal-navbar">
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="start-hack-description">Description</h4>
+                                    </a>
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="start-hack-questions">Guiding Questions</h4>
+                                    </a>
+                                    <a class="navbar-btn resources">
+                                        <h4 class="navbar-txt-pp" id="start-hack-resources">Resources</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-text">
+                                <div id="start-hack-description-text" class="modal-hidden">
+                                    <p>StartHacking is meant to introduce Blueprint attendees (whether first-time coders
+                                        or not) to hackathons. This track is taught in Python and intended to set
+                                        hackers up with the resources they need to successfully complete a hackathon
+                                        project. These projects serve as starting points for further participation in
+                                        hackathons and programming at large.
+                                    </p>
+                                </div>
+                                <div id="start-hack-questions-text" class="modal-hidden">
+                                    <ul>
+                                        <li>Are you interested in developing websites, mobile applications, or something
+                                            else?</li>
+                                        <li>How can you apply a knowledge of programming to projects, personal or
+                                            educational, in other disciplines or subjects?</li>
+                                        <li>What kinds of currently nonexistent websites or mobile applications would
+                                            you find useful?</li>
+                                        <li>How can you improve on websites or apps that you use regularly?</li>
+                                    </ul>
+                                </div>
+                                <div id="start-hack-resources-text" class="modal-hidden">
+                                    <ul>
+                                        <li><a target="_blank" href="http://starthacking.org/">StartHacking.org:
+                                            </a>Intro to hacking + variety of tutorials </li>
+                                        <li><a target="_blank"
+                                                href="https://www.programmingforbeginnersbook.com/blog/what_is_programming_coding/">What
+                                                is programming?: </a>Introduction to programming (article)</li>
+                                        <li>Linux
+                                            <ul>
+                                                <li><a target="_blank"
+                                                        href="https://ryanstutorials.net/linuxtutorial/">Ryans
+                                                        Tutorials: </a>Intro to the Bash/Linux command line</li>
+                                                <li><a target="_blank"
+                                                        href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">Ubuntu
+                                                        Tutorial: </a>Intro to Linux command line, not necessarily for
+                                                    programmers</li>
+                                                <li><a target="_blank"
+                                                        href="https://www.freecodecamp.org/news/the-best-linux-tutorials/">FreeCodeCamp:
+                                                    </a>List of tutorials + explanation of most commonly used commands
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>Github
+                                            <ul>
+                                                <li><a target="_blank" href="https://try.github.io/">try.github.io:
+                                                    </a>Github reference page</li>
+                                                <li><a target="_blank"
+                                                        href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">Hubspot
+                                                        Tutorial: </a> Introduction to Git for beginners</li>
+                                            </ul>
+                                        </li>
+                                        <li>Intro Web Dev
+                                            <ul>
+                                                <li><a target="_blank"
+                                                        href="https://developer.mozilla.org/en-US/docs/Learn">Mozilla
+                                                        Docs: </a>Front-end basics</li>
+                                                <li><a target="_blank"
+                                                        href="https://www.lifewire.com/what-is-a-web-application-3486637">Lifewire:
+                                                    </a>What is a webapp?(article)</li>
+                                                <li><a target="_blank"
+                                                        href="https://www.upwork.com/resources/beginners-guide-back-end-development">Upwork:
+                                                    </a>Beginner's guide to back-end development</li>
+                                            </ul>
+                                        </li>
+                                        <li>Frameworks
+                                            <ul>
+                                                <li><a target="_blank"
+                                                        href="https://flask.palletsprojects.com/en/1.1.x/quickstart/">Flask
+                                                        Quickstart: </a>Hands-on introduction to Flask</li>
+                                                <li><a target="_blank"
+                                                        href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">Miguel
+                                                        Grinberg's Blog: </a> Flask mega-tutorial w/ Python, HTML, CSS
+                                                </li>
+                                                <li><a target="_blank"
+                                                        href="https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm">TutorialsPoint:
+                                                    </a>Express wih Node.js</li>
+                                                <li><a target="_blank"
+                                                        href="https://guides.rubyonrails.org/getting_started.html">Getting
+                                                        Started with Rails: </a>Intro to Ruby on Rails</li>
+                                                <li><a target="_blank"
+                                                        href="https://code.tutsplus.com/articles/building-a-forum-from-scratch-with-ruby-on-rails--net-5297">Tuts
+                                                        + Rails: </a>Building a forum with Ruby on Rails</li>
+                                            </ul>
+                                        </li>
+                                        <li>Javascript
+                                            <ul>
+                                                <li><a target="_blank" href="https://javascript.info/">Tutorial:
+                                                    </a>Intro to Javascript</li>
+                                                <li><a target="_blank"
+                                                        href="https://www.freecodecamp.org/news/what-exactly-is-node-js-ae36e97449f5/">FreeCodeCamp:
+                                                    </a>Intro to Node.js and npm</li>
+                                                <li><a target="_blank" href="https://socket.io/get-started/chat">Socket:
+                                                    </a>Basic Socket app with Node</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <img src="assets/tracks/Popup_Buildings.svg" class="popup-building" />
+                        </div>
+                    </div>
+
+                    <div id="web-dev-beg-modal" class="modal" style="display: none;">
+                        <div class="modal-content">
+                            <img src="assets/tracks/Popup_Web_Beginner.svg" id="web-beg-planet-popup"
+                                class="popup-planet" />
+                            <span class="close">&times;</span>
+                            <div class="modal-header">
+                                <h1 class="modal-title">Web Dev Beginner</h1>
+                                <div id="web-dev-beg" class="web-dev-beg-nav modal-navbar">
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="web-dev-beg-description">Description</h4>
+                                    </a>
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="web-dev-beg-questions">Guiding Questions</h4>
+                                    </a>
+                                    <a class="navbar-btn resources">
+                                        <h4 class="navbar-txt-pp" id="web-dev-beg-resources">Resources</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-text">
+                                <div id="web-dev-beg-description-text" class="modal-hidden">
+                                    <p>The beginner webdev track offers Blueprint attendees an introductory learning
+                                        opportunity in beginner-level web development. This track exposes first-time web
+                                        developers to the basics of JavaScript and HTML/CSS, and it will provide the
+                                        framework for hackers to build their own basic web app.
+                                    </p>
+                                </div>
+                                <div id="web-dev-beg-questions-text" class="modal-hidden">
+                                    <ul>
+                                        <li>Have you ever wondered how much work goes into designing and building
+                                            websites?</li>
+                                        <li>Are there any particularly useful features you have noticed on certain
+                                            websites that you believe could be more widely implemented?</li>
+                                        <li>How do you think certain websites can be improved?</li>
+                                        <li>Are there any websites you think have a great design, and why?</li>
+                                    </ul>
+                                </div>
+                                <div id="web-dev-beg-resources-text" class="modal-hidden">
+                                    <ul>
+                                        <li><a target="_blank" href='https://www.freecodecamp.org/'>FreeCodeCamp.org:
+                                            </a>Intro to HTML/CSS, JavaScript, and responsive web design</li>
+                                        <li>HTML/CSS
+                                            <ul>
+                                                <li><a target="_blank" href="https://www.htmldog.com/">HTMLDog:
+                                                    </a>Tutorials and techniques for implementing HTML/CSS</li>
+                                                <li><a target="_blank" href="https://www.codeacademy.com/">Codeacademy:
+                                                    </a>Beginner and more advanced web development tutorials</li>
+                                                <li><a target="_blank"
+                                                        href="https://developer.mozilla.org/en-US/docs/Web/Tutorials">MozillaDocs:
+                                                    </a>Tutorials for creating web pages with HTML spanning all skill
+                                                    levels</li>
+                                            </ul>
+                                        </li>
+                                        <li>Javascript
+                                            <ul>
+                                                <li><a target="_blank" href="https://javascript.info/">Tutorial:
+                                                    </a>Intro to Javascript</li>
+                                                <li><a target="_blank"
+                                                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">MozillaDocs:
+                                                    </a>An in-depth beginner’s guide to JavaScript </li>
+                                                <li><a target="_blank"
+                                                        href="https://reactjs.org/tutorial/tutorial.html">Tutorial:
+                                                    </a>Intro to React</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <img src="assets/tracks/Popup_Buildings.svg" class="popup-building" />
+                        </div>
+                    </div>
+
+                    <div id="web-dev-adv-modal" class="modal" style="display: none;">
+                        <div class="modal-content" id="web-dev-adv-content">
+                            <img src="assets/tracks/Popup_Web_Advanced.svg" id="web-adv-planet-popup"
+                                class="popup-planet" />
+                            <span class="close">&times;</span>
+                            <div class="modal-header">
+                                <h1 class="modal-title">Web Dev Advanced</h1>
+                                <div id="web-dev-adv" class="web-dev-adv-nav modal-navbar">
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="web-dev-adv-description">Description</h4>
+                                    </a>
+                                    <a class="navbar-btn">
+                                        <h4 class="navbar-txt-pp" id="web-dev-adv-questions">Guiding Questions</h4>
+                                    </a>
+                                    <a class="navbar-btn resources">
+                                        <h4 class="navbar-txt-pp" id="web-dev-adv-resources">Resources</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-text">
+                                <div id="web-dev-adv-description-text" class="modal-hidden">
+                                    <p>The advanced webdev track is an opportunity for attendees to further their web
+                                        development experience. This track will quickly review HTML/CSS and some
+                                        JavaScript as well as introduce students to React.js and databases. This
+                                        knowledge will help hackers build a more complex web app than they ever have
+                                        before.
+                                    </p>
+                                </div>
+                                <div id="web-dev-adv-questions-text" class="modal-hidden">
+                                    <ul>
+                                        <li>Do you have any prior knowledge or experience in web development?</li>
+                                        <li>Are there any website features that you would like to be able to implement
+                                            but don’t yet have the skills for?</li>
+                                        <li>What are some ways you can improve your past web development?</li>
+                                        <li>How do you think certain websites can be improved?</li>
+                                        <li>What websites do you frequently visit, and why?</li>
+                                    </ul>
+                                </div>
+                                <div id="web-dev-adv-resources-text" class="modal-hidden">
+                                    <ul>
+                                        <li><a target="_blank" href='https://www.freecodecamp.org/'>FreeCodeCamp.org:
+                                            </a>Intro to HTML/CSS, JavaScript, and responsive web design(for review)
+                                        </li>
+                                        <li>HTML/CSS
+                                            <ul>
+                                                <li><a target="_blank" href="https://www.htmldog.com/">HTMLDog:
+                                                    </a>Tutorials and techniques for implementing HTML/CSS</li>
+                                                <li><a target="_blank" href="https://www.codeacademy.com/">Codeacademy:
+                                                    </a>Beginner and more advanced web development tutorials</li>
+                                                <li><a target="_blank"
+                                                        href="https://developer.mozilla.org/en-US/docs/Web/Tutorials">MozillaDocs:
+                                                    </a>Tutorials for creating web pages with HTML spanning all skill
+                                                    levels</li>
+                                            </ul>
+                                        </li>
+                                        <li>Javascript
+                                            <ul>
+                                                <li><a target="_blank" href="https://javascript.info/">Tutorial:
+                                                    </a>Intro to Javascript</li>
+                                                <li><a target="_blank"
+                                                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">MozillaDocs:
+                                                    </a>An in-depth beginner’s guide to JavaScript </li>
+
+                                            </ul>
+                                        </li>
+                                        <li>React
+                                            <ul>
+                                                <li><a target="_blank"
+                                                        href="https://reactjs.org/tutorial/tutorial.html">Tutorial:
+                                                    </a>Intro to React</li>
+                                                <li><a target="_blank" href="https://react-tutorial.app/">Tutorial:
+                                                    </a>Advanced React</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <img src="assets/tracks/Popup_Buildings.svg" class="popup-building" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- faq section -->
+        <div id="faq" class="section">
+            <!-- put images here -->
+            <img id="purple-planet-third" data-aos="fade-left" data-aos-duration="3000" data-aos-offset="500"
+                src="assets/background/space_elements/Purple_Planet_Third.svg" alt="Purple Planet Third">
+            <div class="content">
+                <h1 class="header">FAQ</h1>
+                <div class="faq-row">
+                    <div class="faq-column general">
+                        <h2 id="faq-general" class="faq-header">GENERAL</h2>
+                        <!-- Questions -->
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Red.svg"></img>
+                            <p class="red">What is a learnathon?</p>
                         </div>
                         <div class="answer">
-                            <p class="about-date">date: saturday, february 8th</p>
-                            <ul>
-                                <li>Participate in hands-on workshops taught by MIT students and industry professionals on programming fundamentals, web programming, or Arduino</li>
-                                <li>Attend short 'tech talks' on specialized computer science topics</li>
-                                <li>Eager to get started? Check out <a href="https://starthacking.org/" target="_blank"><font color="24E5FF">StartHacking.org</font></a>!</li>
-                                  
-                            </ul>
+                            <p>
+                                A day of learning! Students will have the opportunity to attend a day of workshops in
+                                their chosen track -- StartHacking, web dev beginner, web dev advanced, mobile
+                                application development. Outside of track workshops we'll also have auxiliary workshops
+                                and tech talks, an organization fair, and more.
+                            </p>
                         </div>
-                        <div id="about-hack" class="question">
-                            <!-- <span>&#9658;</span> -->
-                            <img class="selected" src="assets/SVG/menu_select.svg" />
-                            <h2>hackathon</h2>
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Green.svg"></img>
+                            <p class="green">What is a hackathon?</p>
                         </div>
                         <div class="answer">
-                            <p class="about-date">date: sunday, february 9th</p>
-                            <ul>
-
-                                <li>Put your new skills to practice!</li>
-                                <li>Form a team and experience the challenge and reward of building a project from scratch</li>
-                                <li>Consult mentors for personalized feedback and help with your project</li>
-                                <li>Interested in mentoring? Sign up <a href="https://go.hackmit.org/mentor" target="_blank"><font color="24E5FF">here</font></a>!</li>
-                                      
-                            </ul>
+                            <p>
+                                Apply your technical skills to build an awesome project! Students who attend the
+                                learnathon can apply their newly-acquired skills to create something they can call their
+                                own! Websites and mobile apps are common hacks, but you can build anything! Think
+                                outside the box :)
+                            </p>
                         </div>
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Yellow.svg"></img>
+                            <p class="yellow">Do I need to attend both the learnathon and the hackathon?</p>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                Nope, you can attend either one or both days! However, only participants who participate
+                                in a track workshop during the learnathon or submit a project for the hackathon will be
+                                eligible for swag.
+                            </p>
+                        </div>
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Red.svg"></img>
+                            <p class="red">How will teams work? What if I don't have a team?</p>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                During our hackathon, you'll have the opportunity to create a project in a team of up to
+                                4 people. Don't worry if you don't have a team now, we'll have team formation and
+                                ideation sessions at the beginning of the Hackathon, so there'll be plenty of time to
+                                meet new people!
+                            </p>
+                        </div>
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Green.svg"></img>
+                            <p class="green">Does Blueprint cost money?</p>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                Admission is free and includes mentors, workshops, swag, resources, and an unforgettable
+                                experience!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-column virtual">
+                        <h2 id="faq-virtual" class="faq-header">VIRTUAL</h2>
+                        <!-- Questions -->
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Red.svg"></img>
+                            <p class="red">How will Blueprint work given the virtual setup?</p>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                All the essential parts of our event remain the same! You'll still get to meet other
+                                hackers, attend amazing workshops, and win prizes :) We do recommend that you have Zoom
+                                installed ahead of time as the majority of our events will be held on there!
+                            </p>
+                        </div>
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Green.svg"></img>
+                            <p class="green">Will swag be given out to Blueprint participants?</p>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                If you reside in the United States and meet the swag eligibility requirements by the end
+                                of Blueprint, we'll ship you swag free of charge! As a reminder, you'll need to attend
+                                either a track workshop series during our learnathon or submit a project for our
+                                hackathon (or both!)
+                            </p>
+                        </div>
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Yellow.svg"></img>
+                            <p class="yellow">What if I have a slow internet connection?</p>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                You should have no issues participating in our event as long as your Internet connection
+                                can handle the bandwidth of a standard video call or livestream. Just make sure to
+                                download large SDKs or developer tools in advance!
+                            </p>
+                        </div>
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Red.svg"></img>
+                            <p class="red">Will there be hardware hacks? Will any hardware be given?</p>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                Unfortunately we aren't able to provide supplies for hardware hacks this year, but if
+                                you're passionate that shouldn't stop you from building them!
+                            </p>
+                        </div>
+                        <div class="question">
+                            <img class="star" src="assets/bullet_points/Star_Bullet_Green.svg"></img>
+                            <p class="green">A question for you...</p>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                If peanut butter wasn’t called peanut butter, what would it be called? 
+                                What kind of secret society would you like to start? 
+                                Let us know at <a id="link" href="mailto:idk@hackmit.org">idk@hackmit.org</a> :]
+                                Oh, and one last thing: can you /?fixme ;)
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            <div class="spacer"></div>
-        </div>
-        <div id="schedule" class="container hidden">
-            <div class="page-title">
-                schedule
             </div>
-            <br>
-            <div class="schedule-items">
-                <div id="schedule-learn" class="question hover">
-                    <!-- <span>&#9658;</span> -->
-                    <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
-                    <h2>learnathon</h2>
-                </div>
-                <div class="answer">
-                    <p class="schedule-date"><span style="color: #EC0E6A">date:</span> saturday, february 8th</p>
-                    <p class="schedule-date"><span style="color: #EC0E6A">location:</span> MIT Stata Center</p>
-                    <table class="schedule-table">
-                        <tr>
-                            <td class="schedule-time">8:30 am</td>
-                            <td>check-in and breakfast</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">9:30 am</td>
-                            <td>opening ceremony</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">10:00 am</td>
-                            <td>workshop #1</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">11:30 am</td>
-                            <td>tech talk #1</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">12:00 pm</td>
-                            <td>lunch</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">1:00 pm</td>
-                            <td>workshop #2</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">2:00 pm</td>
-                            <td>break</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">2:15 pm</td>
-                            <td>workshop #3</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">3:15 pm</td>
-                            <td>tech talk #2</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">3:45 pm</td>
-                            <td>break</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">4:00 pm</td>
-                            <td>workshop #4</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">5:00 pm</td>
-                            <td>closing ceremony</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">5:15 pm</td>
-                            <td>end of learnathon</td>
-                        </tr>
+        </div>
 
-                    </table>
+        <!-- schedule section -->
+        <div id="schedule" class="section">
+            <!-- put images here -->
+            <img id="red-planet-fourth" data-aos="fade-left" data-aos-duration="3000" data-aos-offset="500"
+                src="assets/background/space_elements/Red_Planet_Fourth.svg" alt="Red Planet">
+            <img id="shooting-stars" data-aos="zoom-in" data-aos-duration="1000" data-aos-offset="500"
+                src="assets/background/space_elements/Shooting_Stars.svg" alt="Stars">
+            <img id="music-constellation-double-schedule" data-aos="fade-left" data-aos-duration="2000"
+                data-aos-offset="500" src="assets/background/space_elements/Music_Constellation.svg" alt="Stars">
+            <div class="content">
+                <h1 class="header">Schedule</h1>
+
+                <div class="pill-button">
+                    <div id="learnathon-button" class="pill-button-option active">LEARNATHON</div>
+                    <!--
+                    -->
+                    <div id="hackathon-button" class="pill-button-option">HACKATHON</div>
                 </div>
-                <div id="schedule-hack" class="question">
-                    <!-- <span>&#9658;</span> -->
-                    <img class="selected" src="assets/SVG/menu_select.svg" />
-                    <h2>hackathon</h2>
-                </div>
-                <div class="answer">
-                    <p class="schedule-date"><span style="color: #EC0E6A">date:</span> sunday, february 9th</p>
-                    <p class="schedule-date"><span style="color: #EC0E6A">location:</span> MIT Media Lab</p>
-                    <table class="schedule-table">
-                        <tr>
-                            <td class="schedule-time">7:00 am</td>
-                            <td>check-in and breakfast</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">8:00 am</td>
-                            <td>opening ceremony</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">8:30 am</td>
-                            <td>hacking starts, team formation</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">11:30 am</td>
-                            <td>MIT student panel</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">12:30 pm</td>
-                            <td>lunch</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">2:30 pm</td>
-                            <td>campus excursion</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">4:00 pm</td>
-                            <td>Tim the Beaver meet and greet</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">5:30 pm</td>
-                            <td>hacking ends, dinner</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">6:00 pm</td>
-                            <td>judging</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">7:30 pm</td>
-                            <td>demos and closing ceremony</td>
-                        </tr>
-                        <tr>
-                            <td class="schedule-time">8:30 pm</td>
-                            <td>end of hackathon</td>
-                        </tr>
-                    </table>
+
+                <div class="schedule-container">
+                    <div id="learnathon-schedule" class="schedule-grid">
+                        <div class="schedule-header"></div>
+                        <div class="schedule-header" id="queue-time">Queue Time</div>
+                        <div class="schedule-header" id="title">Title</div>
+
+                        <div class="schedule-day-label">February 20<br />Saturday</div>
+
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            10:30 am</div>
+                        <div class="schedule-label">Learnathon Opening</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            11:00 am</div>
+                        <div class="schedule-label">Workshop #1</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            12:30 pm</div>
+                        <div class="schedule-label">Tech Talk #1</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            1:00 pm</div>
+                        <div class="schedule-label">Lunch Break</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            2:00 pm</div>
+                        <div class="schedule-label">Workshop #2</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            3:00 pm</div>
+                        <div class="schedule-label">Break</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            3:15 pm</div>
+                        <div class="schedule-label">Workshop #3</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            4:15 pm</div>
+                        <div class="schedule-label">Tech Talk #2</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            4:45 pm</div>
+                        <div class="schedule-label">Break</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            5:00 pm</div>
+                        <div class="schedule-label">Workshop #4</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            6:00 pm</div>
+                        <div class="schedule-label">Learnathon Closing</div>
+                    </div>
+
+                    <div id="hackathon-schedule" class="schedule-grid">
+                        <div class="schedule-header"></div>
+                        <div class="schedule-header">Queue Time</div>
+                        <div class="schedule-header">Title</div>
+
+                        <div class="schedule-day-label">February 21<br />Sunday</div>
+
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            8:00 am</div>
+                        <div class="schedule-label">Hackathon Opening</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            9:30 am</div>
+                        <div class="schedule-label">Team Formation and Ideation</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            11:30 am</div>
+                        <div class="schedule-label">MIT Student Panel</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            12:30 pm</div>
+                        <div class="schedule-label">Lunch Break</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            1:30 pm</div>
+                        <div class="schedule-label">Mini Event #1</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            2:30 pm</div>
+                        <div class="schedule-label">Mini Event #2</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            3:30 pm</div>
+                        <div class="schedule-label">Mini Event #3</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            4:30 pm</div>
+                        <div class="schedule-label">Mini Event #4</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            6:00 pm</div>
+                        <div class="schedule-label">Dinner Break and Judging</div>
+
+                        <div></div>
+                        <div class="schedule-time"><img class="schedule-heart" src="assets/schedule/Heart_Empty.svg" />
+                            7:30 pm</div>
+                        <div class="schedule-label">Hackathon Closing</div>
+                    </div>
                 </div>
             </div>
-            <div class="spacer"></div>
         </div>
-        <div id="win" class="container hidden">
-            <div class="page-title">congrats!</div>
-            <br>
-            <div class="schedule-items">
-                <p class="score-label">your time was:</p>
-                <div id="score-box">
-                    <div id="score" class="game-time">0.0</div> 
-                    
+
+        <!-- footer section -->
+        <div id="footer" class="section">
+            <div class="content">
+                <a href="https://www.facebook.com/mitblueprint" target="_blank">
+                    <img class="facebook" src="assets/logos/facebook-3-256.png">
+                </a>
+                <a href="https://www.instagram.com/mitblueprint/" target="_blank">
+                    <img class="instagram" src="assets/logos/instagram-512.png">
+                </a>
+                <a href="https://twitter.com/mitblueprint?lang=en" target="_blank">
+                    <img class="twitter" src="assets/logos/twitter-256.png">
+                </a>
+                <a href="mailto:blueprint@hackmit.org" target="_blank">
+                    <img class="mail" src="assets/logos/mail.png">
+                </a>
+                <p> Made with <img class="heart" src="assets/schedule/Heart_Filled.svg" /> by the <span>HackMIT</span>
+                    team</p>
+            </div>
+            <img class="earth" src="assets/background/space_elements/Earth.svg" />
+
+        </div>
+
+        <!-- music player footer...? -->
+        <div id="music-footer" class="music-player-container">
+            <!-- So... where to?
+                                *     .--.
+                                    / /  `
+                   +               | |
+                          '         \ \__,
+                      *          +   '--'  *
+                          +   /\
+             +              .'  '.   *
+                    *      /======\      +
+                          ;:.  _   ;
+                          |:. (_)  |
+                          |:.  _   |
+                +         |:. (_)  |          *
+                          ;:.      ;
+                        .' \:.    / `.
+                       / .-'':._.'`-. \
+                       |/    /||\    \|
+                     _..--"""````"""--.._
+               _.-'``                    ``'-._
+             -'                                '- 
+            Wonder where all this music gets changed...
+            We're on a tight schedule though :] -->
+            <audio id="music" src="assets/audio/a-world-at-peace.mp3">
+                <source src="assets/audio/a-world-at-peace.mp3">
+            </audio>
+
+            <div class="music-player-controls">
+                <div class="music-player-buttons">
+                    <img id="shuffle-button" class="music-player-button" src="assets/schedule/Shuffle.svg" />
+                    <img id="previous-button" class="music-player-button" src="assets/schedule/Previous.svg" />
+                    <img id="play-pause-button" class="music-player-button" src="assets/schedule/Play.svg" />
+                    <img id="next-button" class="music-player-button" src="assets/schedule/Next.svg" />
+                    <img id="replay-button" class="music-player-button" src="assets/schedule/Replay.svg" />
                 </div>
-                <p class="score-sublabel">seconds</p>
-                <div id="win-button" class="replay-btn">
-                    <!-- <span>&#9658;</span> -->
-                    <img class="selected" src="assets/SVG/menu_select.svg" />
-                    <h2>play again</h2>
+                <div class="music-player-timer">
+                    <span id="current-timestamp" class="music-player-timestamp">0:00</span>
+                    <div id="duration-progress-bar" class="music-player-progress-bar">
+                        <div id="current-progress-bar"></div>
+                    </div>
+                    <span id="duration-timestamp" class="music-player-timestamp">0:00</span>
                 </div>
-                <!-- <a id="win-button" href="#play">play again</a> -->
-  <!--               <a id="win-button" href="#home">menu</a> -->
+                <span id="music-player-song-label">
+                    Now Playing:
+                </span>
             </div>
         </div>
-        <div id="lose" class="container hidden">
-            <div class="page-title">you lost!</div>
-            <br>
-            <div class="schedule-items">
-                <p class="score-label">blocks left:</p>
-                <div id="blocks-left">00</div>
-                <div id="win-button" class="replay-btn">
-                    <img class="selected" src="assets/SVG/menu_select.svg" />
-                    <h2>play again</h2>
-                </div>
-                <!-- <a id="win-button" href="#play">play again</a>
-                <a id="win-button" href="#home">menu</a> -->
-            </div>
-        </div>
-        <div id="play" class="container hidden">
-            <div id="score-container">
-                <a id="game-time-label">time: <span class="game-time">0</span></a>
-                <a id="blocks-left-label">blocks: <span class="blocks-left">70</span></a>
-            </div>
-            <canvas id="brickerbreaker-canvas"></canvas>
-        </div>
+
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/schedule.js"></script>
+        <script type="text/javascript" src="js/faq.js"></script>
+        <script type="text/javascript" src="js/tracks.js"></script>
     </div>
-    <script type="text/javascript" src="js/sounds.js"></script>
-    <script type="text/javascript" src="js/selectors.js"></script>
-    <script type="text/javascript" src="js/brickbreaker.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
+
 </html>

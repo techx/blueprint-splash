@@ -1,0 +1,193 @@
+#cover {
+
+    $delta: 0.369vw;
+
+    .buildings-layer-1 {
+        z-index: 4;
+        position: absolute;
+        top: 40vw;
+        left: 0vw;
+        width: 100vw;
+        @media (max-width: $sm) {
+            top: 40vw + $delta;
+        }
+    }
+
+    .buildings-layer-2 {
+        z-index: 2;
+        position: absolute;
+        top: 39.61vw;
+        left: 0vw;
+        width: 100vw;
+        @media (max-width: $sm) {
+            top: 39.61vw + $delta;
+        }
+    }
+
+    #cover-desktop {
+        .logo-square {
+            position: absolute;
+            top: 2vw;
+            left: 2vw;
+            width: 3vw;
+        }
+        
+        .description {
+            position: absolute;
+            top: 22vw;
+            left: 38vw;
+            margin: auto;
+            font-family: Jost;
+            color: $white;
+            font-size: 1.4vw;
+            letter-spacing: .25em;
+            @media (max-width: $sm) {
+                left: 30vw;
+                font-size: 3vw;
+                top: 27vw;
+            }
+        }
+
+        .logo {
+            position: absolute;
+            top: 13vw;
+            left: 25%;
+            width: 50vw;
+            @media (max-width: $sm) {
+                top: 17vw;
+                width: 70vw;
+                left: 15%;
+            }
+        }
+
+        .navbar-wrap {
+            display: flex;
+            justify-content: flex-end;      
+        }
+    
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 20px 0px 0px;
+    
+            .navbar-btn {
+                margin: 0px 15px;
+    
+                .navbar-txt {
+                    font-family: Jost;
+                    color: $white;
+                    font-size: 1.4vw;
+                    text-transform: uppercase;
+                    letter-spacing: .25em;
+    
+                    &#register {
+                        color: $salmon;
+                    }
+
+                    @media (max-width: $sm){
+                        font-size: 2.5vw;
+                    }
+                }
+                @media (max-width: $sm){
+                    margin: 0vw 1.7vw;
+                }
+            }
+        }
+    }
+
+    #triangle {
+        transform: scale(-1);
+        width: 2vw;
+        @media (max-width: $sm) {
+            width: 3vw;
+        }
+    }
+
+    #car {
+        position: absolute;
+        height: 1vw;
+        top: 50.346vw;
+        right: 25vw;
+        z-index: 3;
+        animation: move 4.5s linear infinite;
+        @media (max-width: $sm) {
+            top: 50.346vw + $delta + 0.2vw;
+        }
+    }
+
+    @keyframes move {
+        0% {
+            transform: translateX(0vw);
+        }
+        100% {
+            transform: translateX(25vw);
+        }
+    }
+
+    #car_flipped {
+        position: absolute;
+        height: 1vw;
+        top: 43.75vw;
+        right: 28vw;
+        z-index: 1;
+        animation: move_flipped 4.5s linear infinite;
+        @media (max-width: $sm) {
+            top: 43.75vw + $delta + 0.2vw;
+        }
+    }
+
+    @keyframes move_flipped {
+        0% {
+            transform: translateX(0px);
+        }
+        100% {
+            transform: translateX(-15vw);
+        }
+    }
+
+    #tren {
+        position: absolute;
+        height: 1vw;
+        top: 51.5vw;
+        left: 5vw;
+        z-index: 3;
+        animation: vroom_vroom 4.5s linear infinite;
+        @media (max-width: $sm) {
+            top: 51.5vw + $delta + 0.22vw;
+        }
+    }
+
+    @keyframes vroom_vroom {
+        0% {
+            transform: translateX(0vw);
+        }
+        100% {
+            transform: translateX(21.25vw);
+        }
+    }
+
+    .triangle-button {
+        font-size: 3em;
+        color: $white;
+        display: inline-block;
+        position: absolute;
+        top: 25vw;
+        left: 47.5vw;
+        cursor: pointer;
+        transition: .3s;
+        animation: bounce 1s ease infinite;
+        
+        @media (max-width: $sm) {
+            font-size: 2em;
+            left: 47.2vw;
+            top: 30vw;
+        }
+    }
+    
+    @keyframes bounce {
+        0% {transform: translateY(0);}
+        50% {transform: translateY(-0.25em);}
+        100% {transform: translateY(0);}
+    }
+} 

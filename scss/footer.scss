@@ -1,0 +1,88 @@
+#footer {
+    margin-bottom: 80px;
+
+    .facebook {
+        position: absolute;
+        top: 20vw;
+        left: 7vw;
+        width: 2vw;
+
+        @media (max-width: $sm) {
+            top: 5vw;
+            left: 50vw;
+            width: 5vw;
+        }
+    }
+
+    .instagram {
+        position: absolute;
+        top: 20vw;
+        left: 14vw;
+        width: 2vw;
+
+        @media (max-width: $sm) {
+            top: 5vw;
+            left: 60vw;
+            width: 5vw;
+        }
+    }
+
+    .twitter {
+        position: absolute;
+        top: 20vw;
+        left: 21vw;
+        width: 2vw;
+
+        @media (max-width: $sm) {
+            top: 5vw;
+            left: 70vw;
+            width: 5vw;
+        }
+    }
+
+    .mail {
+        position: absolute;
+        top: 20.1vw;
+        left: 28vw;
+        width: 2vw;
+
+        @media (max-width: $sm) {
+            top: 5.5vw;
+            left: 80vw;
+            width: 5vw;
+        }
+    }
+
+    p {
+        position: absolute;
+        top: 16vw;
+        left: 7vw;
+        font-size: 1.5vw;
+
+        @media (max-width: $sm) {
+            top: 5.7vw;
+            left: 10vw;
+            font-size: 2vw;
+        }
+
+        .heart {
+            width: 1.7vw;
+        }
+
+        span {
+            color: $navy;
+        }
+    }
+
+    .earth {
+        overflow-x: hidden; 
+        overflow-y: hidden;
+        position: absolute;
+        right: 5vw;
+        top: 5vw;
+        width: 20vw;
+        @media (max-width: $sm) {
+            display: none;
+        }
+    }
+}

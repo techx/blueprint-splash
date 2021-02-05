@@ -1,0 +1,123 @@
+.schedule-items {
+    display: block;
+    list-style-type: none;
+    margin: auto;
+    div.hover {
+        h2 {
+            color: #4699d3;
+        }
+    }
+
+    div.default {
+        h2 {
+            color: #4699d3;
+        }
+    }
+
+    img {
+        display: inline-block;
+        height: 32px;
+        margin-right: 16px;
+        vertical-align: middle;
+        transition: transform 0.1s ease-in;
+    }
+
+    img.selected {
+        opacity: 0;
+        &#default-select{
+            opacity: 1;
+
+        }
+    }
+    
+    h2 {
+        color: #fff;
+        display: inline-block;
+        font-family: Hermit, sans-serif;
+        font-size: 36px;
+        vertical-align: middle;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
+    .question {
+        color: #fff;
+        cursor: pointer;
+    	width: 280px;
+    	margin: 0 auto;
+    	margin-top: 10px;
+
+        span {
+            margin-right: 12px;
+            font-size: 24px;
+        }
+
+        
+
+        &:hover {
+            color: #4699d3;
+        }
+
+        
+
+        &.active {
+            &.schedule-learn {
+                color: #fff600;
+            }
+
+            &.schedule-hack {
+                color: #ec0e6a;
+            }
+        }
+    }
+}
+
+    
+.schedule-table {
+    margin: 0 auto;
+    display: table;
+    padding-left: 80px;
+
+    tr {
+        td {
+        	line-height: 18px;
+            text-align: left;
+        	font-family: Hermit, sans-serif;
+            font-size: 18px;
+            color: #fff;
+			padding: 5px;
+            width: 320px;
+
+            &.schedule-time {
+            	color: $main_yellow;
+                width: 120px;
+
+				a {
+					margin-right: 30px;
+				}
+            }
+
+            &:hover {
+                h2 {
+                    color: #4699d3;
+                }
+            }
+        }
+    }
+}
+
+#schedule {
+	top: 10%;
+    transform: translateX(-50%);
+}
+
+
+.schedule-date {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 20px;
+    font-weight: bold;
+}

@@ -1,49 +1,183 @@
 #about {
-    top: 10%;
-    transform: translateX(-50%);
-
-    ul {
-        list-style: none;
-        margin-left: 0;
-        padding-left: 100px;
-        text-align: left;
-      }
-      
-      li {
-        padding-left: 1em;
-        text-indent: -1em;
-        padding-bottom: 0.5em;
-      }
-      
-      li:before {
-        content: ">";
-        padding-right: 10px;
+    #about-text {
+        width: 80%;
+        height: auto;
+        margin: auto;
+        font-family: Mullish;
+        font-size: 1.5vw;
+        padding-top:1vw;
+        text-align: justify;
+        padding-bottom: 1vw;
+        margin-top: 1.5vw;
+        position: relative;
+        font-weight: bold;
+        color: $white;
+        @media (max-width: $sm) {
+            font-size: 3vw;
+            font-weight: normal;
+        }
     }
-}
+    
+    #descriptions {
+        padding-top: 5px;
+        vertical-align: top;
+        text-align: center;
+        text-align: center;
+        width: 100%;
+        padding-left: 5%;
+        @media (max-width: $sm) {
+            padding-left: 0%;
+        }
+    }
+    
+    #learnathon {
+        h2 {
+            color: $salmon;
+            font-size: 3.2vw;
+            letter-spacing: 0.25em;
+            text-align: left;
+            padding-top: 3vw;
+            @media (max-width: $sm) {
+                font-size: 6vw;
+                align-items: center;
+            }
+        }
+        width: 40%;
+        vertical-align: top;
+        display: inline-block;
+    
+        @media (max-width: $sm) {
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+            vertical-align: bottom;
+        }
+    }
+    
+    #hackathon {
+        h2 {
+            color: $yellow;
+            font-size: 3.2vw;
+            letter-spacing: 0.25em;
+            text-align: left;
+            padding-top: 3vw;
+            @media (max-width: $sm) {
+                padding-top: 5vw;
+                font-size: 6vw;
+                align-items: center;
+            }
+        }
+        width: 40%;
+        vertical-align: top;
+        display: inline-block;
+    
+        @media (max-width: $sm) {
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+    
+    ul {
+        font-family: Mullish;
+        font-weight: bold;
+        text-align: left;
+        color: $white;
+        width: 80%;
+        font-size: 1.2vw;
+        li {
+            padding: 1vw;
+            list-style: none;
+        }
+    
+        li::before{
+            content: '';
+            display: inline-block;
+            height: 1vw;
+            width: 1.5vw;
+            margin-left: -1.5vw;
+            background-image: url('../assets/bullet_points/Constellation_Bullet.svg');
+            background-repeat: no-repeat;
+            @media (max-width: $sm) {
+                width: 2vw;
+            }
+        }
 
-h1 {
-    color: #4699D3;
-    font-family: Bitwise, sans-serif;
-    font-size: 80px;
-    position: relative;
-    //top: 0px;
-    text-align: center;
-}
+        // li:nth-child(3n+1)::before {
+        //     background-image: url('../assets/bullet_points/Star_Bullet_Red.svg');
+        //     background-repeat: no-repeat;
+        // }
 
-p {
-    color: #fff;
-    display: block;
-    font-family: Hermit, sans-serif;
-    margin: 12px auto 0;
-    // position: relative;
-    text-align: center;
-    width: 65%;
-    padding-bottom: 1em;
-}
+        // li:nth-child(3n+2)::before {
+        //     background-image: url('../assets/bullet_points/Star_Bullet_Green.svg');
+        //     background-repeat: no-repeat;
+        // }
 
-.about-date {
-	margin-top: 10px;
-	margin-bottom: 5px;
-    font-size: 20px;
-    font-weight: bold;
+        // li:nth-child(3n)::before {
+        //     background-image: url('../assets/bullet_points/Star_Bullet_Yellow.svg');
+        //     background-repeat: no-repeat;
+        // }
+        
+        @media (max-width: $sm) {
+            width: 100%;
+            font-size: 2.8vw;
+            font-weight: normal;
+        }
+    }
+    
+    #date {
+        font-size: 1.8vw;
+        text-align: left;
+        padding-bottom: 1vw;
+        @media (max-width: $sm) {
+            padding-bottom: 0.6vw;
+            font-size: 4.5vw;
+        }
+    }
+    
+    p {
+        color: $white;
+        line-height: 1.4;
+    }
+    
+    #red-planet-first {
+        width: 60%;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        z-index:-1;
+    }
+    
+    #purple-planet-second {
+        width: 60%;
+        height: auto;
+        position: absolute;
+        left: -40%;
+        z-index: -1;
+    }
+    
+    #default-stars {
+        height: auto;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    #music-constellation-double-about {
+        height: 22vw;
+        width: 22vw;
+        position: absolute;
+        left: 80%;
+        top: -20%;
+        z-index: -1;
+        transform: translateY(150%);
+    }
+
+    #start-hacking {
+        color: $yellow;
+    }
+
+    #here {
+        color: $salmon;
+    }
 }

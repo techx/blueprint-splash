@@ -1,31 +1,30 @@
 {
-  "name": "blueprint-2020-splash",
+  "name": "blueprint-2021-splash",
   "version": "1.0.0",
-  "description": "",
+  "description": "comrades, lets get this 🍞",
   "main": "js/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techx/blueprint-2020-splash.git"
+    "url": "git+https://github.com/techx/blueprint-2021-splash.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/techx/blueprint-2020-splash/issues"
+    "url": "https://github.com/techx/blueprint-2021-splash/issues"
   },
-  "homepage": "https://github.com/techx/blueprint-2020-splash#readme",
+  "homepage": "https://github.com/techx/blueprint-2021-splash#readme",
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
-    "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
+    "browser-sync": "^2.26.13",
     "gulp-autoprefixer": "^7.0.1",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-header": "^2.0.7",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "natives": "^1.1.6"
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
   }
 }

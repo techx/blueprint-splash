@@ -1,33 +1,19 @@
 var gulp = require('gulp'),
   sass = require('gulp-sass'),
   browserSync = require('browser-sync').create(),
-  header = require('gulp-header'),
   cleanCSS = require('gulp-clean-css'),
   autoprefixer = require('gulp-autoprefixer'),
-  rename = require("gulp-rename"),
-  pkg = require('./package.json');
+  rename = require("gulp-rename");
 
 function reload(done) {
   browserSync.reload();
   done();
 }
 
-// Set the banner content
-// var banner = ['/*!\n',
-//   ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-//   ' * Copyright 2018-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-//   ' * Licensed under <%= pkg.license %> (https://github.com/techx/<%= pkg.name %>/blob/master/LICENSE)\n',
-//   ' */\n',
-//   ''
-// ].join('');
-
 // Compiles SCSS files from /scss into /css
 function style() {
   return gulp.src(['scss/styles.scss'])
     .pipe(sass())
-    // .pipe(header(banner, {
-    //   pkg: pkg
-    // }))
     .pipe(gulp.dest('css'))
     .pipe(browserSync.reload({
       stream: true

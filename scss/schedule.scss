@@ -1,123 +1,230 @@
-.schedule-items {
-    display: block;
-    list-style-type: none;
-    margin: auto;
-    div.hover {
-        h2 {
-            color: #4699d3;
-        }
-    }
-
-    div.default {
-        h2 {
-            color: #4699d3;
-        }
-    }
-
-    img {
-        display: inline-block;
-        height: 32px;
-        margin-right: 16px;
-        vertical-align: middle;
-        transition: transform 0.1s ease-in;
-    }
-
-    img.selected {
-        opacity: 0;
-        &#default-select{
-            opacity: 1;
-
-        }
-    }
-    
-    h2 {
-        color: #fff;
-        display: inline-block;
-        font-family: Hermit, sans-serif;
-        font-size: 36px;
-        vertical-align: middle;
-        -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-        -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none;
-    }
-
-    .question {
-        color: #fff;
-        cursor: pointer;
-    	width: 280px;
-    	margin: 0 auto;
-    	margin-top: 10px;
-
-        span {
-            margin-right: 12px;
-            font-size: 24px;
-        }
-
-        
-
-        &:hover {
-            color: #4699d3;
-        }
-
-        
-
-        &.active {
-            &.schedule-learn {
-                color: #fff600;
-            }
-
-            &.schedule-hack {
-                color: #ec0e6a;
-            }
-        }
-    }
-}
-
-    
-.schedule-table {
-    margin: 0 auto;
-    display: table;
-    padding-left: 80px;
-
-    tr {
-        td {
-        	line-height: 18px;
-            text-align: left;
-        	font-family: Hermit, sans-serif;
-            font-size: 18px;
-            color: #fff;
-			padding: 5px;
-            width: 320px;
-
-            &.schedule-time {
-            	color: $main_yellow;
-                width: 120px;
-
-				a {
-					margin-right: 30px;
-				}
-            }
-
-            &:hover {
-                h2 {
-                    color: #4699d3;
-                }
-            }
-        }
-    }
-}
-
 #schedule {
-	top: 10%;
-    transform: translateX(-50%);
+    .pill-button {
+        color: $white;
+        margin: 20px auto;
+        text-align: center;
+        font-family: Mullish;
+    
+        .pill-button-option {
+            background-color: $blue;
+            opacity: 0.9;
+            display: inline-block;
+            font-size: 2vw;
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: 0.25s ease-in-out;
+
+            @media (max-width: $sm) {
+                font-size: 4vw;
+            }
+        }
+    
+        .pill-button-option.active, .pill-button-option:hover {
+            background-color: $salmon;
+            opacity: 1;
+        }
+    
+        #learnathon-button {
+            padding-left: 20px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+    
+        #hackathon-button {
+            padding-right: 20px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+    }
+    
+    .schedule-container {
+        color: $white;
+        margin: 4vw auto;
+        text-align: center;
+        font-family: Mullish;
+        font-size: 2vw;
+        @media (max-width: $sm) {
+            font-size: 3vw;
+        }
+    
+        .schedule-grid {
+            width: 60%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 3fr 3fr 5fr;
+            text-align: left;
+            @media (max-width: $sm) {
+                width: 80%;
+            }
+    
+            .schedule-header {
+                color: $salmon;
+                border-bottom: 2px solid $salmon;
+                margin-bottom: 1.4vw;
+                padding: 0.5vw 1vw;
+            }
+    
+            .schedule-heart {
+                height: 2vw;
+                margin: 0px 5px;
+                cursor: pointer;
+            }
+    
+            .schedule-time, .schedule-label {
+                padding: 2px;
+            }
+    
+            .schedule-day-label {
+                max-height: 0px;
+            }
+        }
+    }
+      
+    #shooting-stars {
+        width: 20%;
+        height: auto;
+        position: absolute;
+        left: 70%;
+        z-index:-1;
+    }
+    
+    #music-constellation-double-schedule {
+        height: 22vw;
+        width: 22vw;
+        position: absolute;
+        left: 80%;
+        top: -20%;
+        z-index: -1;
+        transform: translateY(200%);
+    }
+
+    #red-planet-fourth {
+        width: 60%;
+        height: auto;
+        position: absolute;
+        left: -30vw;
+        z-index:-1;
+    }
 }
 
+.music-player-container:hover {
+    background-color: $spookier-navy;
+}
 
-.schedule-date {
-	margin-top: 10px;
-	margin-bottom: 5px;
-	font-size: 20px;
-    font-weight: bold;
+.music-player-container {
+    background-color: $spooky-navy;
+    width: 100%;
+    position: fixed;
+    bottom: -300px;
+    padding: 0.75vw 0px;
+    z-index: 1000;
+    transition: 0.5s ease-in-out;
+
+    @media (max-width: $sm) {
+        padding: 3vw 0vw 5vw 0vw;
+    }
+
+    &.visible {
+        bottom: 0px;
+    }
+    
+    .music-player-controls {
+        color: $white;
+        text-align: center;
+        font-family: Mullish;
+        font-size: 16px;
+
+        @media (max-width: $md) {
+            font-size: 20px;
+        }
+        @media (min-width: $lg) {
+            font-size: 20px;
+        }
+    
+        .music-player-button {
+            height: 2vw;
+            max-height: 20px;
+            margin: 0vw 0.8vw;
+            vertical-align: middle;
+            cursor: pointer;
+
+            @media (max-width: $md) {
+                height: 3vw;
+                max-height: 3vw;
+                margin: 0vw 1.3vw;
+            }
+            @media (max-width: $sm) {
+                height: 5vw;
+                max-height: 5vw;
+                margin: 0vw 1.85vw;
+            }
+            @media (min-width: $lg) {
+                margin: 0 12px;
+            }
+        }
+
+        #play-pause-button {
+            height: 3vw;
+            max-height: 30px;
+
+            @media (max-width: $md) {
+                height: 5.5vw;
+                max-height: 5.5vw;
+            }
+            @media (max-width: $sm) {
+                height: 8vw;
+                max-height: 8vw;
+            }
+        }
+    
+        .music-player-progress-bar {
+            background-color: $blue;
+            border-radius: 5px;
+            height: 0.5vw;
+            width: 50vw;
+            max-width: 500px;
+            max-height: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0.7vw 2vw;
+            cursor: pointer;
+            
+            @media (max-width: $md) {
+                height: 1vw;
+                max-height: 1vw;
+                margin: 2vw;
+            }
+            @media (max-width: $sm) {
+                height: 2vw;
+                max-height: 2vw;
+                margin: 4vw;
+            }
+            @media (min-width: $lg) {
+                margin: 10px 30px;
+            }
+        }
+    
+        #current-progress-bar {
+            background-color: $white;
+            border-radius: 5px;
+            width: 0%;
+            height: 0.5vw;
+            max-height: 5px;
+            position: absolute;
+
+            @media (max-width: $md) {
+                height: 1vw;
+                max-height: 1vw;
+            }
+            @media (max-width: $sm) {
+                height: 2vw;
+                max-height: 2vw;
+            }
+        }
+    
+        .duration-timestamp {
+            display: inline-block;
+        }
+
+    }
 }
